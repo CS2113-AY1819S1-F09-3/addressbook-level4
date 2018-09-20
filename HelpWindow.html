@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Invités - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>AddressBook Level 4 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>Invités - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
@@ -19,14 +19,21 @@
 <li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#import-users-from-csv-file-code-import-code">3.7. Import users from CSV file : <code>import</code></a></li>
+<li><a href="#mark-a-person-as-present-code-mark-code">3.8. Mark a person as present : <code>mark</code></a></li>
+<li><a href="#mark-a-person-as-absent-code-unmark-code">3.9. Mark a person as absent : <code>unmark</code></a></li>
+<li><a href="#start-mass-attendance-marking-start_marking">3.10. Start mass attendance marking: 'start_marking'</a></li>
+<li><a href="#stop-mass-attendance-marking-stop_marking">3.11. Stop mass attendance marking: 'stop_marking'</a></li>
+<li><a href="#filter-list-based-on-specified-parameters-filter">3.12. Filter list based on specified parameters: 'filter'</a></li>
+<li><a href="#sending-emails-to-filtered-list-email">3.13. Sending emails to filtered list: 'email'</a></li>
+<li><a href="#creating-a-new-event-add_event">3.14. Creating a new event: 'add_event'</a></li>
+<li><a href="#select-an-event-select_event">3.15. Select an event: 'select_event'</a></li>
+<li><a href="#editing-an-event-edit_event">3.16. Editing an event: 'edit_event'</a></li>
+<li><a href="#deleting-event-event_delete">3.17. Deleting event: 'event_delete'</a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.21. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -38,7 +45,15 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Invités is an application that allows its users to better <strong>organise, cater, and manage</strong> the reception for large events such
+as weddings, school gatherings, orientation camps, etc. Some of the main features include mass email notification, tracking of payments, as well as tab
+keeping the attendance of the guests. This will give the hosts of the event an easier time to manage the reception as they will be equipped with tools that will minimise errors in catering,
+organisation, and orders. Moreover, this application aims to reduce the frustrations of event managers and address their needs in a platform that is more user friendly, personalised, and
+efficient.</p>
+</div>
+<div class="paragraph">
+<p>To add to this, by employing a standardised format, the application is able to take in Comma Separated Values (CSV) files and import data for a particular event. This reduces the hassle of
+having to input all the information manually, as well as subsequently, if the event manager decides to organise another event using the same guest list.</p>
 </div>
 </div>
 </div>
@@ -51,17 +66,40 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/nusCS2113-AY1819S1/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest jar file from the GIT repository <a href="https://github.com/CS2113-AY1819S1-F09-3/main">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Place the jar file where the home directory resides</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double click on the jar file and wait a couple of seconds as the application loads.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/UI_mockup.png" alt="UI mockup" width="790">
 </div>
+</div>
+</li>
+<li>
+<p>Using the Command Line Input as its primary method of manipulation, here are some
+example commands that can be used:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>'help'</strong>: Displays a summary of the list of commands that the application offers.</p>
+</li>
+<li>
+<p><strong>'add'</strong>: Adds a guest to the guest list.</p>
+</li>
+<li>
+<p><strong>'Delete'</strong>: Deletes an entry from the guest list.</p>
+</li>
+<li>
+<p><strong>'Mark'</strong>: Denotes that the attendee is present at the event.</p>
+</li>
+<li>
+<p><strong>'Exit'</strong>: exits the application.</p>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -69,26 +107,8 @@
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Some example commands you can try:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
-</li>
-<li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
-</li>
-<li>
-<p><strong><code>exit</code></strong> : exits the app</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> subsection to see more detailed documentation of the functions that
+are included in this application</p>
 </li>
 </ol>
 </div>
@@ -105,13 +125,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/Bob Lee</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/Bob Lee t/VIP</code> or as <code>n/Bob Lee</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/VIP</code>, <code>t/VIP t/Vegetarian</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
@@ -123,14 +143,15 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Displays a summary of the list of commands that the application offers<br>
+Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/PRESENT [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -150,10 +171,10 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p>`add n/Bob Lee p/81720172 e/boblee@gmail.com a/Absent t/VIP t/Vegetarian t/Not Paid'</p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p>`add n/John Doe p/91028392 e/johndoe@gmail.com a/Present t/Groom t/Non-Vegetarian t/Paid'</p>
 </li>
 </ul>
 </div>
@@ -169,7 +190,8 @@ Format: <code>list</code></p>
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]
+         [t/PERSON_TYPE] [t/DIET] [t/PAID]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -200,12 +222,8 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>edit 2 n/Bob Chan</code><br>
+Edits the name of the 2nd person to be <code>Bob Chan</code> respectively.</p>
 </li>
 </ul>
 </div>
@@ -297,27 +315,10 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="import-users-from-csv-file-code-import-code"><a class="link" href="#import-users-from-csv-file-code-import-code">3.7. Import users from CSV file : <code>import</code></a></h3>
 <div class="paragraph">
-<p>Selects the person identified by the index number used in the displayed person list.<br>
-Format: <code>select INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
+<p>Imports users with data from a CSV formatted file. The structure for the values in the CSV file is predefined.<br>
+Format: <code>import FILE_PATH</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -325,43 +326,190 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
+<p><code>import directory/subdirectory/guestlist.csv</code><br>
+Imports the CSV file from the specified path.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="mark-a-person-as-present-code-mark-code"><a class="link" href="#mark-a-person-as-present-code-mark-code">3.8. Mark a person as present : <code>mark</code></a></h3>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
+<p>Marks a person as present using their unique phone number. This will also change the
+'a/PRESENT'​ tag associated with the person to Present.<br>
+Format: <code>mark [p/PHONE_NUMBER]</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+<p>Examples:</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p><code>mark 81927291</code><br>
+Marks the person with phone number '81927291' as present.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="mark-a-person-as-absent-code-unmark-code"><a class="link" href="#mark-a-person-as-absent-code-unmark-code">3.9. Mark a person as absent : <code>unmark</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
+<p>Marks a person as absent using their unique phone number. This will also change the
+'a/PRESENT'​ tag associated with the person to Absent.<br>
+Format: <code>unmark [p/PHONE_NUMBER]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unmark 81927291</code><br>
+Marks the person with phone number '81927291' as absent.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-mass-attendance-marking-start_marking"><a class="link" href="#start-mass-attendance-marking-start_marking">3.10. Start mass attendance marking: 'start_marking'</a></h3>
+<div class="paragraph">
+<p>Start the mass attendance marking mode. Allows you to mark attendance without using
+the mark prefix.<br>
+Format: <code>start_marking [TICKET_ID]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>start_marking</code> + '87654321' + '87654322' + '87654323' + '87654324&#8230;&#8203;'<br>
+Marks the guests with phone numbers 87654321, 87654322, 87654323, 87654324 as present</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stop-mass-attendance-marking-stop_marking"><a class="link" href="#stop-mass-attendance-marking-stop_marking">3.11. Stop mass attendance marking: 'stop_marking'</a></h3>
+<div class="paragraph">
+<p>Stop the mass attendance marking mode.<br>
+Format: <code>stop_marking</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-list-based-on-specified-parameters-filter"><a class="link" href="#filter-list-based-on-specified-parameters-filter">3.12. Filter list based on specified parameters: 'filter'</a></h3>
+<div class="paragraph">
+<p>Filter guest list based on filter guest attributes. Use the filter with no arguments to view
+the entire guest list.<br>
+Format: <code>filter [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]
+         [t/PERSON_TYPE] [t/DIET] [t/PAID]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`filter a/Present t/Vegetarian'<br>
+Filters the list with guests who are present and have a vegetarian dietary requirement.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sending-emails-to-filtered-list-email"><a class="link" href="#sending-emails-to-filtered-list-email">3.13. Sending emails to filtered list: 'email'</a></h3>
+<div class="paragraph">
+<p>Send emails to guests in the guest list<br>
+Format: <code>email MESSAGE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`email Please be reminded to bring enough cash to pay for the event entry fee.'<br>
+Sends an email requesting all guests to bring enough cash to pay</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-new-event-add_event"><a class="link" href="#creating-a-new-event-add_event">3.14. Creating a new event: 'add_event'</a></h3>
+<div class="paragraph">
+<p>Creates a new event<br>
+Format: <code>event n/EVENT_NAME [t/DATE_TIME]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`event n/CFG career talk t/18 Sep 2018 10AM'<br>
+Create an event called 'CFG career talk' on the 18th of September at 10AM.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="select-an-event-select_event"><a class="link" href="#select-an-event-select_event">3.15. Select an event: 'select_event'</a></h3>
+<div class="paragraph">
+<p>Switch between events by selecting its associated index (index starts from 1)<br>
+Format: <code>select_event [INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`select_event 1'<br>
+Selects the event at the 1st position in the events list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-event-edit_event"><a class="link" href="#editing-an-event-edit_event">3.16. Editing an event: 'edit_event'</a></h3>
+<div class="paragraph">
+<p>Edit the currently selected event<br>
+Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`event n/CFG career talk t/18 Sep 2018 11AM'<br>
+Change the data and time of the event 'CFG career talk' to 18th of September at 11AM.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-event-event_delete"><a class="link" href="#deleting-event-event_delete">3.17. Deleting event: 'event_delete'</a></h3>
+<div class="paragraph">
+<p>Deletes an event by specifying its associated index<br>
+Format: <code>event_delete [INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`event_delete 1'<br>
+Deleting the event at index position 1.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Restores the guest list to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
 </div>
 <div class="admonitionblock note">
@@ -372,7 +520,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify the guest list&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -404,7 +552,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -436,30 +584,17 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>Guest list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 </div>
@@ -471,6 +606,10 @@ There is no need to save manually.</p>
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: ​ How do I import my existing data on a CSV into the application?
+<strong>A</strong>: Firstly, create a new event within the application. After this, use the import function and specify the path to the file. This will add the current entries that are on the CSV file into the event.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -479,44 +618,63 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>help</strong>: ​Displays a help sheet containing useful commands.</p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>add</strong>: ​Creates an entry for a person to attend the event.</p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>edit</strong>:​ Modifies the entry of a specified person based on name.</p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>delete</strong>: ​Removes an entry of a specified person based on name.</p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>find</strong> : Finds persons whose names contain any of the given keywords.</p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>list</strong> : Lists the current guest list</p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>import</strong>: ​Automatically generates guest list from a given CSV file.</p>
 </li>
 <li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
+<p><strong>mark</strong>: ​Tags a person to note that they are currently at the event.</p>
 </li>
 <li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>unmark</strong>: ​Removes the tag of a person attending the event based on name.</p>
 </li>
 <li>
-<p><strong>Undo</strong> : <code>undo</code></p>
+<p><strong>start_marking</strong>: ​Begins continuous marking of the people entering the event.</p>
 </li>
 <li>
-<p><strong>Redo</strong> : <code>redo</code></p>
+<p><strong>stop_marking</strong>: ​Stops the continuous marking of people.</p>
+</li>
+<li>
+<p><strong>filter</strong>: ​Filters the guest list based on tag(s) given.</p>
+</li>
+<li>
+<p><strong>email</strong>: ​Sends mass emails to all guests on the guest list.</p>
+</li>
+<li>
+<p><strong>add_event</strong>:​ Adds an event to the application.</p>
+</li>
+<li>
+<p><strong>select_event</strong>: ​Redirects the user to the guest list of the event given</p>
+</li>
+<li>
+<p><strong>event_delete</strong>: ​Removes the specified event</p>
+</li>
+<li>
+<p><strong>undo</strong>': Restores the address book to the state before the previous undoable command was executed.</p>
+</li>
+<li>
+<p><strong>redo</strong>: Reverses the most recent undo command</p>
+</li>
+<li>
+<p><strong>exit</strong>: ​Exits the application</p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-19 12:56:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-20 02:58:43 UTC</div></div></div></body></html>
