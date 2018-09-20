@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Invités</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-F09-3/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Invités - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team F09-3</code>      Since: <code>Sep 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -22,14 +22,14 @@
 <li><a href="#import-users-from-csv-file-code-import-code">3.7. Import users from CSV file : <code>import</code></a></li>
 <li><a href="#mark-a-person-as-present-code-mark-code">3.8. Mark a person as present : <code>mark</code></a></li>
 <li><a href="#mark-a-person-as-absent-code-unmark-code">3.9. Mark a person as absent : <code>unmark</code></a></li>
-<li><a href="#start-mass-attendance-marking-start_marking">3.10. Start mass attendance marking: 'start_marking'</a></li>
-<li><a href="#stop-mass-attendance-marking-stop_marking">3.11. Stop mass attendance marking: 'stop_marking'</a></li>
-<li><a href="#filter-list-based-on-specified-parameters-filter">3.12. Filter list based on specified parameters: 'filter'</a></li>
-<li><a href="#sending-emails-to-filtered-list-email">3.13. Sending emails to filtered list: 'email'</a></li>
-<li><a href="#creating-a-new-event-add_event">3.14. Creating a new event: 'add_event'</a></li>
-<li><a href="#select-an-event-select_event">3.15. Select an event: 'select_event'</a></li>
-<li><a href="#editing-an-event-edit_event">3.16. Editing an event: 'edit_event'</a></li>
-<li><a href="#deleting-event-event_delete">3.17. Deleting event: 'event_delete'</a></li>
+<li><a href="#start-mass-attendance-marking-start_marking">3.10. Start mass attendance marking : 'start_marking'</a></li>
+<li><a href="#stop-mass-attendance-marking-stop_marking">3.11. Stop mass attendance marking : 'stop_marking'</a></li>
+<li><a href="#filter-list-based-on-specified-parameters-filter">3.12. Filter list based on specified parameters : 'filter'</a></li>
+<li><a href="#sending-emails-to-filtered-list-email">3.13. Sending emails to filtered list : 'email'</a></li>
+<li><a href="#creating-a-new-event-add_event">3.14. Creating a new event : 'add_event'</a></li>
+<li><a href="#select-an-event-select_event">3.15. Select an event : 'select_event'</a></li>
+<li><a href="#editing-an-event-edit_event">3.16. Editing an event : 'edit_event'</a></li>
+<li><a href="#deleting-event-event_delete">3.17. Deleting event : 'event_delete'</a></li>
 <li><a href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
@@ -85,19 +85,19 @@ example commands that can be used:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>'help'</strong>: Displays a summary of the list of commands that the application offers.</p>
+<p><code>help</code> : Displays a summary of the list of commands that the application offers.</p>
 </li>
 <li>
-<p><strong>'add'</strong>: Adds a guest to the guest list.</p>
+<p><code>add</code> : Adds a guest to the guest list.</p>
 </li>
 <li>
-<p><strong>'Delete'</strong>: Deletes an entry from the guest list.</p>
+<p><code>Delete</code> : Deletes an entry from the guest list.</p>
 </li>
 <li>
-<p><strong>'Mark'</strong>: Denotes that the attendee is present at the event.</p>
+<p><code>Mark</code> : Denotes that the attendee is present at the event.</p>
 </li>
 <li>
-<p><strong>'Exit'</strong>: exits the application.</p>
+<p><code>Exit</code> : exits the application.</p>
 </li>
 </ul>
 </div>
@@ -171,10 +171,10 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p>`add n/Bob Lee p/81720172 e/boblee@gmail.com a/Absent t/VIP t/Vegetarian t/Not Paid'</p>
+<p><code>add n/Bob Lee p/81720172 e/boblee@gmail.com a/Absent t/VIP t/Vegetarian t/Not Paid</code></p>
 </li>
 <li>
-<p>`add n/John Doe p/91028392 e/johndoe@gmail.com a/Present t/Groom t/Non-Vegetarian t/Paid'</p>
+<p><code>add n/John Doe p/91028392 e/johndoe@gmail.com a/Present t/Groom t/Non-Vegetarian t/Paid</code></p>
 </li>
 </ul>
 </div>
@@ -371,7 +371,7 @@ Marks the person with phone number '81927291' as absent.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-mass-attendance-marking-start_marking"><a class="link" href="#start-mass-attendance-marking-start_marking">3.10. Start mass attendance marking: 'start_marking'</a></h3>
+<h3 id="start-mass-attendance-marking-start_marking"><a class="link" href="#start-mass-attendance-marking-start_marking">3.10. Start mass attendance marking : 'start_marking'</a></h3>
 <div class="paragraph">
 <p>Start the mass attendance marking mode. Allows you to mark attendance without using
 the mark prefix.<br>
@@ -390,14 +390,14 @@ Marks the guests with phone numbers 87654321, 87654322, 87654323, 87654324 as pr
 </div>
 </div>
 <div class="sect2">
-<h3 id="stop-mass-attendance-marking-stop_marking"><a class="link" href="#stop-mass-attendance-marking-stop_marking">3.11. Stop mass attendance marking: 'stop_marking'</a></h3>
+<h3 id="stop-mass-attendance-marking-stop_marking"><a class="link" href="#stop-mass-attendance-marking-stop_marking">3.11. Stop mass attendance marking : 'stop_marking'</a></h3>
 <div class="paragraph">
 <p>Stop the mass attendance marking mode.<br>
 Format: <code>stop_marking</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-list-based-on-specified-parameters-filter"><a class="link" href="#filter-list-based-on-specified-parameters-filter">3.12. Filter list based on specified parameters: 'filter'</a></h3>
+<h3 id="filter-list-based-on-specified-parameters-filter"><a class="link" href="#filter-list-based-on-specified-parameters-filter">3.12. Filter list based on specified parameters : 'filter'</a></h3>
 <div class="paragraph">
 <p>Filter guest list based on filter guest attributes. Use the filter with no arguments to view
 the entire guest list.<br>
@@ -410,14 +410,14 @@ Format: <code>filter [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]
 <div class="ulist">
 <ul>
 <li>
-<p>`filter a/Present t/Vegetarian'<br>
+<p><code>filter a/Present t/Vegetarian</code><br>
 Filters the list with guests who are present and have a vegetarian dietary requirement.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-emails-to-filtered-list-email"><a class="link" href="#sending-emails-to-filtered-list-email">3.13. Sending emails to filtered list: 'email'</a></h3>
+<h3 id="sending-emails-to-filtered-list-email"><a class="link" href="#sending-emails-to-filtered-list-email">3.13. Sending emails to filtered list : 'email'</a></h3>
 <div class="paragraph">
 <p>Send emails to guests in the guest list<br>
 Format: <code>email MESSAGE</code></p>
@@ -428,14 +428,14 @@ Format: <code>email MESSAGE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>`email Please be reminded to bring enough cash to pay for the event entry fee.'<br>
+<p><code>email Please be reminded to bring enough cash to pay for the event entry fee.</code><br>
 Sends an email requesting all guests to bring enough cash to pay</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-new-event-add_event"><a class="link" href="#creating-a-new-event-add_event">3.14. Creating a new event: 'add_event'</a></h3>
+<h3 id="creating-a-new-event-add_event"><a class="link" href="#creating-a-new-event-add_event">3.14. Creating a new event : 'add_event'</a></h3>
 <div class="paragraph">
 <p>Creates a new event<br>
 Format: <code>event n/EVENT_NAME [t/DATE_TIME]</code></p>
@@ -446,14 +446,14 @@ Format: <code>event n/EVENT_NAME [t/DATE_TIME]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>`event n/CFG career talk t/18 Sep 2018 10AM'<br>
+<p><code>event n/CFG career talk t/18 Sep 2018 10AM</code><br>
 Create an event called 'CFG career talk' on the 18th of September at 10AM.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="select-an-event-select_event"><a class="link" href="#select-an-event-select_event">3.15. Select an event: 'select_event'</a></h3>
+<h3 id="select-an-event-select_event"><a class="link" href="#select-an-event-select_event">3.15. Select an event : 'select_event'</a></h3>
 <div class="paragraph">
 <p>Switch between events by selecting its associated index (index starts from 1)<br>
 Format: <code>select_event [INDEX]</code></p>
@@ -464,14 +464,14 @@ Format: <code>select_event [INDEX]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>`select_event 1'<br>
+<p><code>select_event 1</code><br>
 Selects the event at the 1st position in the events list.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-event-edit_event"><a class="link" href="#editing-an-event-edit_event">3.16. Editing an event: 'edit_event'</a></h3>
+<h3 id="editing-an-event-edit_event"><a class="link" href="#editing-an-event-edit_event">3.16. Editing an event : 'edit_event'</a></h3>
 <div class="paragraph">
 <p>Edit the currently selected event<br>
 Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
@@ -482,14 +482,14 @@ Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>`event n/CFG career talk t/18 Sep 2018 11AM'<br>
+<p><code>event n/CFG career talk t/18 Sep 2018 11AM</code><br>
 Change the data and time of the event 'CFG career talk' to 18th of September at 11AM.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-event-event_delete"><a class="link" href="#deleting-event-event_delete">3.17. Deleting event: 'event_delete'</a></h3>
+<h3 id="deleting-event-event_delete"><a class="link" href="#deleting-event-event_delete">3.17. Deleting event : 'event_delete'</a></h3>
 <div class="paragraph">
 <p>Deletes an event by specifying its associated index<br>
 Format: <code>event_delete [INDEX]</code></p>
@@ -500,7 +500,7 @@ Format: <code>event_delete [INDEX]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>`event_delete 1'<br>
+<p><code>event_delete 1</code><br>
 Deleting the event at index position 1.</p>
 </li>
 </ul>
@@ -618,63 +618,63 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>help</strong>: ​Displays a help sheet containing useful commands.</p>
+<p><code>help</code> : ​Displays a help sheet containing useful commands.</p>
 </li>
 <li>
-<p><strong>add</strong>: ​Creates an entry for a person to attend the event.</p>
+<p><code>add</code> : ​Creates an entry for a person to attend the event.</p>
 </li>
 <li>
-<p><strong>edit</strong>:​ Modifies the entry of a specified person based on name.</p>
+<p><code>edit</code> :​ Modifies the entry of a specified person based on name.</p>
 </li>
 <li>
-<p><strong>delete</strong>: ​Removes an entry of a specified person based on name.</p>
+<p><code>delete</code> : ​Removes an entry of a specified person based on name.</p>
 </li>
 <li>
-<p><strong>find</strong> : Finds persons whose names contain any of the given keywords.</p>
+<p><code>find</code> : Finds persons whose names contain any of the given keywords.</p>
 </li>
 <li>
-<p><strong>list</strong> : Lists the current guest list</p>
+<p><code>list</code> : Lists the current guest list</p>
 </li>
 <li>
-<p><strong>import</strong>: ​Automatically generates guest list from a given CSV file.</p>
+<p><code>import</code> : ​Automatically generates guest list from a given CSV file.</p>
 </li>
 <li>
-<p><strong>mark</strong>: ​Tags a person to note that they are currently at the event.</p>
+<p><code>mark</code> : ​Tags a person to note that they are currently at the event.</p>
 </li>
 <li>
-<p><strong>unmark</strong>: ​Removes the tag of a person attending the event based on name.</p>
+<p><code>unmark</code> : ​Removes the tag of a person attending the event based on name.</p>
 </li>
 <li>
-<p><strong>start_marking</strong>: ​Begins continuous marking of the people entering the event.</p>
+<p><code>start_marking</code> : ​Begins continuous marking of the people entering the event.</p>
 </li>
 <li>
-<p><strong>stop_marking</strong>: ​Stops the continuous marking of people.</p>
+<p><code>stop_marking</code> : ​Stops the continuous marking of people.</p>
 </li>
 <li>
-<p><strong>filter</strong>: ​Filters the guest list based on tag(s) given.</p>
+<p><code>filter</code> : ​Filters the guest list based on tag(s) given.</p>
 </li>
 <li>
-<p><strong>email</strong>: ​Sends mass emails to all guests on the guest list.</p>
+<p><code>email</code> : ​Sends mass emails to all guests on the guest list.</p>
 </li>
 <li>
-<p><strong>add_event</strong>:​ Adds an event to the application.</p>
+<p><code>add_event</code> :​ Adds an event to the application.</p>
 </li>
 <li>
-<p><strong>select_event</strong>: ​Redirects the user to the guest list of the event given</p>
+<p><code>select_event</code> : ​Redirects the user to the guest list of the event given</p>
 </li>
 <li>
-<p><strong>event_delete</strong>: ​Removes the specified event</p>
+<p><code>event_delete</code> : ​Removes the specified event</p>
 </li>
 <li>
-<p><strong>undo</strong>': Restores the address book to the state before the previous undoable command was executed.</p>
+<p><code>undo</code> : Restores the address book to the state before the previous undoable command was executed.</p>
 </li>
 <li>
-<p><strong>redo</strong>: Reverses the most recent undo command</p>
+<p><code>redo</code> : Reverses the most recent undo command</p>
 </li>
 <li>
-<p><strong>exit</strong>: ​Exits the application</p>
+<p><code>exit</code> : ​Exits the application</p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-20 13:29:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-20 13:33:44 UTC</div></div></div></body></html>
