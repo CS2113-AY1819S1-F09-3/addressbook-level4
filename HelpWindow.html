@@ -22,14 +22,14 @@
 <li><a href="#import-users-from-csv-file-code-import-code">3.7. Import users from CSV file : <code>import</code></a></li>
 <li><a href="#mark-a-person-as-present-code-mark-code">3.8. Mark a person as present : <code>mark</code></a></li>
 <li><a href="#mark-a-person-as-absent-code-unmark-code">3.9. Mark a person as absent : <code>unmark</code></a></li>
-<li><a href="#start-mass-attendance-marking-start_marking">3.10. Start mass attendance marking : 'start_marking'</a></li>
-<li><a href="#stop-mass-attendance-marking-stop_marking">3.11. Stop mass attendance marking : 'stop_marking'</a></li>
-<li><a href="#filter-list-based-on-specified-parameters-filter">3.12. Filter list based on specified parameters : 'filter'</a></li>
-<li><a href="#sending-emails-to-filtered-list-email">3.13. Sending emails to filtered list : 'email'</a></li>
-<li><a href="#creating-a-new-event-add_event">3.14. Creating a new event : 'add_event'</a></li>
-<li><a href="#select-an-event-select_event">3.15. Select an event : 'select_event'</a></li>
-<li><a href="#editing-an-event-edit_event">3.16. Editing an event : 'edit_event'</a></li>
-<li><a href="#deleting-event-event_delete">3.17. Deleting event : 'event_delete'</a></li>
+<li><a href="#start-mass-attendance-marking-code-start_marking-code">3.10. Start mass attendance marking : <code>start_marking</code></a></li>
+<li><a href="#stop-mass-attendance-marking-code-stop_marking-code">3.11. Stop mass attendance marking : <code>stop_marking</code></a></li>
+<li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.12. Filter list based on specified parameters : <code>filter</code></a></li>
+<li><a href="#sending-emails-to-filtered-list-code-email-code">3.13. Sending emails to filtered list : <code>email</code></a></li>
+<li><a href="#creating-a-new-event-code-add_event-code">3.14. Creating a new event : <code>add_event</code></a></li>
+<li><a href="#select-an-event-code-select_event-code">3.15. Select an event : <code>select_event</code></a></li>
+<li><a href="#editing-an-event-code-edit_event-code">3.16. Editing an event : <code>edit_event</code></a></li>
+<li><a href="#deleting-event-code-event_delete-code">3.17. Deleting event : <code>event_delete</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
@@ -336,7 +336,7 @@ Imports the CSV file from the specified path.</p>
 <h3 id="mark-a-person-as-present-code-mark-code"><a class="link" href="#mark-a-person-as-present-code-mark-code">3.8. Mark a person as present : <code>mark</code></a></h3>
 <div class="paragraph">
 <p>Marks a person as present using their unique phone number. This will also change the
-'a/PRESENT'​ tag associated with the person to Present.<br>
+<code>a/PRESENT</code>​ tag associated with the person to Present.<br>
 Format: <code>mark [p/PHONE_NUMBER]</code></p>
 </div>
 <div class="paragraph">
@@ -346,7 +346,7 @@ Format: <code>mark [p/PHONE_NUMBER]</code></p>
 <ul>
 <li>
 <p><code>mark 81927291</code><br>
-Marks the person with phone number '81927291' as present.</p>
+Marks the person with phone number <code>81927291</code> as present.</p>
 </li>
 </ul>
 </div>
@@ -355,7 +355,7 @@ Marks the person with phone number '81927291' as present.</p>
 <h3 id="mark-a-person-as-absent-code-unmark-code"><a class="link" href="#mark-a-person-as-absent-code-unmark-code">3.9. Mark a person as absent : <code>unmark</code></a></h3>
 <div class="paragraph">
 <p>Marks a person as absent using their unique phone number. This will also change the
-'a/PRESENT'​ tag associated with the person to Absent.<br>
+<code>a/PRESENT</code>​ tag associated with the person to Absent.<br>
 Format: <code>unmark [p/PHONE_NUMBER]</code></p>
 </div>
 <div class="paragraph">
@@ -365,13 +365,13 @@ Format: <code>unmark [p/PHONE_NUMBER]</code></p>
 <ul>
 <li>
 <p><code>unmark 81927291</code><br>
-Marks the person with phone number '81927291' as absent.</p>
+Marks the person with phone number <code>81927291</code> as absent.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-mass-attendance-marking-start_marking"><a class="link" href="#start-mass-attendance-marking-start_marking">3.10. Start mass attendance marking : 'start_marking'</a></h3>
+<h3 id="start-mass-attendance-marking-code-start_marking-code"><a class="link" href="#start-mass-attendance-marking-code-start_marking-code">3.10. Start mass attendance marking : <code>start_marking</code></a></h3>
 <div class="paragraph">
 <p>Start the mass attendance marking mode. Allows you to mark attendance without using
 the mark prefix.<br>
@@ -383,21 +383,21 @@ Format: <code>start_marking [TICKET_ID]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>start_marking</code> + '87654321' + '87654322' + '87654323' + '87654324&#8230;&#8203;'<br>
+<p><code>start_marking</code> + <code>87654321</code> + <code>87654322</code> + <code>87654323</code> + <code>87654324&#8230;&#8203;</code><br>
 Marks the guests with phone numbers 87654321, 87654322, 87654323, 87654324 as present</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="stop-mass-attendance-marking-stop_marking"><a class="link" href="#stop-mass-attendance-marking-stop_marking">3.11. Stop mass attendance marking : 'stop_marking'</a></h3>
+<h3 id="stop-mass-attendance-marking-code-stop_marking-code"><a class="link" href="#stop-mass-attendance-marking-code-stop_marking-code">3.11. Stop mass attendance marking : <code>stop_marking</code></a></h3>
 <div class="paragraph">
 <p>Stop the mass attendance marking mode.<br>
 Format: <code>stop_marking</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-list-based-on-specified-parameters-filter"><a class="link" href="#filter-list-based-on-specified-parameters-filter">3.12. Filter list based on specified parameters : 'filter'</a></h3>
+<h3 id="filter-list-based-on-specified-parameters-code-filter-code"><a class="link" href="#filter-list-based-on-specified-parameters-code-filter-code">3.12. Filter list based on specified parameters : <code>filter</code></a></h3>
 <div class="paragraph">
 <p>Filter guest list based on filter guest attributes. Use the filter with no arguments to view
 the entire guest list.<br>
@@ -417,7 +417,7 @@ Filters the list with guests who are present and have a vegetarian dietary requi
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-emails-to-filtered-list-email"><a class="link" href="#sending-emails-to-filtered-list-email">3.13. Sending emails to filtered list : 'email'</a></h3>
+<h3 id="sending-emails-to-filtered-list-code-email-code"><a class="link" href="#sending-emails-to-filtered-list-code-email-code">3.13. Sending emails to filtered list : <code>email</code></a></h3>
 <div class="paragraph">
 <p>Send emails to guests in the guest list<br>
 Format: <code>email MESSAGE</code></p>
@@ -435,7 +435,7 @@ Sends an email requesting all guests to bring enough cash to pay</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-new-event-add_event"><a class="link" href="#creating-a-new-event-add_event">3.14. Creating a new event : 'add_event'</a></h3>
+<h3 id="creating-a-new-event-code-add_event-code"><a class="link" href="#creating-a-new-event-code-add_event-code">3.14. Creating a new event : <code>add_event</code></a></h3>
 <div class="paragraph">
 <p>Creates a new event<br>
 Format: <code>event n/EVENT_NAME [t/DATE_TIME]</code></p>
@@ -447,13 +447,13 @@ Format: <code>event n/EVENT_NAME [t/DATE_TIME]</code></p>
 <ul>
 <li>
 <p><code>event n/CFG career talk t/18 Sep 2018 10AM</code><br>
-Create an event called 'CFG career talk' on the 18th of September at 10AM.</p>
+Create an event called <code>CFG career talk</code> on the 18th of September at 10AM.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="select-an-event-select_event"><a class="link" href="#select-an-event-select_event">3.15. Select an event : 'select_event'</a></h3>
+<h3 id="select-an-event-code-select_event-code"><a class="link" href="#select-an-event-code-select_event-code">3.15. Select an event : <code>select_event</code></a></h3>
 <div class="paragraph">
 <p>Switch between events by selecting its associated index (index starts from 1)<br>
 Format: <code>select_event [INDEX]</code></p>
@@ -471,7 +471,7 @@ Selects the event at the 1st position in the events list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-event-edit_event"><a class="link" href="#editing-an-event-edit_event">3.16. Editing an event : 'edit_event'</a></h3>
+<h3 id="editing-an-event-code-edit_event-code"><a class="link" href="#editing-an-event-code-edit_event-code">3.16. Editing an event : <code>edit_event</code></a></h3>
 <div class="paragraph">
 <p>Edit the currently selected event<br>
 Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
@@ -483,13 +483,13 @@ Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
 <ul>
 <li>
 <p><code>event n/CFG career talk t/18 Sep 2018 11AM</code><br>
-Change the data and time of the event 'CFG career talk' to 18th of September at 11AM.</p>
+Change the data and time of the event <code>CFG career talk</code> to 18th of September at 11AM.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-event-event_delete"><a class="link" href="#deleting-event-event_delete">3.17. Deleting event : 'event_delete'</a></h3>
+<h3 id="deleting-event-code-event_delete-code"><a class="link" href="#deleting-event-code-event_delete-code">3.17. Deleting event : <code>event_delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes an event by specifying its associated index<br>
 Format: <code>event_delete [INDEX]</code></p>
@@ -677,4 +677,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-20 15:17:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-20 15:21:40 UTC</div></div></div></body></html>
