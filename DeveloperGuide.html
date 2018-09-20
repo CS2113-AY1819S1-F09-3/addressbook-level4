@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Invités</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-F09-3/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 4 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"></div><img src="images/InvitésLogo.png"><a class="navbar-brand" href="index.html">Invités</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-F09-3/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></img></nav></div><div id="header"><h1>AddressBook Level 4 - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
@@ -70,7 +70,14 @@
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a></li>
+<li><a href="#use-cases">Appendix D: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">D.1. Use case: Filter based on specific requirements and mass message all guests</a></li>
+<li><a href="#use-case-review-details-while-organising-the-event">D.2. Use case: Review details while organising the event</a></li>
+<li><a href="#use-case-sending-tickets-to-guests-via-email">D.3. Use case: Sending tickets to guests via email</a></li>
+<li><a href="#use-case-providing-smooth-registration-on-the-day-of-the-event">D.4. Use case: Providing smooth registration on the day of the event</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
 <li><a href="#product-survey">Appendix G: Product Survey</a></li>
@@ -2000,39 +2007,93 @@ for <code>RemarkCommandParser</code>.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to mark attendance of guests easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minimise holdup as much as possible</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to plan a few events at a time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage the workload of events that I have to plan</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">choose the theme for each event and get the necessary fields already done up and ready-to-use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reduce time spent on creating the fields for the details I need for each guest</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to customise the themes and various fields</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create events with new themes, and get any extra details of each guest if necessary</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to track the guest list for each event</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know how many guests there are in each event in order to know which event I should focus more on</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to filter my guests to see who have not paid for the event</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily see who I need to remind</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to view all the important details of guests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get all the necessary details at one go for easier planning</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to send the guests their tickets via email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ensure that all guests will have their tickets with them and there will be no complications</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the tickets sent to each guest to have their phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have an easier time marking attendance</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to send mass messages and mass emails to guests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remind them about the event</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter my guests based on dietary requirements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">so that I can plan my event accordingly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to specify the dress code of the event</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ensure that the guests will be appropriately attired</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to know who the VIP guests are and how many of them there are</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make appropriate accommodation for them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to tag guests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">take note of any extra details if necessary</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the tickets to contain a QR code instead of using the guest’s phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">scan them using a smart phone or any other phone with scanning capability</p></td>
 </tr>
 </tbody>
 </table>
@@ -2047,57 +2108,251 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-filter-guest-list-based-on-status-of-payment" class="discrete">Use case: Filter guest list based on status of payment</h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User opens application and imports csv file/adds each guest in the application.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>System asks user to enter a command.</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User enters a command to mark those who have paid.</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
+<p>System updates the file accordingly.</p>
+</li>
+<li>
+<p>User enters a command to filter out those who have yet to pay.</p>
+</li>
+<li>
+<p>System shows an indexed list of these guests with their names, phone numbers, email address and tags specified, if there are people in that category.</p>
+</li>
+<li>
+<p>User enters a command to remind all in the currently displayed list.</p>
+</li>
+<li>
+<p>System sends all guests in the not paid list an email/text to remind them.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p>Use case ends.</p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="sect2">
+<h3 id="use-case-filter-based-on-specific-requirements-and-mass-message-all-guests"><a class="link" href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">D.1. Use case: Filter based on specific requirements and mass message all guests</a></h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>2a. The list is empty.</p>
+<p>User opens application and imports csv file/adds each guest in the application.</p>
+</li>
+<li>
+<p>System asks user to enter a command.</p>
+</li>
+<li>
+<p>User enters a command to filter guests based on a requirement specified (e.g. dietary requirement).</p>
+</li>
+<li>
+<p>System displays list of all such guests, displaying their name, phone number, email address and tags, if there are people in that category.</p>
+</li>
+<li>
+<p>User then enters command to list all guests.</p>
+</li>
+<li>
+<p>System displays everyone on the guest list along with their name, phone number, email address and tags.</p>
+</li>
+<li>
+<p>User enters command to remind all guests about the event.</p>
+</li>
+<li>
+<p>System sends all guests an email/text reminding them about the event.</p>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="use-case-review-details-while-organising-the-event"><a class="link" href="#use-case-review-details-while-organising-the-event">D.2. Use case: Review details while organising the event</a></h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User opens application and imports csv file/adds each guest in the application.</p>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
+<p>System will display the list of guests with details of each guest, such as name, phone number, email address and tags, such as, dietary requirements, VIP, paid or not paid, etc in a row for ease of access.</p>
+</li>
 <li>
-<p>3a1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>System will display the general information of the event at the top of the list of guests, such as name, date, time and venue of event, dress code, number of people attending the event so far, etc.</p>
+</li>
+<li>
+<p>System asks user to enter a command.</p>
+</li>
+<li>
+<p>User enters command to filter by some specific requirement, so that user is able to make arrangements accordingly.</p>
+</li>
+<li>
+<p>System lists all guests with the specified requirement, if available.</p>
+</li>
+</ol>
 </div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-sending-tickets-to-guests-via-email"><a class="link" href="#use-case-sending-tickets-to-guests-via-email">D.3. Use case: Sending tickets to guests via email</a></h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User opens application and imports csv file.</p>
+</li>
+<li>
+<p>System asks user to enter a command.</p>
+</li>
+<li>
+<p>User keys in command to create tickets for each guest on the list.</p>
+</li>
+<li>
+<p>System copies and pastes the details of events, such as name, date, time and venue of event, dress code, etc.</p>
+</li>
+<li>
+<p>System will print the guest’s phone number, that is unique to each guest, onto each ticket, obtained from either the csv file or data manually keyed in.</p>
+</li>
+<li>
+<p>System will inform user that the tickets have been created.</p>
+</li>
+<li>
+<p>User will then key in the command to email all guests their tickets.</p>
+</li>
+<li>
+<p>System will email all guests on the list their tickets, according to their unique phone number.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. User can specify which guest to create tickets for, for example if the guest was late in signing up for the event.</p>
+</li>
+<li>
+<p>3b. System will create the ticket for that particular guest.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Use case resumes from step 4.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>8a. User can choose to key in command to email a particular guest his/her ticket.</p>
+</li>
+<li>
+<p>8b. System will email the ticket to a particular guest instead of all guests on the list.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p>Use case ends.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-providing-smooth-registration-on-the-day-of-the-event"><a class="link" href="#use-case-providing-smooth-registration-on-the-day-of-the-event">D.4. Use case: Providing smooth registration on the day of the event</a></h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User opens application and imports csv file(if they were not using the application while planning) or continues with the list on the application.</p>
+</li>
+<li>
+<p>System asks user to enter a command.</p>
+</li>
+<li>
+<p>User keys in command to start marking attendance.</p>
+</li>
+<li>
+<p>User (manning the reception/registration desk) scans the QR code/manually keys in the guest’s phone number found on the ticket.</p>
+</li>
+<li>
+<p>System runs a search to match the QR code/phone number with those in the file.</p>
+</li>
+<li>
+<p>If QR code/phone number is found, attendance of that guest is marked.</p>
+</li>
+<li>
+<p>System removes all ‘marked’ guests from display and displays only those who are yet to arrive/register.</p>
+</li>
+<li>
+<p>User can enter a command to send a reminder text message to all in the currently displayed list (comprising of guests who have not arrived or registered yet).</p>
+</li>
+<li>
+<p>System sends a text message to each of those guests.</p>
+</li>
+<li>
+<p>User enters command to stop marking.</p>
+</li>
+<li>
+<p>System stops marking process.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>6a. User enters command to unmark a guest who was marked as present accidentally (if user uses manually keyed in phone number).</p>
+</li>
+<li>
+<p>6b. System unmarks the guest.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case resumes from step 7.</p>
+</div>
 </div>
 </div>
 </div>
@@ -2115,10 +2370,25 @@ for <code>RemarkCommandParser</code>.</p>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
+<li>
+<p>Command line interface has to be the primary source of input. GUI is to be used only to give visual feedback to the user.</p>
+</li>
+<li>
+<p>Data should be stored locally in a text file that can be edited by user. DBMS must not be used to store data.</p>
+</li>
+<li>
+<p>OOP has to be followed.</p>
+</li>
+<li>
+<p>The software has to be independent of platforms of any kind.</p>
+</li>
+<li>
+<p>The software should work without needing an installer.</p>
+</li>
+<li>
+<p>Only free, open-source, permissive license software that do not require any installation and do not violate any other constraints can be used.</p>
+</li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -2285,4 +2555,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-20 15:03:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-20 15:16:34 UTC</div></div></div></body></html>
