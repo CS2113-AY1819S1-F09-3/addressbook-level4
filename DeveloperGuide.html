@@ -76,6 +76,8 @@
 <li><a href="#use-case-review-details-while-organising-the-event">D.2. Use case: Review details while organising the event</a></li>
 <li><a href="#use-case-sending-tickets-to-guests-via-email">D.3. Use case: Sending tickets to guests via email</a></li>
 <li><a href="#use-case-providing-smooth-registration-on-the-day-of-the-event">D.4. Use case: Providing smooth registration on the day of the event</a></li>
+<li><a href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">D.5. Use case:  Importing large number of guests into the guest list of an event</a></li>
+<li><a href="#use-case-export-guest-list-of-an-event-to-csv-file-format">D.6. Use case:  Export guest list of an event (to CSV file format)</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
@@ -2060,6 +2062,18 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have an easier time marking attendance</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner for a large event</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to add large numbers of guests to the guest list efficiently</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reduce time spent on adding them one at a time.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As an event planner for many different events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to share the guest list for an event with my fellow organizers easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can inform them of any changes that I have made</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">be able to send mass messages and mass emails to guests</p></td>
@@ -2354,6 +2368,145 @@ for <code>RemarkCommandParser</code>.</p>
 <p>Use case resumes from step 7.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event"><a class="link" href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">D.5. Use case:  Importing large number of guests into the guest list of an event</a></h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User opens application</p>
+</li>
+<li>
+<p>System asks user to enter a command</p>
+</li>
+<li>
+<p>User keys in import command along with the file path of the csv file</p>
+</li>
+<li>
+<p>System parses the csv file line by line</p>
+</li>
+<li>
+<p>System adds all guests into the guest list</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. User keys in an invalid file path.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. System shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4a. User provided malformed CSV file or inappropriate guest fields (eg. email with no @maildomain.com)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>4a1. System skips the addition of the guest into the guest list</p>
+</li>
+<li>
+<p>4a2. System displays offending guest entry</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 4</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>5a. User provided CSV file with a guest that already exists in the current guest list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>5a1. System skips the addition of the guest into the guest list</p>
+</li>
+<li>
+<p>5a2. System displays both current and the new offending guest entry</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 4</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-export-guest-list-of-an-event-to-csv-file-format"><a class="link" href="#use-case-export-guest-list-of-an-event-to-csv-file-format">D.6. Use case:  Export guest list of an event (to CSV file format)</a></h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User opens application</p>
+</li>
+<li>
+<p>System asks user to enter a command</p>
+</li>
+<li>
+<p>User keys in export command along with the filename of the csv file</p>
+</li>
+<li>
+<p>System formats and saves guests into CSV format</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. User keys in an invalid filename or a filename that already exists</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. System shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2555,4 +2708,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-21 05:19:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-29 16:54:38 UTC</div></div></div></body></html>
