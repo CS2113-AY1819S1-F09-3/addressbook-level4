@@ -72,12 +72,13 @@
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
 <li><a href="#use-cases">Appendix D: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">D.1. Use case: Filter based on specific requirements and mass message all guests</a></li>
-<li><a href="#use-case-review-details-while-organising-the-event">D.2. Use case: Review details while organising the event</a></li>
-<li><a href="#use-case-sending-tickets-to-guests-via-email">D.3. Use case: Sending tickets to guests via email</a></li>
-<li><a href="#use-case-providing-smooth-registration-on-the-day-of-the-event">D.4. Use case: Providing smooth registration on the day of the event</a></li>
-<li><a href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">D.5. Use case:  Importing large number of guests into the guest list of an event</a></li>
-<li><a href="#use-case-export-guest-list-of-an-event-to-csv-file-format">D.6. Use case:  Export guest list of an event (to CSV file format)</a></li>
+<li><a href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-payed">D.1. Use case: Filter guest list based on status of payment and mass message those who have not payed</a></li>
+<li><a href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">D.2. Use case: Filter based on specific requirements and mass message all guests</a></li>
+<li><a href="#use-case-review-details-while-organising-the-event">D.3. Use case: Review details while organising the event</a></li>
+<li><a href="#use-case-sending-tickets-to-guests-via-email">D.4. Use case: Sending tickets to guests via email</a></li>
+<li><a href="#use-case-providing-smooth-registration-on-the-day-of-the-event">D.5. Use case: Providing smooth registration on the day of the event</a></li>
+<li><a href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">D.6. Use case:  Importing large number of guests into the guest list of an event</a></li>
+<li><a href="#use-case-export-guest-list-of-an-event-to-csv-file-format">D.7. Use case:  Export guest list of an event (to CSV file format)</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
@@ -2104,7 +2105,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-filter-guest-list-based-on-status-of-payment" class="discrete">Use case: Filter guest list based on status of payment</h3>
+<h3 id="use-case-import-guest-data-and-update-payment-details" class="discrete">Use case: Import guest data and update payment details</h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2125,6 +2126,27 @@ for <code>RemarkCommandParser</code>.</p>
 <li>
 <p>System updates the file accordingly.</p>
 </li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="sect2">
+<h3 id="use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-payed"><a class="link" href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-payed">D.1. Use case: Filter guest list based on status of payment and mass message those who have not payed</a></h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User opens application.</p>
+</li>
+<li>
+<p>System asks user to enter a command.</p>
+</li>
 <li>
 <p>User enters a command to filter out those who have yet to pay.</p>
 </li>
@@ -2142,8 +2164,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
+</div>
 <div class="sect2">
-<h3 id="use-case-filter-based-on-specific-requirements-and-mass-message-all-guests"><a class="link" href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">D.1. Use case: Filter based on specific requirements and mass message all guests</a></h3>
+<h3 id="use-case-filter-based-on-specific-requirements-and-mass-message-all-guests"><a class="link" href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">D.2. Use case: Filter based on specific requirements and mass message all guests</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2183,7 +2206,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-review-details-while-organising-the-event"><a class="link" href="#use-case-review-details-while-organising-the-event">D.2. Use case: Review details while organising the event</a></h3>
+<h3 id="use-case-review-details-while-organising-the-event"><a class="link" href="#use-case-review-details-while-organising-the-event">D.3. Use case: Review details while organising the event</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2196,13 +2219,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User opens application and imports csv file/adds each guest in the application.</p>
 </li>
 <li>
-<p>System will display the list of guests with details of each guest, such as name, phone number, email address and tags, such as, dietary requirements, VIP, paid or not paid, etc in a row for ease of access.</p>
-</li>
-<li>
-<p>System will display the general information of the event at the top of the list of guests, such as name, date, time and venue of event, dress code, number of people attending the event so far, etc.</p>
-</li>
-<li>
-<p>System asks user to enter a command.</p>
+<p>System will display the list of guests with details of each guest, such as name, phone number, email address and tags, such as, dietary requirements, VIP, paid or not paid, etc in a row for ease of access. System will display the general information of the event at the top of the list of guests, such as name, date, time and venue of event, dress code, number of people attending the event so far, etc. System asks user to enter a command.</p>
 </li>
 <li>
 <p>User enters command to filter by some specific requirement, so that user is able to make arrangements accordingly.</p>
@@ -2217,7 +2234,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-sending-tickets-to-guests-via-email"><a class="link" href="#use-case-sending-tickets-to-guests-via-email">D.3. Use case: Sending tickets to guests via email</a></h3>
+<h3 id="use-case-sending-tickets-to-guests-via-email"><a class="link" href="#use-case-sending-tickets-to-guests-via-email">D.4. Use case: Sending tickets to guests via email</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2286,7 +2303,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-providing-smooth-registration-on-the-day-of-the-event"><a class="link" href="#use-case-providing-smooth-registration-on-the-day-of-the-event">D.4. Use case: Providing smooth registration on the day of the event</a></h3>
+<h3 id="use-case-providing-smooth-registration-on-the-day-of-the-event"><a class="link" href="#use-case-providing-smooth-registration-on-the-day-of-the-event">D.5. Use case: Providing smooth registration on the day of the event</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2351,7 +2368,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event"><a class="link" href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">D.5. Use case:  Importing large number of guests into the guest list of an event</a></h3>
+<h3 id="use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event"><a class="link" href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">D.6. Use case:  Importing large number of guests into the guest list of an event</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2442,7 +2459,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-export-guest-list-of-an-event-to-csv-file-format"><a class="link" href="#use-case-export-guest-list-of-an-event-to-csv-file-format">D.6. Use case:  Export guest list of an event (to CSV file format)</a></h3>
+<h3 id="use-case-export-guest-list-of-an-event-to-csv-file-format"><a class="link" href="#use-case-export-guest-list-of-an-event-to-csv-file-format">D.7. Use case:  Export guest list of an event (to CSV file format)</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2690,4 +2707,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 13:51:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-04 07:48:16 UTC</div></div></div></body></html>

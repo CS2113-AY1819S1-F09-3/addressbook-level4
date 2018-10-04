@@ -28,13 +28,12 @@
 <li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.13. Filter list based on specified parameters : <code>filter</code></a></li>
 <li><a href="#sending-emails-to-filtered-list-code-email-code">3.14. Sending emails to filtered list : <code>email</code></a></li>
 <li><a href="#creating-a-new-event-code-add_event-code">3.15. Creating a new event : <code>add_event</code></a></li>
-<li><a href="#select-an-event-code-select_event-code">3.16. Select an event : <code>select_event</code></a></li>
-<li><a href="#editing-an-event-code-edit_event-code">3.17. Editing an event : <code>edit_event</code></a></li>
-<li><a href="#deleting-event-code-event_delete-code">3.18. Deleting event : <code>event_delete</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.19. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.20. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.22. Saving the data</a></li>
+<li><a href="#editing-an-event-code-edit_event-code">3.16. Editing an event : <code>edit_event</code></a></li>
+<li><a href="#deleting-event-code-delete_event-code">3.17. Deleting event : <code>delete_event</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.21. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -457,7 +456,7 @@ Sends an email requesting all guests to bring enough cash to pay</p>
 <h3 id="creating-a-new-event-code-add_event-code"><a class="link" href="#creating-a-new-event-code-add_event-code">3.15. Creating a new event : <code>add_event</code></a></h3>
 <div class="paragraph">
 <p>Creates a new event<br>
-Format: <code>event n/EVENT_NAME [t/DATE_TIME]</code></p>
+Format: <code>add_event n/EVENT_NAME [t/DATE_TIME]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -465,32 +464,14 @@ Format: <code>event n/EVENT_NAME [t/DATE_TIME]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>event n/CFG career talk t/18 Sep 2018 10AM</code><br>
+<p><code>add_event n/CFG career talk t/18 Sep 2018 10AM</code><br>
 Create an event called <code>CFG career talk</code> on the 18th of September at 10AM.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="select-an-event-code-select_event-code"><a class="link" href="#select-an-event-code-select_event-code">3.16. Select an event : <code>select_event</code></a></h3>
-<div class="paragraph">
-<p>Switch between events by selecting its associated index (index starts from 1)<br>
-Format: <code>select_event [INDEX]</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>select_event 1</code><br>
-Selects the event at the 1st position in the events list.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-an-event-code-edit_event-code"><a class="link" href="#editing-an-event-code-edit_event-code">3.17. Editing an event : <code>edit_event</code></a></h3>
+<h3 id="editing-an-event-code-edit_event-code"><a class="link" href="#editing-an-event-code-edit_event-code">3.16. Editing an event : <code>edit_event</code></a></h3>
 <div class="paragraph">
 <p>Edit the currently selected event<br>
 Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
@@ -501,17 +482,17 @@ Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>event n/CFG career talk t/18 Sep 2018 11AM</code><br>
+<p><code>edit_event n/CFG career talk t/18 Sep 2018 11AM</code><br>
 Change the data and time of the event <code>CFG career talk</code> to 18th of September at 11AM.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-event-code-event_delete-code"><a class="link" href="#deleting-event-code-event_delete-code">3.18. Deleting event : <code>event_delete</code></a></h3>
+<h3 id="deleting-event-code-delete_event-code"><a class="link" href="#deleting-event-code-delete_event-code">3.17. Deleting event : <code>delete_event</code></a></h3>
 <div class="paragraph">
-<p>Deletes an event by specifying its associated index<br>
-Format: <code>event_delete [INDEX]</code></p>
+<p>Deletes an event by specifying its name
+Format: <code>delete_event [NAME]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -519,14 +500,14 @@ Format: <code>event_delete [INDEX]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>event_delete 1</code><br>
-Deleting the event at index position 1.</p>
+<p><code>delete_event wedding</code><br>
+Deleting the event named wedding.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.19. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.18. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the guest list to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -571,7 +552,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.20. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.19. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -603,14 +584,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
 <div class="paragraph">
 <p>Guest list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -699,4 +680,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 13:51:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-04 07:48:16 UTC</div></div></div></body></html>
