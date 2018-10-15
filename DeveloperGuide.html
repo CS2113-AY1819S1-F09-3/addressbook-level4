@@ -72,7 +72,7 @@
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
 <li><a href="#use-cases">Appendix D: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-payed">D.1. Use case: Filter guest list based on status of payment and mass message those who have not payed</a></li>
+<li><a href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid">D.1. Use case: Filter guest list based on status of payment and mass message those who have not paid</a></li>
 <li><a href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">D.2. Use case: Filter based on specific requirements and mass message all guests</a></li>
 <li><a href="#use-case-review-details-while-organising-the-event">D.3. Use case: Review details while organising the event</a></li>
 <li><a href="#use-case-sending-tickets-to-guests-via-email">D.4. Use case: Sending tickets to guests via email</a></li>
@@ -2094,18 +2094,15 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is <code>Invités</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-import-guest-data-and-update-payment-details" class="discrete">Use case: Import guest data and update payment details</h3>
+<h3 id="use-case-import-guest-data-and-update-payment-status" class="discrete">Use case: Import guest data and update payment status</h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2115,7 +2112,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User opens application and imports csv file/adds each guest in the application.</p>
+<p>User opens application and either imports csv file or adds each guest in the application.</p>
 </li>
 <li>
 <p>System asks user to enter a command.</p>
@@ -2132,7 +2129,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>Use case ends.</p>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-payed"><a class="link" href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-payed">D.1. Use case: Filter guest list based on status of payment and mass message those who have not payed</a></h3>
+<h3 id="use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid"><a class="link" href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid">D.1. Use case: Filter guest list based on status of payment and mass message those who have not paid</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2151,13 +2148,14 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User enters a command to filter out those who have yet to pay.</p>
 </li>
 <li>
-<p>System shows an indexed list of these guests with their names, phone numbers, email address, attendance status and tags specified, if there are people in that category.</p>
+<p>System shows an indexed list of these guests with their names, phone numbers, email address, payment status,
+attendance status and tags specified, if there are people in that category.</p>
 </li>
 <li>
-<p>User enters a command to remind all in the currently displayed list.</p>
+<p>User enters a command to email all in the currently displayed list, to remind them to make the payment.</p>
 </li>
 <li>
-<p>System sends all guests in the not paid list an email to remind them.</p>
+<p>System sends all guests in the "not paid" list an email to remind them.</p>
 </li>
 </ol>
 </div>
@@ -2176,7 +2174,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User opens application and imports csv file/adds each guest in the application.</p>
+<p>User opens application and either imports csv file or adds each guest in the application.</p>
 </li>
 <li>
 <p>System asks user to enter a command.</p>
@@ -2185,19 +2183,21 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User enters a command to filter guests based on a requirement specified (e.g. dietary requirement).</p>
 </li>
 <li>
-<p>System displays list of all such guests, displaying their name, phone number, email address, attendance status and tags, if there are people in that category.</p>
+<p>System displays list of all such guests, displaying their name, phone number, email address, payment status,
+attendance status and tags, if there are people in that category.</p>
 </li>
 <li>
 <p>User then enters command to list all guests.</p>
 </li>
 <li>
-<p>System displays everyone on the guest list along with their name, phone number, email address, attendance status and tags.</p>
+<p>System displays everyone on the guest list along with their name, phone number, email address, payment status,
+attendance status and tags.</p>
 </li>
 <li>
 <p>User enters command to remind all guests about the event.</p>
 </li>
 <li>
-<p>System sends all guests an email/text reminding them about the event.</p>
+<p>System sends all guests an email reminding them about the event.</p>
 </li>
 </ol>
 </div>
@@ -2216,10 +2216,14 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User opens application and imports csv file/adds each guest in the application.</p>
+<p>User opens application and either imports csv file or adds each guest in the application.</p>
 </li>
 <li>
-<p>System will display the list of guests with details of each guest, such as name, phone number, email address and tags, such as, dietary requirements, VIP, paid or not paid, etc in a row for ease of access. System will display the general information of the event at the top of the list of guests, such as name, date, time and venue of event, dress code, number of people attending the event so far, etc. System asks user to enter a command.</p>
+<p>System will display the list of guests with details of each guest, such as name, phone number, email address, payment
+status, attendance status and tags, such as, dietary requirements, VIP, etc in a row for ease of access. System will
+display the general information of the event on the left of the list of guests, such as name, date, time and venue of
+event, dress code, number of people attending the event so far, etc.
+System asks user to enter a command.</p>
 </li>
 <li>
 <p>User enters command to filter by some specific requirement, so that user is able to make arrangements accordingly.</p>
@@ -2244,7 +2248,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User opens application and imports csv file.</p>
+<p>User opens application and either imports csv file or adds each guest in the application.</p>
 </li>
 <li>
 <p>System asks user to enter a command.</p>
@@ -2253,10 +2257,12 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User keys in command to create tickets for each guest on the list.</p>
 </li>
 <li>
-<p>System copies and pastes the details of events, such as name, date, time and venue of event, dress code, etc.</p>
+<p>System copies and pastes the details of events, such as name, date, time and venue of event, dress code, etc
+onto the ticket.</p>
 </li>
 <li>
-<p>System will print the guest’s phone number, that is unique to each guest, onto each ticket, obtained from either the csv file or data manually keyed in.</p>
+<p>System will print the guest’s index number, that is unique to each guest, onto each ticket,
+obtained from either the csv file or data manually keyed in.</p>
 </li>
 <li>
 <p>System will inform user that the tickets have been created.</p>
@@ -2265,7 +2271,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User will then key in the command to email all guests their tickets.</p>
 </li>
 <li>
-<p>System will email all guests on the list their tickets, according to their unique phone number.</p>
+<p>System will email all guests on the list their tickets, according to their unique index number.</p>
 </li>
 </ol>
 </div>
@@ -2313,7 +2319,8 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User opens application and imports csv file(if they were not using the application while planning) or continues with the list on the application.</p>
+<p>User opens application and imports csv file(if they were not using the application while planning) or
+continues with the list on the application.</p>
 </li>
 <li>
 <p>System asks user to enter a command.</p>
@@ -2322,22 +2329,23 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User keys in command to start marking attendance.</p>
 </li>
 <li>
-<p>User (manning the reception/registration desk) scans the QR code/manually keys in the guest’s phone number found on the ticket.</p>
+<p>User (manning the reception/registration desk) manually keys in the guest’s index number found on the ticket.</p>
 </li>
 <li>
-<p>System runs a search to match the QR code/phone number with those in the file.</p>
+<p>System runs a search to match the index number with those in the file.</p>
 </li>
 <li>
-<p>If QR code/phone number is found, attendance of that guest is marked.</p>
+<p>If index number is found, attendance of that guest is marked.</p>
 </li>
 <li>
-<p>System removes all ‘marked’ guests from display and displays only those who are yet to arrive/register.</p>
+<p>System removes all ‘marked’ guests from display and displays only those who have yet to arrive/register.</p>
 </li>
 <li>
-<p>User can enter a command to send a reminder text message to all in the currently displayed list (comprising of guests who have not arrived or registered yet).</p>
+<p>User can enter a command to send an email to all in the currently displayed list (comprising of guests
+who have not arrived or registered yet).</p>
 </li>
 <li>
-<p>System sends a text message to each of those guests.</p>
+<p>System sends an email to each of those guests.</p>
 </li>
 <li>
 <p>User enters command to stop marking.</p>
@@ -2356,7 +2364,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>6a. User enters command to unmark a guest who was marked as present accidentally (if user uses manually keyed in phone number).</p>
+<p>6a. User enters command to unmark a guest who was marked as present accidentally.</p>
 </li>
 <li>
 <p>6b. System unmarks the guest.</p>
@@ -2378,19 +2386,19 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User opens application</p>
+<p>User opens application.</p>
 </li>
 <li>
-<p>System asks user to enter a command</p>
+<p>System asks user to enter a command.</p>
 </li>
 <li>
-<p>User keys in import command along with the file path of the csv file</p>
+<p>User keys in import command along with the file path of the csv file.</p>
 </li>
 <li>
-<p>System parses the csv file line by line</p>
+<p>System parses the csv file line by line.</p>
 </li>
 <li>
-<p>System adds all guests into the guest list</p>
+<p>System adds all guests into the guest list.</p>
 </li>
 </ol>
 </div>
@@ -2420,14 +2428,14 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a. User provided malformed CSV file or inappropriate guest fields (eg. email with no @maildomain.com)</p>
+<p>4a. User provided malformed CSV file or inappropriate guest fields (eg. email with no @gmail.com).</p>
 <div class="ulist">
 <ul>
 <li>
-<p>4a1. System skips the addition of the guest into the guest list</p>
+<p>4a1. System skips the addition of the guest into the guest list.</p>
 </li>
 <li>
-<p>4a2. System displays offending guest entry</p>
+<p>4a2. System displays offending guest entry.</p>
 </li>
 </ul>
 </div>
@@ -2440,14 +2448,14 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>5a. User provided CSV file with a guest that already exists in the current guest list</p>
+<p>5a. User provided CSV file with a guest that already exists in the current guest list.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>5a1. System skips the addition of the guest into the guest list</p>
+<p>5a1. System skips the addition of the guest into the guest list.</p>
 </li>
 <li>
-<p>5a2. System displays both current and the new offending guest entry</p>
+<p>5a2. System displays both current and the new offending guest entry.</p>
 </li>
 </ul>
 </div>
@@ -2520,13 +2528,15 @@ for <code>RemarkCommandParser</code>.</p>
 <p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands)
+should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
 <p>Command line interface has to be the primary source of input. GUI is to be used only to give visual feedback to the user.</p>
 </li>
 <li>
-<p>Data should be stored locally in a text file that can be edited by user. DBMS must not be used to store data.</p>
+<p>Data should be stored locally in a text file that can be edited by user. Database Management System (DBMS)
+must not be used to store data.</p>
 </li>
 <li>
 <p>OOP has to be followed.</p>
@@ -2538,7 +2548,8 @@ for <code>RemarkCommandParser</code>.</p>
 <p>The software should work without needing an installer.</p>
 </li>
 <li>
-<p>Only free, open-source, permissive license software that do not require any installation and do not violate any other constraints can be used.</p>
+<p>Only free, open-source, permissive license software that do not require any installation and do not violate any
+other constraints can be used.</p>
 </li>
 </ol>
 </div>
@@ -2629,7 +2640,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI with a set of sample contacts. The window size may not be optimal.</p>
 </li>
 </ol>
 </div>
@@ -2639,7 +2650,7 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+<p>Resize the window to an optimal size. Move the window to a different location. Close the window.</p>
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
@@ -2649,9 +2660,6 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -2663,27 +2671,26 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: List all persons using the <code>list</code> command. There may be multiple persons in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message.
+Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
 Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size),
+<code>delete y</code> (where y is smaller than 0)
++ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -2692,19 +2699,9 @@ Expected: Similar to previous.</p>
 <ol class="arabic">
 <li>
 <p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
 </li>
 </ol>
 </div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-15 02:10:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-15 02:49:21 UTC</div></div></div></body></html>
