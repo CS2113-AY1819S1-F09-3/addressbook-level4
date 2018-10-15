@@ -156,7 +156,7 @@ Format: <code>help</code></p>
 <div class="sect2">
 <h3 id="adding-a-guest-code-add-code"><a class="link" href="#adding-a-guest-code-add-code">3.2. Adding a guest: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
+<p>Adds a guest to the guest list<br>
 Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/PRESENT [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
@@ -166,7 +166,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/PRESENT [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+A guest can have any number of tags (including 0)
 </td>
 </tr>
 </table>
@@ -188,14 +188,14 @@ A person can have any number of tags (including 0)
 <div class="sect2">
 <h3 id="listing-all-guests-code-list-code"><a class="link" href="#listing-all-guests-code-list-code">3.3. Listing all guests : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all guests in the guest list.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-guest-code-edit-code"><a class="link" href="#editing-a-guest-code-edit-code">3.4. Editing a guest : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
+<p>Edits an existing guest entry in the guest list.<br>
 Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]
          [t/PERSON_TYPE] [t/DIET] [t/PAID]&#8230;&#8203;</code></p>
 </div>
@@ -204,7 +204,7 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the guest at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed guest list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -216,7 +216,7 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]
 <p>When editing tags, the existing tags of the guest will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the guest&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -237,7 +237,7 @@ Edits the name of the 2nd person to be <code>Bob Chan</code> respectively.</p>
 <div class="sect2">
 <h3 id="deleting-a-guest-code-delete-code"><a class="link" href="#deleting-a-guest-code-delete-code">3.5. Deleting a guest : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
+<p>Deletes the specified guest from the guest list.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -245,10 +245,10 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the guest at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed guest list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -265,7 +265,7 @@ Format: <code>delete INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+Deletes the 2nd person in the guest list.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -278,7 +278,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="removing-a-set-of-tags-from-all-guests-code-removetag-code"><a class="link" href="#removing-a-set-of-tags-from-all-guests-code-removetag-code">3.6. Removing a set of tags from all guests : <code>removeTag</code></a></h3>
 <div class="paragraph">
-<p>This command allows you to remove a set of tags from all persons in the address book.<br>
+<p>This command allows you to remove a set of tags from all guests in the guest list.<br>
 Format: <code>removeTag [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -286,10 +286,10 @@ Format: <code>removeTag [t/TAG]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The removeTag command will remove any number of tags provided by you from all persons</p>
+<p>The removeTag command will remove any number of tags provided by you from all guests</p>
 </li>
 <li>
-<p>If the tags you provide are not shared by any of the persons in the current list, you will be informed of this</p>
+<p>If the tags you provide are not shared by any of the guests in the current list, you will be informed of this</p>
 </li>
 <li>
 <p>You must provide the tags to be removed, an input of <code>removeTag t/</code> will not do anything</p>
@@ -308,7 +308,7 @@ Format: <code>removeTag [t/TAG]&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>removeTag t/Veg t/VIP</code><br>
-You will remove the tags <code>Veg</code> and <code>VIP</code> from all persons in the current list</p>
+You will remove the tags <code>Veg</code> and <code>VIP</code> from all guests in the current list</p>
 </li>
 <li>
 <p><code>removeTag t/</code><br>
@@ -324,7 +324,7 @@ This will present you with an error in specifying the command, as all your tags 
 <div class="sect2">
 <h3 id="adds-a-set-of-tags-to-all-guests-code-addtag-code"><a class="link" href="#adds-a-set-of-tags-to-all-guests-code-addtag-code">3.7. Adds a set of tags to all guests : <code>addTag</code></a></h3>
 <div class="paragraph">
-<p>This command allows you to add a set of tags to all persons in the address book.<br>
+<p>This command allows you to add a set of tags to all guests in the guest list.<br>
 Format: <code>addTag [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -332,7 +332,7 @@ Format: <code>addTag [t/TAG]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The addTag command will add any number of tags provided by you to all persons</p>
+<p>The addTag command will add any number of tags provided by you to all guests</p>
 </li>
 <li>
 <p>You must provide tags that are alphanumeric, otherwise the system will inform you of the error in your input format</p>
@@ -348,7 +348,7 @@ Format: <code>addTag [t/TAG]&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>addTag t/Veg t/VIP</code><br>
-You will add the tags <code>Veg</code> and <code>VIP</code> to all persons in the current list</p>
+You will add the tags <code>Veg</code> and <code>VIP</code> to all guests in the current list</p>
 </li>
 <li>
 <p><code>addTag t/@</code><br>
@@ -360,7 +360,7 @@ This will present you with an error in specifying the command, as all your tags 
 <div class="sect2">
 <h3 id="locating-guests-by-name-code-find-code"><a class="link" href="#locating-guests-by-name-code-find-code">3.8. Locating guests by name: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
+<p>Finds guests whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="sidebarblock">
@@ -380,7 +380,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Guests matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
@@ -393,11 +393,11 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <ul>
 <li>
 <p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+You will be shown a list that contains the entries of <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
 <p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+You will be show a list containing entries of any guest having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 </ul>
 </div>
@@ -415,7 +415,7 @@ Format: <code>import FILE_PATH</code></p>
 <ul>
 <li>
 <p><code>import directory/subdirectory/guestlist.csv</code><br>
-Imports the CSV file from the specified path.</p>
+You will populate the guest list with the data imported from the CSV file in the specified path.</p>
 </li>
 </ul>
 </div>
@@ -433,7 +433,7 @@ Format: <code>export FILE_PATH</code></p>
 <ul>
 <li>
 <p><code>export directory/subdirectory/guestlist.csv</code><br>
-Exports users to the CSV file in the specified path.</p>
+You will export the current guest list entries into a CSV file in the specified path.</p>
 </li>
 </ul>
 </div>
@@ -452,7 +452,7 @@ Format: <code>mark [p/PHONE_NUMBER]</code></p>
 <ul>
 <li>
 <p><code>mark 81927291</code><br>
-Marks the guest with phone number <code>81927291</code> as present.</p>
+You will mark the guest with phone number <code>81927291</code> as present.</p>
 </li>
 </ul>
 </div>
@@ -471,7 +471,7 @@ Format: <code>unmark [p/PHONE_NUMBER]</code></p>
 <ul>
 <li>
 <p><code>unmark 81927291</code><br>
-Marks the guest with phone number <code>81927291</code> as absent.</p>
+You will mark the guest with phone number <code>81927291</code> as absent.</p>
 </li>
 </ul>
 </div>
@@ -490,7 +490,7 @@ Format: <code>start_marking [TICKET_ID]&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>start_marking</code> + <code>87654321</code> + <code>87654322</code> + <code>87654323</code> + <code>87654324&#8230;&#8203;</code><br>
-Marks the guests with unique numbers 87654321, 87654322, 87654323, 87654324 as present</p>
+You will mark the guests with unique numbers 87654321, 87654322, 87654323, 87654324 as present</p>
 </li>
 </ul>
 </div>
@@ -517,7 +517,7 @@ Format: <code>filter [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]
 <ul>
 <li>
 <p><code>filter a/Present t/Vegetarian</code><br>
-Filters the list with guests who are present and have a vegetarian dietary requirement.</p>
+You will be shown a list with guests who are present and have a vegetarian dietary requirement.</p>
 </li>
 </ul>
 </div>
@@ -536,7 +536,7 @@ Format: <code>email INDEX</code></p>
 <p>Sends an email to the guest at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed guest list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -567,7 +567,7 @@ You are free to edit these messages to suit your needs.</p>
 <ul>
 <li>
 <p><code>email 2</code><br>
-Sends an email to the 2nd guest in the list.</p>
+You will send an email to the 2nd person in the list.</p>
 </li>
 </ul>
 </div>
@@ -585,7 +585,7 @@ Format: <code>add_event n/EVENT_NAME [t/DATE_TIME]</code></p>
 <ul>
 <li>
 <p><code>add_event n/CFG career talk t/18 Sep 2018 10AM</code><br>
-Create an event called <code>CFG career talk</code> on the 18th of September at 10AM.</p>
+You will create an event called <code>CFG career talk</code> on the 18th of September at 10AM.</p>
 </li>
 </ul>
 </div>
@@ -603,7 +603,7 @@ Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
 <ul>
 <li>
 <p><code>edit_event n/CFG career talk t/18 Sep 2018 11AM</code><br>
-Change the data and time of the event <code>CFG career talk</code> to 18th of September at 11AM.</p>
+You will change the data and time of the event <code>CFG career talk</code> to 18th of September at 11AM.</p>
 </li>
 </ul>
 </div>
@@ -621,7 +621,7 @@ Format: <code>delete_event [NAME]</code></p>
 <ul>
 <li>
 <p><code>delete_event wedding</code><br>
-Deleting the event named wedding.</p>
+You will delete the event named wedding.</p>
 </li>
 </ul>
 </div>
@@ -713,8 +713,8 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
 <div class="paragraph">
-<p>Guest list data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>As the guest list data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need for you to save manually.</p>
 </div>
 </div>
 </div>
@@ -724,11 +724,13 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous guest list.<br>
+Alternatively, you could export the data from your current computer using the export command. Using this data you can launch the application on a different computer and import the data.</p>
 </div>
 <div class="paragraph">
-<p><strong>Q</strong>: ​ How do I import my existing data on a CSV into the application?
-<strong>A</strong>: Firstly, create a new event within the application. After this, use the import function and specify the path to the file. This will add the current entries that are on the CSV file into the event.</p>
+<p><strong>Q</strong>: ​How do I import my existing data on a CSV into the application?<br>
+<strong>A</strong>: Firstly, create a new event within the application. After this, use the import function and specify the path to the file.
+You will see the guest list populate itself with the data from the specified CSV file.</p>
 </div>
 </div>
 </div>
@@ -741,22 +743,22 @@ There is no need to save manually.</p>
 <p><code>help</code> : ​Displays a help sheet containing useful commands.</p>
 </li>
 <li>
-<p><code>add</code> : ​Creates an entry for a person to attend the event.</p>
+<p><code>add</code> : ​Creates an entry for a guest to attend the event.</p>
 </li>
 <li>
-<p><code>edit</code> :​ Modifies the entry of a specified person based on name.</p>
+<p><code>edit</code> :​ Modifies the entry of a specified guest based on name.</p>
 </li>
 <li>
-<p><code>delete</code> : ​Removes an entry of a specified person based on name.</p>
+<p><code>delete</code> : ​Removes an entry of a specified guest based on name.</p>
 </li>
 <li>
-<p><code>removeTag</code> : Removes a set of tags from all the persons in the current list.</p>
+<p><code>removeTag</code> : Removes a set of tags from all the guests in the current list.</p>
 </li>
 <li>
-<p><code>addtag</code> : Adds a set of tags to all the persons in the current list.</p>
+<p><code>addtag</code> : Adds a set of tags to all the guests in the current list.</p>
 </li>
 <li>
-<p><code>find</code> : Finds persons whose names contain any of the given keywords.</p>
+<p><code>find</code> : Finds guests whose names contain any of the given keywords.</p>
 </li>
 <li>
 <p><code>list</code> : Lists the current guest list</p>
@@ -768,10 +770,10 @@ There is no need to save manually.</p>
 <p><code>export</code> : Exports guest list to a CSV file.</p>
 </li>
 <li>
-<p><code>mark</code> : ​Tags a person to note that they are currently at the event.</p>
+<p><code>mark</code> : ​Tags a guest to note that they are currently at the event.</p>
 </li>
 <li>
-<p><code>unmark</code> : ​Removes the tag of a person attending the event based on name.</p>
+<p><code>unmark</code> : ​Removes the tag of a guest attending the event based on name.</p>
 </li>
 <li>
 <p><code>start_marking</code> : ​Begins continuous marking of the people entering the event.</p>
@@ -783,7 +785,7 @@ There is no need to save manually.</p>
 <p><code>filter</code> : ​Filters the guest list based on tag(s) given.</p>
 </li>
 <li>
-<p><code>email</code> : ​Sends individual emails to an entry of a specified person based on index.</p>
+<p><code>email</code> : ​Sends individual emails to an entry of a specified guest based on index.</p>
 </li>
 <li>
 <p><code>add_event</code> :​ Adds an event to the application.</p>
@@ -795,7 +797,7 @@ There is no need to save manually.</p>
 <p><code>event_delete</code> : ​Removes the specified event</p>
 </li>
 <li>
-<p><code>undo</code> : Restores the address book to the state before the previous undoable command was executed.</p>
+<p><code>undo</code> : Restores the guest list to the state before the previous undoable command was executed.</p>
 </li>
 <li>
 <p><code>redo</code> : Reverses the most recent undo command</p>
@@ -806,4 +808,4 @@ There is no need to save manually.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-14 16:43:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-15 02:00:15 UTC</div></div></div></body></html>
