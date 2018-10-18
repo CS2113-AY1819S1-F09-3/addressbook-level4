@@ -34,9 +34,10 @@
 <li><a href="#add-delete-event-feature">3.3. Add/Delete Event feature</a></li>
 <li><a href="#add-remove-tag-generation-feature">3.4. Add/Remove Tag generation feature</a></li>
 <li><a href="#import-export-command">3.5. Import/Export Command</a></li>
-<li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
+<li><a href="#mark-unmark-command">3.6. Mark/Unmark Command</a></li>
+<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1148,20 +1149,77 @@ The above mentioned methods will allow you to interface with the underlying file
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></h3>
+<h3 id="mark-unmark-command"><a class="link" href="#mark-unmark-command">3.6. Mark/Unmark Command</a></h3>
+<div class="paragraph">
+<p>The mark/unmark mechanism is facilitated by <code>Model</code>.
+Given below is an example usage scenario and how the mark/unmark command executes at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state and the currentStatePointer pointing to that single address book state.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes the command <code>import guestlist.csv</code> to import a list of guest and add them to the current state of the <code>AddressBook</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Alternatively, the user can execute the command <code>add n/John Doe p/98765432 e/johnd@gmail.com pa/PAID a/ABSENT t/NORMAL</code> to create an instance of one guest and add them to the current state of <code>AddressBook</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. The user will execute the command <code>mark 98765432</code> to mark the attendance of the <code>Person</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. An instance of <code>filteredPersonList</code> is retrieved from the <code>model</code> using <code>MODEL#getFliteredPersonList</code>. A linear search is then executed on the <code>filteredPersonList</code> to find a <code>Person</code> with the same phone number as <code>98765432</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If there is no matching phone number found, a <code>COMMANDEXCEPTION</code> will be thrown to indicate nobody in the list has the phone number.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. After retrieving the information from the discovered <code>Person</code>, another <code>Person</code> is created with the same fields with the exception of the attendance field being changed from <code>ABSENT</code> to <code>PRESENT</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. Finally, the entry is updated using <code>MODEL#updatePerson</code> to transfer the new information into the <code>filteredPersonList</code> before <code>commitAddressBook</code> is executed to save the state of the <code>AddressBook</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add_event operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MarkUnmarkEventSequenceDiagram.png" alt="MarkUnmarkEventSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{We plan on implementing a data encryption feature such that when the user chooses to, the data stored in the addressbook will be encrypted and display ceases to show all information.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1192,7 +1250,7 @@ The above mentioned methods will allow you to interface with the underlying file
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3054,4 +3112,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 16:14:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 16:31:04 UTC</div></div></div></body></html>
