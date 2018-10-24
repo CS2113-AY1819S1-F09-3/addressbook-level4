@@ -21,21 +21,20 @@
 <li><a href="#removing-a-set-of-tags-from-all-guests-code-removetag-code">3.6. Removing a set of tags from all guests : <code>removeTag</code></a></li>
 <li><a href="#adds-a-set-of-tags-to-all-guests-code-addtag-code">3.7. Adds a set of tags to all guests : <code>addTag</code></a></li>
 <li><a href="#locating-guests-by-name-code-find-code">3.8. Locating guests by name: <code>find</code></a></li>
-<li><a href="#import-guests-from-csv-file-code-import-code">3.9. Import guests from CSV file : <code>import</code></a></li>
-<li><a href="#export-guests-to-csv-file-code-export-code">3.10. Export guests to CSV file : <code>export</code></a></li>
-<li><a href="#mark-a-guest-as-present-code-mark-code">3.11. Mark a guest as present : <code>mark</code></a></li>
-<li><a href="#mark-a-guest-as-absent-code-unmark-code">3.12. Mark a guest as absent : <code>unmark</code></a></li>
-<li><a href="#start-mass-attendance-marking-code-start_marking-code">3.13. Start mass attendance marking : <code>start_marking</code></a></li>
-<li><a href="#stop-mass-attendance-marking-code-stop_marking-code">3.14. Stop mass attendance marking : <code>stop_marking</code></a></li>
-<li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.15. Filter list based on specified parameters : <code>filter</code></a></li>
-<li><a href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></li>
-<li><a href="#creating-a-new-event-code-add_event-code">3.17. Creating a new event : <code>add_event</code></a></li>
-<li><a href="#editing-an-event-code-edit_event-code">3.18. Editing an event : <code>edit_event</code></a></li>
-<li><a href="#deleting-event-code-delete_event-code">3.19. Deleting event : <code>delete_event</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.20. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.21. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.23. Saving the data</a></li>
+<li><a href="#export-guests-to-csv-file-code-export-code">3.9. Export guests to CSV file : <code>export</code></a></li>
+<li><a href="#mark-a-guest-as-present-code-mark-code">3.10. Mark a guest as present : <code>mark</code></a></li>
+<li><a href="#mark-a-guest-as-absent-code-unmark-code">3.11. Mark a guest as absent : <code>unmark</code></a></li>
+<li><a href="#start-mass-attendance-marking-code-start_marking-code">3.12. Start mass attendance marking : <code>start_marking</code></a></li>
+<li><a href="#stop-mass-attendance-marking-code-stop_marking-code">3.13. Stop mass attendance marking : <code>stop_marking</code></a></li>
+<li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.14. Filter list based on specified parameters : <code>filter</code></a></li>
+<li><a href="#sending-emails-to-individual-guests-code-email-code">3.15. Sending emails to individual guests : <code>email</code></a></li>
+<li><a href="#creating-a-new-event-code-add_event-code">3.16. Creating a new event : <code>add_event</code></a></li>
+<li><a href="#editing-an-event-code-edit_event-code">3.17. Editing an event : <code>edit_event</code></a></li>
+<li><a href="#deleting-event-code-delete_event-code">3.18. Deleting event : <code>delete_event</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.19. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.20. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.22. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -361,7 +360,8 @@ This will present you with an error in specifying the command, as all your tags 
 <h3 id="locating-guests-by-name-code-find-code"><a class="link" href="#locating-guests-by-name-code-find-code">3.8. Locating guests by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds guests whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+Format: <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+Example: find n/NAME p/PHONE e/EMAIL</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -374,13 +374,13 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
 </li>
 <li>
-<p>Only the name is searched.</p>
+<p>Only names, phone numbers and email addresses are searched, depending on prefixes given.</p>
 </li>
 <li>
 <p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 <li>
-<p>Guests matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Guests matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Hans n/Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
@@ -392,18 +392,21 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
+<p><code>find n/John</code><br>
 You will be shown a list that contains the entries of <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
+<p><code>find n/Betsy n/Tim n/John</code><br>
 You will be show a list containing entries of any guest having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+<li>
+<p><code>find n/alex p/92746838 e/johndoe@gmail.com</code><br>
+You will be show a list containing entries of any guest having the name <code>Alex</code>,
+phone number <code>92746838</code>, or email address <code>johndoe@gmail.com</code>
+=== Import guests from CSV file : <code>import</code></p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="import-guests-from-csv-file-code-import-code"><a class="link" href="#import-guests-from-csv-file-code-import-code">3.9. Import guests from CSV file : <code>import</code></a></h3>
 <div class="paragraph">
 <p>Imports guests with data from a CSV formatted file. The structure for the values in the CSV file is predefined.<br>
 Format: <code>import FILE_PATH</code></p>
@@ -421,7 +424,7 @@ You will populate the guest list with the data imported from the CSV file in the
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-guests-to-csv-file-code-export-code"><a class="link" href="#export-guests-to-csv-file-code-export-code">3.10. Export guests to CSV file : <code>export</code></a></h3>
+<h3 id="export-guests-to-csv-file-code-export-code"><a class="link" href="#export-guests-to-csv-file-code-export-code">3.9. Export guests to CSV file : <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports guests' data to a CSV formatted file. The structure for the values in the CSV file is predefined.<br>
 Format: <code>export FILE_PATH</code></p>
@@ -439,7 +442,7 @@ You will export the current guest list entries into a CSV file in the specified 
 </div>
 </div>
 <div class="sect2">
-<h3 id="mark-a-guest-as-present-code-mark-code"><a class="link" href="#mark-a-guest-as-present-code-mark-code">3.11. Mark a guest as present : <code>mark</code></a></h3>
+<h3 id="mark-a-guest-as-present-code-mark-code"><a class="link" href="#mark-a-guest-as-present-code-mark-code">3.10. Mark a guest as present : <code>mark</code></a></h3>
 <div class="paragraph">
 <p>Marks a guest as present using a unique number assigned to them. This will also change the
 <code>a/PRESENT</code>​ tag associated with the guest to Present.<br>
@@ -458,7 +461,7 @@ You will mark the guest with phone number <code>81927291</code> as present.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="mark-a-guest-as-absent-code-unmark-code"><a class="link" href="#mark-a-guest-as-absent-code-unmark-code">3.12. Mark a guest as absent : <code>unmark</code></a></h3>
+<h3 id="mark-a-guest-as-absent-code-unmark-code"><a class="link" href="#mark-a-guest-as-absent-code-unmark-code">3.11. Mark a guest as absent : <code>unmark</code></a></h3>
 <div class="paragraph">
 <p>Marks a guest as absent using their unique number. This will also change the
 <code>a/PRESENT</code>​ tag associated with the guest to Absent.<br>
@@ -477,7 +480,7 @@ You will mark the guest with phone number <code>81927291</code> as absent.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-mass-attendance-marking-code-start_marking-code"><a class="link" href="#start-mass-attendance-marking-code-start_marking-code">3.13. Start mass attendance marking : <code>start_marking</code></a></h3>
+<h3 id="start-mass-attendance-marking-code-start_marking-code"><a class="link" href="#start-mass-attendance-marking-code-start_marking-code">3.12. Start mass attendance marking : <code>start_marking</code></a></h3>
 <div class="paragraph">
 <p>Start the mass attendance marking mode. Allows you to mark attendance without using
 the mark prefix.<br>
@@ -496,18 +499,19 @@ You will mark the guests with unique numbers 87654321, 87654322, 87654323, 87654
 </div>
 </div>
 <div class="sect2">
-<h3 id="stop-mass-attendance-marking-code-stop_marking-code"><a class="link" href="#stop-mass-attendance-marking-code-stop_marking-code">3.14. Stop mass attendance marking : <code>stop_marking</code></a></h3>
+<h3 id="stop-mass-attendance-marking-code-stop_marking-code"><a class="link" href="#stop-mass-attendance-marking-code-stop_marking-code">3.13. Stop mass attendance marking : <code>stop_marking</code></a></h3>
 <div class="paragraph">
 <p>Stop the mass attendance marking mode.<br>
 Format: <code>stop_marking</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-list-based-on-specified-parameters-code-filter-code"><a class="link" href="#filter-list-based-on-specified-parameters-code-filter-code">3.15. Filter list based on specified parameters : <code>filter</code></a></h3>
+<h3 id="filter-list-based-on-specified-parameters-code-filter-code"><a class="link" href="#filter-list-based-on-specified-parameters-code-filter-code">3.14. Filter list based on specified parameters : <code>filter</code></a></h3>
 <div class="paragraph">
-<p>Filter guest list based on filter guest attributes.<br>
-Format: <code>filter [p/PHONE_NUMBER] [e/EMAIL] [pa/PAYMENT_STATUS] [a/ATTENDANCE_STATUS]
-         [t/DIET] [t/PERSON_TYPE]</code>
+<p>Filter guest list based on filter guest attributes. Only filters based on
+payment status, attendance status and tags.<br>
+Format: <code>filter [pa/PAYMENT_STATUS] [a/ATTENDANCE_STATUS]
+         [t/DIET] [t/PERSON_TYPE] [t/&#8230;&#8203;]</code>
 Examples:</p>
 </div>
 <div class="ulist">
@@ -520,7 +524,7 @@ You will be shown a list with guests who are present and have a vegetarian dieta
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-emails-to-individual-guests-code-email-code"><a class="link" href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></h3>
+<h3 id="sending-emails-to-individual-guests-code-email-code"><a class="link" href="#sending-emails-to-individual-guests-code-email-code">3.15. Sending emails to individual guests : <code>email</code></a></h3>
 <div class="paragraph">
 <p>Sends an email to the guest at a specific Index<br>
 Format: <code>email INDEX</code></p>
@@ -570,7 +574,7 @@ You will send an email to the 2nd person in the list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-new-event-code-add_event-code"><a class="link" href="#creating-a-new-event-code-add_event-code">3.17. Creating a new event : <code>add_event</code></a></h3>
+<h3 id="creating-a-new-event-code-add_event-code"><a class="link" href="#creating-a-new-event-code-add_event-code">3.16. Creating a new event : <code>add_event</code></a></h3>
 <div class="paragraph">
 <p>Creates a new event<br>
 Format: <code>add_event n/EVENT_NAME [t/DATE_TIME]</code></p>
@@ -588,7 +592,7 @@ You will create an event called <code>CFG career talk</code> on the 18th of Sept
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-event-code-edit_event-code"><a class="link" href="#editing-an-event-code-edit_event-code">3.18. Editing an event : <code>edit_event</code></a></h3>
+<h3 id="editing-an-event-code-edit_event-code"><a class="link" href="#editing-an-event-code-edit_event-code">3.17. Editing an event : <code>edit_event</code></a></h3>
 <div class="paragraph">
 <p>Edit the currently selected event<br>
 Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
@@ -606,7 +610,7 @@ You will change the data and time of the event <code>CFG career talk</code> to 1
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-event-code-delete_event-code"><a class="link" href="#deleting-event-code-delete_event-code">3.19. Deleting event : <code>delete_event</code></a></h3>
+<h3 id="deleting-event-code-delete_event-code"><a class="link" href="#deleting-event-code-delete_event-code">3.18. Deleting event : <code>delete_event</code></a></h3>
 <div class="paragraph">
 <p>Deletes an event by specifying its name
 Format: <code>delete_event [NAME]</code></p>
@@ -624,7 +628,7 @@ You will delete the event named wedding.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.20. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.19. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the guest list to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -669,7 +673,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.21. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.20. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -701,14 +705,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
 <div class="paragraph">
 <p>As the guest list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need for you to save manually.</p>
@@ -755,7 +759,7 @@ You will see the guest list populate itself with the data from the specified CSV
 <p><code>addtag</code> : Adds a set of tags to all the guests in the current list.</p>
 </li>
 <li>
-<p><code>find</code> : Finds guests whose names contain any of the given keywords.</p>
+<p><code>find</code> : Finds guests whose names, phone numbers or email addresses contain any of the given keywords.</p>
 </li>
 <li>
 <p><code>list</code> : Lists the current guest list</p>
@@ -805,4 +809,4 @@ You will see the guest list populate itself with the data from the specified CSV
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 08:58:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 12:06:14 UTC</div></div></div></body></html>
