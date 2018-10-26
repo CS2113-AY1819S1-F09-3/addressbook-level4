@@ -21,13 +21,13 @@
 <li><a href="#removing-a-set-of-tags-from-all-guests-code-removetag-code">3.6. Removing a set of tags from all guests : <code>removeTag</code></a></li>
 <li><a href="#adding-a-set-of-tags-to-all-guests-code-addtag-code">3.7. Adding a set of tags to all guests : <code>addTag</code></a></li>
 <li><a href="#locating-guests-by-name-code-find-code">3.8. Locating guests by name: <code>find</code></a></li>
-<li><a href="#exporting-guests-to-csv-file-code-export-code">3.9. Exporting guests to CSV file : <code>export</code></a></li>
-<li><a href="#marking-a-guest-as-present-code-mark-code">3.10. Marking a guest as present : <code>mark</code></a></li>
-<li><a href="#marking-a-guest-as-absent-code-unmark-code">3.11. Marking a guest as absent : <code>unmark</code></a></li>
-<li><a href="#start-mass-attendance-marking-code-start_marking-code">3.12. Start mass attendance marking : <code>start_marking</code></a></li>
-<li><a href="#stop-mass-attendance-marking-code-stop_marking-code">3.13. Stop mass attendance marking : <code>stop_marking</code></a></li>
-<li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.14. Filter list based on specified parameters : <code>filter</code></a></li>
-<li><a href="#sending-emails-to-individual-guests-code-email-code">3.15. Sending emails to individual guests : <code>email</code></a></li>
+<li><a href="#import-guests-from-csv-file-code-import-code">3.9. Import guests from CSV file : <code>import</code></a></li>
+<li><a href="#exporting-guests-to-csv-file-code-export-code">3.10. Exporting guests to CSV file : <code>export</code></a></li>
+<li><a href="#marking-a-guest-as-present-code-mark-code">3.11. Marking a guest as present : <code>mark</code></a></li>
+<li><a href="#marking-a-guest-as-absent-code-unmark-code">3.12. Marking a guest as absent : <code>unmark</code></a></li>
+<li><a href="#start-mass-attendance-marking-code-start_marking-code">3.13. Start mass attendance marking : <code>start_marking</code></a></li>
+<li><a href="#stop-mass-attendance-marking-code-stop_marking-code">3.14. Stop mass attendance marking : <code>stop_marking</code></a></li>
+<li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.15. Filter list based on specified parameters : <code>filter</code></a></li>
 <li><a href="#sending-an-email-to-all-guests-code-emailall-code">3.16. Sending an email to all guests : <code>emailAll</code></a></li>
 <li><a href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code">3.17. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code></a></li>
 <li><a href="#creating-a-new-event-code-add_event-code">3.18. Creating a new event : <code>add_event</code></a></li>
@@ -409,11 +409,13 @@ You will be show a list containing entries of any guest having names <code>Betsy
 <li>
 <p><code>find n/alex p/92746838 e/johndoe@gmail.com</code><br>
 You will be show a list containing entries of any guest having the name <code>Alex</code>,
-phone number <code>92746838</code>, or email address <code>johndoe@gmail.com</code>
-=== Importing guests from CSV file : <code>import</code></p>
+phone number <code>92746838</code>, or email address <code>johndoe@gmail.com</code></p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="import-guests-from-csv-file-code-import-code"><a class="link" href="#import-guests-from-csv-file-code-import-code">3.9. Import guests from CSV file : <code>import</code></a></h3>
 <div class="paragraph">
 <p>Imports guests with data from a CSV formatted file. The structure for the values in the CSV file is predefined.<br>
 Format: <code>import FILE_PATH</code></p>
@@ -431,7 +433,7 @@ You will populate the guest list with the data imported from the CSV file in the
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-guests-to-csv-file-code-export-code"><a class="link" href="#exporting-guests-to-csv-file-code-export-code">3.9. Exporting guests to CSV file : <code>export</code></a></h3>
+<h3 id="exporting-guests-to-csv-file-code-export-code"><a class="link" href="#exporting-guests-to-csv-file-code-export-code">3.10. Exporting guests to CSV file : <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports guests' data to a CSV formatted file. The structure for the values in the CSV file is predefined.<br>
 Format: <code>export FILE_PATH</code></p>
@@ -449,7 +451,7 @@ You will export the current guest list entries into a CSV file in the specified 
 </div>
 </div>
 <div class="sect2">
-<h3 id="marking-a-guest-as-present-code-mark-code"><a class="link" href="#marking-a-guest-as-present-code-mark-code">3.10. Marking a guest as present : <code>mark</code></a></h3>
+<h3 id="marking-a-guest-as-present-code-mark-code"><a class="link" href="#marking-a-guest-as-present-code-mark-code">3.11. Marking a guest as present : <code>mark</code></a></h3>
 <div class="paragraph">
 <p>Marks a guest as present using a unique number assigned to them. This will also change the
 <code>a/PRESENT</code>​ tag associated with the guest to Present.<br>
@@ -468,7 +470,7 @@ You will mark the guest with phone number <code>81927291</code> as present.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="marking-a-guest-as-absent-code-unmark-code"><a class="link" href="#marking-a-guest-as-absent-code-unmark-code">3.11. Marking a guest as absent : <code>unmark</code></a></h3>
+<h3 id="marking-a-guest-as-absent-code-unmark-code"><a class="link" href="#marking-a-guest-as-absent-code-unmark-code">3.12. Marking a guest as absent : <code>unmark</code></a></h3>
 <div class="paragraph">
 <p>Marks a guest as absent using their unique number. This will also change the
 <code>a/PRESENT</code>​ tag associated with the guest to Absent.<br>
@@ -487,7 +489,7 @@ You will mark the guest with phone number <code>81927291</code> as absent.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-mass-attendance-marking-code-start_marking-code"><a class="link" href="#start-mass-attendance-marking-code-start_marking-code">3.12. Start mass attendance marking : <code>start_marking</code></a></h3>
+<h3 id="start-mass-attendance-marking-code-start_marking-code"><a class="link" href="#start-mass-attendance-marking-code-start_marking-code">3.13. Start mass attendance marking : <code>start_marking</code></a></h3>
 <div class="paragraph">
 <p>Start the mass attendance marking mode. Allows you to mark attendance without using
 the mark prefix.<br>
@@ -506,14 +508,14 @@ You will mark the guests with unique numbers 87654321, 87654322, 87654323, 87654
 </div>
 </div>
 <div class="sect2">
-<h3 id="stop-mass-attendance-marking-code-stop_marking-code"><a class="link" href="#stop-mass-attendance-marking-code-stop_marking-code">3.13. Stop mass attendance marking : <code>stop_marking</code></a></h3>
+<h3 id="stop-mass-attendance-marking-code-stop_marking-code"><a class="link" href="#stop-mass-attendance-marking-code-stop_marking-code">3.14. Stop mass attendance marking : <code>stop_marking</code></a></h3>
 <div class="paragraph">
 <p>Stop the mass attendance marking mode.<br>
 Format: <code>stop_marking</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-list-based-on-specified-parameters-code-filter-code"><a class="link" href="#filter-list-based-on-specified-parameters-code-filter-code">3.14. Filter list based on specified parameters : <code>filter</code></a></h3>
+<h3 id="filter-list-based-on-specified-parameters-code-filter-code"><a class="link" href="#filter-list-based-on-specified-parameters-code-filter-code">3.15. Filter list based on specified parameters : <code>filter</code></a></h3>
 <div class="paragraph">
 <p>Filter guest list based on filter guest attributes. Only filters based on
 payment status, attendance status and tags.<br>
@@ -525,13 +527,11 @@ Examples:</p>
 <ul>
 <li>
 <p><code>filter a/Present t/Vegetarian</code><br>
-You will be shown a list with guests who are present and have a vegetarian dietary requirement.</p>
+You will be shown a list with guests who are present and have a vegetarian dietary requirement.
+===   Sending emails to individual guests : <code>email</code></p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="sending-emails-to-individual-guests-code-email-code"><a class="link" href="#sending-emails-to-individual-guests-code-email-code">3.15. Sending emails to individual guests : <code>email</code></a></h3>
 <div class="paragraph">
 <p>Sends an email to the guest at a specific Index<br>
 Format: <code>email INDEX</code></p>
@@ -938,4 +938,4 @@ susceptible to an increased number of spam emails from untrusted applications. H
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-25 16:05:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-26 02:54:06 UTC</div></div></div></body></html>
