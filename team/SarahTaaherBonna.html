@@ -10,7 +10,43 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>The purpose of this portfolio is to document my role and contributions to the project.</p>
+</div>
+<div class="paragraph">
 <p>Invités - An event management system. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+<div class="paragraph">
+<p>Responsibility - My task was to handle data filtration. I split this task into two. First, I created a Filter command
+to handle data filtration for the payment status, attendance status and the tags, as these fields
+were not unique to any person. Next, I modified the existing Find command to handle names,
+phone numbers and email addresses, as these were unique fields, and the user may want to find a few
+guests at one go. Rather than use the Filter command, which would yield results one-by-one,
+the Find command allows the user to find a few guests at the same time.</p>
+</div>
+<div class="paragraph">
+<p>Project Scope -</p>
+</div>
+<div class="paragraph">
+<p>Team:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Aaryam - Mail feature</p>
+</li>
+<li>
+<p>Sandhya - Events feature</p>
+</li>
+<li>
+<p>Sarah - Data Filtration feature</p>
+</li>
+<li>
+<p>Tze Guang - Attendance-taking feature</p>
+</li>
+<li>
+<p>Wei Ming - Data Importation feature</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -45,16 +81,6 @@ so that the user can find a group of people at one go, instead of doing it one-b
 <p><strong>Other contributions</strong>: Created Payment and Attendance attributes of a person</p>
 <div class="ulist">
 <ul>
-<li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
 <li>
 <p>Enhancements to existing features:</p>
 <div class="ulist">
@@ -172,11 +198,16 @@ You will be show a list containing entries of any guest having names <code>Betsy
 <li>
 <p><code>find n/alex p/92746838 e/johndoe@gmail.com</code><br>
 You will be show a list containing entries of any guest having the name <code>Alex</code>,
-phone number <code>92746838</code>, or email address <code>johndoe@gmail.com</code>
-== Contributions to the Developer Guide</p>
+phone number <code>92746838</code>, or email address <code>johndoe@gmail.com</code></p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -187,7 +218,6 @@ phone number <code>92746838</code>, or email address <code>johndoe@gmail.com</co
 </tr>
 </tbody>
 </table>
-</div>
 <div class="sect2">
 <h3 id="filter-feature"><a class="link" href="#filter-feature">Filter feature</a></h3>
 <div class="sect3">
@@ -250,4 +280,4 @@ The <code>find</code> command calls <code>Model#getFilteredPersonList()</code>.<
 <div class="sectionbody">
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-27 09:26:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 13:04:37 UTC</div></div></div></body></html>
