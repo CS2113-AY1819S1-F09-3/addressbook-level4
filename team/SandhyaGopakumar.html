@@ -192,246 +192,10 @@ Format: <code>delete_event</code></p>
 <ul>
 <li>
 <p><code>delete_event</code><br>
-You will delete the event details.
-=== Undoing previous command : <code>undo</code></p>
+You will delete the event details.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Restores the guest list to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the guest list&#8217;s content (<code>add_guest</code>, <code>delete_guest</code>, <code>edit_guest</code>, <code>removeTag</code>, <code>addTag</code>, and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete_guest 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete_guest 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete_guest 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete_guest 1</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete_guest 1</code><br>
-<code>undo</code> (reverses the <code>delete_guest 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete_guest 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete_guest 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete_guest 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete_guest 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete_guest 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
-<div class="paragraph">
-<p>As the guest list data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need for you to save manually.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous guest list.<br>
-Alternatively, you could export the data from your current computer using the export command. Using this data you can launch the application on a different computer and import the data.</p>
-</div>
-<div class="paragraph">
-<p><strong>Q</strong>: ​How do I import my existing data on a CSV into the application?<br>
-<strong>A</strong>: Firstly, create a new event within the application. After this, use the import function and specify the path to the file.
-You will see the guest list populate itself with the data from the specified CSV file.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="setting-up-your-gmail-account"><a class="link" href="#setting-up-your-gmail-account">Setting up your Gmail Account</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In order for you to use the commands <code>email</code>, <code>emailAll</code>, and <code>forceEmail</code>, you must allow Invités to access your email account and
-send emails. Currently, our application only supports Gmail accounts, but we do plan on supporting
-other email domains.</p>
-</div>
-<div class="paragraph">
-<p>If you do have a Gmail account, please follow these steps to enable email services:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Login to your Gmail account using your preferred online browser (e.g. Chrome, Firefox).</p>
-</li>
-<li>
-<p>Click on your profile picture on the top right, and click on <code>Google Account</code></p>
-</li>
-<li>
-<p>Once you are re-directed, under the <code>Sign-in and security</code> section, click on <code>Apps with account access</code></p>
-</li>
-<li>
-<p>Scroll down till you find the section <code>Allow less secure apps</code> on the right. Set this option to <code>ON</code>.</p>
-</li>
-<li>
-<p>In the Invités application, please specify your username and password in the file <code>Credentials.txt</code> at <code>/src/main/resources/EmailData/</code> in your project folder.</p>
-</li>
-<li>
-<p>Please specify an email subject and message in the file <code>Message.txt</code> also at <code>/src/main/resources/EmailData/</code> in your project folder.</p>
-</li>
-<li>
-<p>You are now ready to send emails to your guests through Invités!</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Currently there is no other way to enable mailing services than to let your Gmail account allow less secure apps, and hence your account may be
-susceptible to an increased number of spam emails from untrusted applications. However, our team is working quickly to find a more secure replacement.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><code>help</code> : ​Displays a help sheet containing useful commands.</p>
-</li>
-<li>
-<p><code>add_guest</code> : ​Creates an entry for a guest to attend the event.</p>
-</li>
-<li>
-<p><code>edit_guest</code> :​ Modifies the entry of a specified guest based on name.</p>
-</li>
-<li>
-<p><code>delete_guest</code> : ​Removes an entry of a specified guest based on name.</p>
-</li>
-<li>
-<p><code>removeTag</code> : Removes a set of tags from all the guests in the current list.</p>
-</li>
-<li>
-<p><code>addtag</code> : Adds a set of tags to all the guests in the current list.</p>
-</li>
-<li>
-<p><code>find</code> : Finds guests whose names, phone numbers or email addresses contain any of the given keywords.</p>
-</li>
-<li>
-<p><code>list</code> : Lists the current guest list.</p>
-</li>
-<li>
-<p><code>import</code> : ​Automatically generates guest list from a given CSV file.</p>
-</li>
-<li>
-<p><code>export</code> : Exports guest list to a CSV file.</p>
-</li>
-<li>
-<p><code>mark</code> : ​Tags a guest to note that they are currently at the event.</p>
-</li>
-<li>
-<p><code>unmark</code> : ​Removes the tag of a guest attending the event based on name.</p>
-</li>
-<li>
-<p><code>start_marking</code> : ​Begins continuous marking of the people entering the event.</p>
-</li>
-<li>
-<p><code>stop_marking</code> : ​Stops the continuous marking of people.</p>
-</li>
-<li>
-<p><code>filter</code> : ​Filters the guest list based on keywords given.</p>
-</li>
-<li>
-<p><code>email</code> : ​Sends individual emails to an entry of a specified guest based on index.</p>
-</li>
-<li>
-<p><code>emailAll</code> : Sends an email to all of the guests in the current list.</p>
-</li>
-<li>
-<p><code>forceEmail</code> : Sends an email to the guest specified by the index, regardless of how many emails have been sent to that guest.</p>
-</li>
-<li>
-<p><code>add_event</code> :​ Adds the details of your event.</p>
-</li>
-<li>
-<p><code>edit_event</code> : Edits the details of the event.</p>
-</li>
-<li>
-<p><code>delete_event</code> : ​Removes the specified event details.</p>
-</li>
-<li>
-<p><code>undo</code> : Restores the guest list to the state before the previous undoable command was executed.</p>
-</li>
-<li>
-<p><code>redo</code> : Reverses the most recent undo command.</p>
-</li>
-<li>
-<p><code>exit</code> : ​Exits the application.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -448,5 +212,133 @@ susceptible to an increased number of spam emails from untrusted applications. H
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="add-delete-event-feature"><a class="link" href="#add-delete-event-feature">Add/Delete Event feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The add_event and delete_event mechanisms are facilitated by <code>VersionedAddressBook</code>.
+Given below is an example usage scenario and how the add_event and delete_event mechanisms behave at each step.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:15:20 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>add_event n/Wedding t/8thOct t/10AM</code> command to add in details about the event they are currently organising.
+The <code>add_event</code> command calls <code>Model#addEvent()</code> to add in the event details.
+It calls&#8217;Model#commitAddressBook()' as well, causing the modified state of the address book after the <code>add_event n/Wedding t/8thOct t/10AM</code> command executes to be saved in the <code>addressBookStateList</code>.
+The <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user has added in the details of the event they are organising, then another set of event details should not be stored.
+The <code>add_event</code> command uses <code>Model#hasEvent()</code> to check if this is the case. If so, it will return an error to the user.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. After the event has taken place, the user decides to organise another event with the same guest list and decides to delete the event details using the 'delete_event' command.
+The <code>delete_event</code> command calls <code>Model#deleteEvent to delete the event&#8217;s details.
+The command also calls Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user has not added in the details of an event, then there are no specific event details to delete.
+The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to check if this is the case. If so, it will return an error to the user.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add_event operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddDeleteEventSequenceDiagram.png" alt="AddDeleteEventSequenceDiagram" width="1000">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-event-feature"><a class="link" href="#edit-event-feature">Edit Event feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The edit_event mechanism is facilitated by <code>VersionedAddressBook</code>.
+Given below is an example usage scenario and how the edit_event mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>add_event n/Wedding d/8/12/2019 v/Hilton st/10:00 AM</code> command to add in details about the event they are currently organising.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Due to a sudden change of plans, the user wishes to change the event&#8217;s date and venue.
+The user executes 'edit_event d/10/12/2019 v/Novotel' command. The 'edit_event' command calls <code>Model#updateEvent' to update the event&#8217;s details.
+The command also calls Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user has not added in the details of an event, then there are no specific event details to delete.
+The <code>edit_event</code> command uses <code>Model#hasEvent()</code> to check if this is the case. If so, it will return an error to the user.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:16:13 UTC</div></div></div></body></html>
