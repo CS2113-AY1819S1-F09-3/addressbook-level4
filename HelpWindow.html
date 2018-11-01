@@ -28,15 +28,16 @@
 <li><a href="#start-mass-attendance-marking-code-start_marking-code">3.13. Start mass attendance marking : <code>start_marking</code></a></li>
 <li><a href="#stop-mass-attendance-marking-code-stop_marking-code">3.14. Stop mass attendance marking : <code>stop_marking</code></a></li>
 <li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.15. Filter list based on specified parameters : <code>filter</code></a></li>
-<li><a href="#sending-an-email-to-all-guests-code-emailall-code">3.16. Sending an email to all guests : <code>emailAll</code></a></li>
-<li><a href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code">3.17. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code></a></li>
-<li><a href="#creating-a-new-event-code-add_event-code">3.18. Creating a new event : <code>add_event</code></a></li>
-<li><a href="#editing-an-event-code-edit_event-code">3.19. Editing an event : <code>edit_event</code></a></li>
-<li><a href="#deleting-event-code-delete_event-code">3.20. Deleting event : <code>delete_event</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.21. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.22. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.24. Saving the data</a></li>
+<li><a href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></li>
+<li><a href="#sending-an-email-to-all-guests-code-emailall-code">3.17. Sending an email to all guests : <code>emailAll</code></a></li>
+<li><a href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code></a></li>
+<li><a href="#creating-a-new-event-code-add_event-code">3.19. Creating a new event : <code>add_event</code></a></li>
+<li><a href="#editing-an-event-code-edit_event-code">3.20. Editing an event : <code>edit_event</code></a></li>
+<li><a href="#deleting-event-code-delete_event-code">3.21. Deleting event : <code>delete_event</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.22. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.25. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -541,11 +542,13 @@ Examples:</p>
 <ul>
 <li>
 <p><code>filter a/Present t/Vegetarian</code><br>
-You will be shown a list with guests who are present and have a vegetarian dietary requirement.
-===   Sending emails to individual guests : <code>email</code></p>
+You will be shown a list with guests who are present and have a vegetarian dietary requirement.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="sending-emails-to-individual-guests-code-email-code"><a class="link" href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></h3>
 <div class="paragraph">
 <p>Sends an email to the guest at a specific Index<br>
 Format: <code>email INDEX</code></p>
@@ -595,7 +598,7 @@ You will send an email to the 2nd guest in the list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-an-email-to-all-guests-code-emailall-code"><a class="link" href="#sending-an-email-to-all-guests-code-emailall-code">3.16. Sending an email to all guests : <code>emailAll</code></a></h3>
+<h3 id="sending-an-email-to-all-guests-code-emailall-code"><a class="link" href="#sending-an-email-to-all-guests-code-emailall-code">3.17. Sending an email to all guests : <code>emailAll</code></a></h3>
 <div class="paragraph">
 <p>Sends an email to all of the guests in the current list<br>
 Format: <code>emailAll</code></p>
@@ -613,7 +616,7 @@ Sends an email to all the guests in the list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code"><a class="link" href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code">3.17. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code></a></h3>
+<h3 id="sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code"><a class="link" href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code></a></h3>
 <div class="paragraph">
 <p>Sends an email to the guest specified by the index, regardless of how many emails have been sent to that guest<br>
 Format: <code>forceEmail INDEX</code></p>
@@ -660,7 +663,7 @@ Forces an email to be sent to the guest specified by INDEX.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-new-event-code-add_event-code"><a class="link" href="#creating-a-new-event-code-add_event-code">3.18. Creating a new event : <code>add_event</code></a></h3>
+<h3 id="creating-a-new-event-code-add_event-code"><a class="link" href="#creating-a-new-event-code-add_event-code">3.19. Creating a new event : <code>add_event</code></a></h3>
 <div class="paragraph">
 <p>Creates a new event<br>
 Format: <code>add_event n/EVENT_NAME [t/DATE_TIME]</code></p>
@@ -678,7 +681,7 @@ You will create an event called <code>CFG career talk</code> on the 18th of Sept
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-event-code-edit_event-code"><a class="link" href="#editing-an-event-code-edit_event-code">3.19. Editing an event : <code>edit_event</code></a></h3>
+<h3 id="editing-an-event-code-edit_event-code"><a class="link" href="#editing-an-event-code-edit_event-code">3.20. Editing an event : <code>edit_event</code></a></h3>
 <div class="paragraph">
 <p>Edit the currently selected event<br>
 Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
@@ -696,7 +699,7 @@ You will change the data and time of the event <code>CFG career talk</code> to 1
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-event-code-delete_event-code"><a class="link" href="#deleting-event-code-delete_event-code">3.20. Deleting event : <code>delete_event</code></a></h3>
+<h3 id="deleting-event-code-delete_event-code"><a class="link" href="#deleting-event-code-delete_event-code">3.21. Deleting event : <code>delete_event</code></a></h3>
 <div class="paragraph">
 <p>Deletes an event by specifying its name
 Format: <code>delete_event [NAME]</code></p>
@@ -714,7 +717,7 @@ You will delete the event named wedding.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.21. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.22. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the guest list to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -759,7 +762,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.22. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -791,14 +794,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.24. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.25. Saving the data</a></h3>
 <div class="paragraph">
 <p>As the guest list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need for you to save manually.</p>
@@ -952,4 +955,4 @@ susceptible to an increased number of spam emails from untrusted applications. H
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 03:37:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 07:51:22 UTC</div></div></div></body></html>
