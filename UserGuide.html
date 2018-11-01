@@ -25,8 +25,8 @@
 <li><a href="#exporting-guests-to-csv-file-code-export-code">3.10. Exporting guests to CSV file : <code>export</code></a></li>
 <li><a href="#marking-a-guest-as-present-code-mark-code">3.11. Marking a guest as present : <code>mark</code></a></li>
 <li><a href="#marking-a-guest-as-absent-code-unmark-code">3.12. Marking a guest as absent : <code>unmark</code></a></li>
-<li><a href="#start-mass-attendance-marking-code-start_marking-code">3.13. Start mass attendance marking : <code>start_marking</code></a></li>
-<li><a href="#stop-mass-attendance-marking-code-stop_marking-code">3.14. Stop mass attendance marking : <code>stop_marking</code></a></li>
+<li><a href="#start-mass-attendance-marking-code-start_marking-code-to-be-implemented-in-future-releases">3.13. Start mass attendance marking : <code>start_marking</code> [To be implemented in future releases]</a></li>
+<li><a href="#stop-mass-attendance-marking-code-stop_marking-code-to-be-implemented-in-future-releases">3.14. Stop mass attendance marking : <code>stop_marking</code> [To be implemented in future releases]</a></li>
 <li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.15. Filter list based on specified parameters : <code>filter</code></a></li>
 <li><a href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></li>
 <li><a href="#sending-an-email-to-all-guests-code-emailall-code">3.17. Sending an email to all guests : <code>emailAll</code></a></li>
@@ -470,7 +470,20 @@ You will export the currently filtered guest list entries into a CSV file in the
 <div class="paragraph">
 <p>Marks a guest as present using a unique number assigned to them. This will also change the
 <code>a/PRESENT</code>​ tag associated with the guest to Present.<br>
-Format: <code>mark [p/PHONE_NUMBER]</code></p>
+Format: <code>mark [PHONE_NUMBER]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>PHONE_NUMBER</code> does not use the p/ prefix.<br>
+<code>PHONE_NUMBER</code> only accepts a string of numbers, other characters will trigger an invalid command format error.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -489,7 +502,20 @@ You will mark the guest with phone number <code>81927291</code> as present.</p>
 <div class="paragraph">
 <p>Marks a guest as absent using their unique number. This will also change the
 <code>a/PRESENT</code>​ tag associated with the guest to Absent.<br>
-Format: <code>unmark [p/PHONE_NUMBER]</code></p>
+Format: <code>unmark [PHONE_NUMBER]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>PHONE_NUMBER</code> does not use the p/ prefix.<br>
+<code>PHONE_NUMBER</code> only accepts a string of numbers, other characters will trigger an invalid command format error.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -504,7 +530,19 @@ You will mark the guest with phone number <code>81927291</code> as absent.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-mass-attendance-marking-code-start_marking-code"><a class="link" href="#start-mass-attendance-marking-code-start_marking-code">3.13. Start mass attendance marking : <code>start_marking</code></a></h3>
+<h3 id="start-mass-attendance-marking-code-start_marking-code-to-be-implemented-in-future-releases"><a class="link" href="#start-mass-attendance-marking-code-start_marking-code-to-be-implemented-in-future-releases">3.13. Start mass attendance marking : <code>start_marking</code> [To be implemented in future releases]</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature is not implemented yet
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Start the mass attendance marking mode. Allows you to mark attendance without using
 the mark prefix.<br>
@@ -523,7 +561,19 @@ You will mark the guests with unique numbers 87654321, 87654322, 87654323, 87654
 </div>
 </div>
 <div class="sect2">
-<h3 id="stop-mass-attendance-marking-code-stop_marking-code"><a class="link" href="#stop-mass-attendance-marking-code-stop_marking-code">3.14. Stop mass attendance marking : <code>stop_marking</code></a></h3>
+<h3 id="stop-mass-attendance-marking-code-stop_marking-code-to-be-implemented-in-future-releases"><a class="link" href="#stop-mass-attendance-marking-code-stop_marking-code-to-be-implemented-in-future-releases">3.14. Stop mass attendance marking : <code>stop_marking</code> [To be implemented in future releases]</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature is not implemented yet
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Stop the mass attendance marking mode.<br>
 Format: <code>stop_marking</code></p>
@@ -1182,4 +1232,4 @@ susceptible to an increased number of spam emails from untrusted applications. H
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 15:05:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 15:25:08 UTC</div></div></div></body></html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tan Tze Guang - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><img src="../images/InvitésLogoBanner.png"><a class="navbar-brand" href="../index.html">Invités</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-F09-3/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Tze Guang - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-invités"><a class="link" href="#project-invités">PROJECT: Invités</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Invités is a desktop application used by people who manage and plan events to streamline their processes and better manage the events that they are handling.
+The user interacts with it mainly using a CLI, and it has a GUI created with JavaFX.</p>
+</div>
+<div class="paragraph">
+<p>Project scope - Invités is an event management system that provides an intuitive platform for event planners to better organise and manage
+the reception during small or large events such as school orientation camps, committee events or more formal occasions such as weddings.
+The main features that streamline the processes of the event planner is the ability to send mass emails to attendees,
+keep track of payments, as well as attendance tracking during the event itself. If the event planner used other applications
+to store his data, they can easily import their data over from CSV files that can be generated from Microsoft Excel.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added the function to mark attendance of the attendees in the Guest list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This function allows the person planning an event to keep track of the number of attendees whom have arrived at the event by marking them as present or absent during the event itself.</p>
+</li>
+<li>
+<p>Justification: This feature is necessary in the implementation of our guest list as it is a core feature that gives the event planner peace of mind as it is a tool for them to ensure that the event is run smoothly.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/kronicler/main/blob/master/kronicler.md">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+</li>
+<li>
+<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a new Github plugin (CircleCI) to my personal forked repo to ensure that the my build succeeds before a pull request is done to
+main repo.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="marking-a-guest-as-present-code-mark-code"><a class="link" href="#marking-a-guest-as-present-code-mark-code">Marking a guest as present : <code>mark</code></a></h3>
+<div class="paragraph">
+<p>Marks a guest as present using a unique number assigned to them. This will also change the
+<code>a/PRESENT</code>​ tag associated with the guest to Present.<br>
+Format: <code>mark [PHONE_NUMBER]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>PHONE_NUMBER</code> does not use the p/ prefix.<br>
+<code>PHONE_NUMBER</code> only accepts a string of numbers, other characters will trigger an invalid command format error.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>mark 81927291</code><br>
+You will mark the guest with phone number <code>81927291</code> as present.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="marking-a-guest-as-absent-code-unmark-code"><a class="link" href="#marking-a-guest-as-absent-code-unmark-code">Marking a guest as absent : <code>unmark</code></a></h3>
+<div class="paragraph">
+<p>Marks a guest as absent using their unique number. This will also change the
+<code>a/PRESENT</code>​ tag associated with the guest to Absent.<br>
+Format: <code>unmark [PHONE_NUMBER]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>PHONE_NUMBER</code> does not use the p/ prefix.<br>
+<code>PHONE_NUMBER</code> only accepts a string of numbers, other characters will trigger an invalid command format error.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unmark 81927291</code><br>
+You will mark the guest with phone number <code>81927291</code> as absent.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-mass-attendance-marking-code-start_marking-code-to-be-implemented-in-future-releases"><a class="link" href="#start-mass-attendance-marking-code-start_marking-code-to-be-implemented-in-future-releases">Start mass attendance marking : <code>start_marking</code> [To be implemented in future releases]</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature is not implemented yet
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Start the mass attendance marking mode. Allows you to mark attendance without using
+the mark prefix.<br>
+Format: <code>start_marking [TICKET_ID]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>start_marking</code> + <code>87654321</code> + <code>87654322</code> + <code>87654323</code> + <code>87654324&#8230;&#8203;</code><br>
+You will mark the guests with unique numbers 87654321, 87654322, 87654323, 87654324 as present</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stop-mass-attendance-marking-code-stop_marking-code-to-be-implemented-in-future-releases"><a class="link" href="#stop-mass-attendance-marking-code-stop_marking-code-to-be-implemented-in-future-releases">Stop mass attendance marking : <code>stop_marking</code> [To be implemented in future releases]</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature is not implemented yet
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Stop the mass attendance marking mode.<br>
+Format: <code>stop_marking</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="mark-unmark-command"><a class="link" href="#mark-unmark-command">Mark/Unmark Command</a></h3>
+<div class="paragraph">
+<p>The mark/unmark mechanism is facilitated by <code>Model</code>.
+Given below is an example usage scenario and how the mark/unmark command executes at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state and the currentStatePointer pointing to that single address book state.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes the command <code>import guestlist.csv</code> to import a list of guest and add them to the current state of the <code>AddressBook</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Alternatively, the user can execute the command <code>add_guest n/John Doe p/98765432 e/johnd@gmail.com pa/PAID a/ABSENT t/NORMAL</code> to create an instance of one guest and add them to the current state of <code>AddressBook</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. The user will execute the command <code>mark 98765432</code> to mark the attendance of the <code>Person</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. An instance of <code>filteredPersonList</code> is retrieved from the <code>model</code> using <code>MODEL#getFliteredPersonList</code>. A linear search is then executed on the <code>filteredPersonList</code> to find a <code>Person</code> with the same phone number as <code>98765432</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If there is no matching phone number found, a <code>COMMANDEXCEPTION</code> will be thrown to indicate nobody in the list has the phone number.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. After retrieving the information from the discovered <code>Person</code>, another <code>Person</code> is created with the same fields with the exception of the attendance field being changed from <code>ABSENT</code> to <code>PRESENT</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. Finally, the entry is updated using <code>MODEL#updatePerson</code> to transfer the new information into the <code>filteredPersonList</code> before <code>commitAddressBook</code> is executed to save the state of the <code>AddressBook</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add_event operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MarkUnmarkEventSequenceDiagram.png" alt="MarkUnmarkEventSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 15:25:08 UTC</div></div></div></body></html>
