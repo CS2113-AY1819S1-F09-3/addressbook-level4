@@ -30,16 +30,18 @@
 <li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.15. Filter list based on specified parameters : <code>filter</code></a></li>
 <li><a href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></li>
 <li><a href="#sending-an-email-to-all-guests-code-emailall-code">3.17. Sending an email to all guests : <code>emailAll</code></a></li>
-<li><a href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code></a></li>
-<li><a href="#editing-the-event-s-details-code-edit_event-code">3.19. Editing the event&#8217;s details : <code>edit_event</code></a></li>
-<li><a href="#deleting-event-details-code-delete_event-code">3.20. Deleting event details : <code>delete_event</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.21. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.23. Saving the data</a></li>
+<li><a href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code-em-coming-in-v2-0-em">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code> - <em>Coming in v2.0</em></a></li>
+<li><a href="#sending-emails-to-specific-groups-of-guests-code-emailspecialised-code-em-coming-in-v2-0-em">3.19. Sending emails to specific groups of guests : <code>emailSpecialised</code> - <em>Coming in v2.0</em></a></li>
+<li><a href="#adding-event-details-code-add_event-code">3.20. Adding event details : <code>add_event</code></a></li>
+<li><a href="#editing-the-event-s-details-code-edit_event-code">3.21. Editing the event&#8217;s details : <code>edit_event</code></a></li>
+<li><a href="#deleting-event-details-code-delete_event-code">3.22. Deleting event details : <code>delete_event</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.25. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#setting-up-your-gmail-account">5. Setting up your Gmail Account</a></li>
+<li><a href="#enabling-email-services">5. Enabling Email Services</a></li>
 <li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
@@ -119,7 +121,7 @@ are included in this application</p>
 </li>
 <li>
 <p>If you would like to perform emailing services through our application, please complete the steps as shown
-in the section <a href="#setting-up-your-gmail-account">Section 5, &#8220;Setting up your Gmail Account&#8221;</a></p>
+in <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a></p>
 </li>
 </ol>
 </div>
@@ -551,6 +553,16 @@ You will be shown a list with guests who are present and have a vegetarian dieta
 </div>
 <div class="sect2">
 <h3 id="sending-emails-to-individual-guests-code-email-code"><a class="link" href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> in order for this feature to work!</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Sends an email to the guest at a specific Index<br>
 Format: <code>email INDEX</code></p>
@@ -580,8 +592,73 @@ Format: <code>email INDEX</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>All email subjects and messages have been pre-written and are available in the file at <code>src/main/resources/EmailData/Message.txt</code>.
-You are free to edit these messages to suit your own needs.</p>
+<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>email</code> command as once you have sent an email, you cannot reverse this action.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Examples</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>email 2</code><br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, you will be presented with an EmailWindow similar to Figure 1 below. This window is for you to input your email address, password, email subject and message.</p>
+</li>
+<li>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 2.</p>
+</li>
+<li>
+<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to the <strong>2nd guest</strong> in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 1 - EmailWindow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowError.png" alt="EmailWindowError"></span> Figure 2 - Field Errors</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="sending-an-email-to-all-guests-code-emailall-code"><a class="link" href="#sending-an-email-to-all-guests-code-emailall-code">3.17. Sending an email to all guests : <code>emailAll</code></a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> in order for this feature to work!</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Sends an email to all of the guests in the current list<br>
+Format: <code>emailAll</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>email</code> command as once you have sent an email, you cannot reverse this action.</p>
 </div>
 </td>
 </tr>
@@ -593,32 +670,48 @@ You are free to edit these messages to suit your own needs.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>email 2</code><br>
-You will send an email to the 2nd guest in the list.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sending-an-email-to-all-guests-code-emailall-code"><a class="link" href="#sending-an-email-to-all-guests-code-emailall-code">3.17. Sending an email to all guests : <code>emailAll</code></a></h3>
-<div class="paragraph">
-<p>Sends an email to all of the guests in the current list<br>
-Format: <code>emailAll</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
+<p><code>emailAll</code><br></p>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>emailAll</code><br>
-Sends an email to all the guests in the list.</p>
+<p>First, you will be presented with an EmailWindow similar to Figure 1 below. This window is for you to input your email address, password, email subject and message.</p>
+</li>
+<li>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 2.</p>
+</li>
+<li>
+<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+</li>
+</ol>
+</div>
 </li>
 </ul>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 1 - EmailWindow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowError.png" alt="EmailWindowError"></span> Figure 2 - Field Errors</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
-<h3 id="sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code"><a class="link" href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code></a></h3>
+<h3 id="sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code-em-coming-in-v2-0-em"><a class="link" href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code-em-coming-in-v2-0-em">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code> - <em>Coming in v2.0</em></a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> in order for this feature to work!</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Sends an email to the guest specified by the index, regardless of how many emails have been sent to that guest<br>
 Format: <code>forceEmail INDEX</code></p>
@@ -648,6 +741,9 @@ Format: <code>forceEmail INDEX</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
+<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>email</code> command as once you have sent an email, you cannot reverse this action.</p>
+</div>
+<div class="paragraph">
 <p>If you try to send multiple emails to the same guest, the system will inform you of this and not allow you to spam the guest.
 However, the <code>forceEmail</code> command will allow you to send another email, regardless of how many emails have been sent before.</p>
 </div>
@@ -659,11 +755,65 @@ However, the <code>forceEmail</code> command will allow you to send another emai
 <ul>
 <li>
 <p><code>forceEmail</code><br>
-Forces an email to be sent to the guest specified by INDEX.
-===   Adding event details : <code>add_event</code></p>
+Forces an email to be sent to the guest specified by INDEX.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, you will be presented with an EmailWindow similar to Figure 1 below. This window is for you to input your email address, password, email subject and message.</p>
+</li>
+<li>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 2.</p>
+</li>
+<li>
+<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+</li>
+</ol>
+</div>
 </li>
 </ul>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 1 - EmailWindow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowError.png" alt="EmailWindowError"></span> Figure 2 - Field Errors</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="sending-emails-to-specific-groups-of-guests-code-emailspecialised-code-em-coming-in-v2-0-em"><a class="link" href="#sending-emails-to-specific-groups-of-guests-code-emailspecialised-code-em-coming-in-v2-0-em">3.19. Sending emails to specific groups of guests : <code>emailSpecialised</code> - <em>Coming in v2.0</em></a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> in order for this feature to work!</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>email</code> command as once you have sent an email, you cannot reverse this action.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-event-details-code-add_event-code"><a class="link" href="#adding-event-details-code-add_event-code">3.20. Adding event details : <code>add_event</code></a></h3>
 <div class="paragraph">
 <p>Add the details for an event<br>
 Format: <code>add_event n/EVENT_NAME d/DATE v/VENUE st/START_TIME [t/OTHER_TAGS]</code></p>
@@ -707,7 +857,7 @@ You will create an event called <code>CFG career talk</code> that will take plac
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-the-event-s-details-code-edit_event-code"><a class="link" href="#editing-the-event-s-details-code-edit_event-code">3.19. Editing the event&#8217;s details : <code>edit_event</code></a></h3>
+<h3 id="editing-the-event-s-details-code-edit_event-code"><a class="link" href="#editing-the-event-s-details-code-edit_event-code">3.21. Editing the event&#8217;s details : <code>edit_event</code></a></h3>
 <div class="paragraph">
 <p>Edit the details of the event<br>
 Format: <code>edit_event [n/EVENT_NAME] [d/DATE] [v/VENUE] [st/START_TIME] [t/&#8230;&#8203;]</code></p>
@@ -751,7 +901,7 @@ You will change the name of the event to 'CFG Career Workshop and replace the ex
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-event-details-code-delete_event-code"><a class="link" href="#deleting-event-details-code-delete_event-code">3.20. Deleting event details : <code>delete_event</code></a></h3>
+<h3 id="deleting-event-details-code-delete_event-code"><a class="link" href="#deleting-event-details-code-delete_event-code">3.22. Deleting event details : <code>delete_event</code></a></h3>
 <div class="paragraph">
 <p>Deletes the event details currently present in the application
 Format: <code>delete_event</code></p>
@@ -826,7 +976,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.21. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -858,14 +1008,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.25. Saving the data</a></h3>
 <div class="paragraph">
 <p>As the guest list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need for you to save manually.</p>
@@ -889,15 +1039,15 @@ You will see the guest list populate itself with the data from the specified CSV
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up-your-gmail-account"><a class="link" href="#setting-up-your-gmail-account">5. Setting up your Gmail Account</a></h2>
+<h2 id="enabling-email-services"><a class="link" href="#enabling-email-services">5. Enabling Email Services</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order for you to use the commands <code>email</code>, <code>emailAll</code>, and <code>forceEmail</code>, you must allow Invités to access your email account and
+<p>In order for you to use the commands <code>email</code>, <code>emailAll</code>, <code>forceEmail</code>, and <code>emailSpecialised</code> you must allow Invités to access your email account and
 send emails. Currently, our application only supports Gmail accounts, but we do plan on supporting
 other email domains.</p>
 </div>
 <div class="paragraph">
-<p>If you do have a Gmail account, please follow these steps to enable email services:</p>
+<p>If you do have a <strong>Gmail</strong> account, please follow these steps to enable email services:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -912,12 +1062,6 @@ other email domains.</p>
 </li>
 <li>
 <p>Scroll down till you find the section <code>Allow less secure apps</code> on the right. Set this option to <code>ON</code>.</p>
-</li>
-<li>
-<p>In the Invités application, please specify your username and password in the file <code>Credentials.txt</code> at <code>/src/main/resources/EmailData/</code> in your project folder.</p>
-</li>
-<li>
-<p>Please specify an email subject and message in the file <code>Message.txt</code> also at <code>/src/main/resources/EmailData/</code> in your project folder.</p>
 </li>
 <li>
 <p>You are now ready to send emails to your guests through Invités!</p>
@@ -937,6 +1081,22 @@ susceptible to an increased number of spam emails from untrusted applications. H
 </tr>
 </table>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>For <strong>testing</strong> purposes, you may use a default Gmail account we have created to save you some time:</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email Address: <em>invitestestpe1@gmail.com</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password: <em>practicalexam1</em></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -999,6 +1159,9 @@ susceptible to an increased number of spam emails from untrusted applications. H
 <p><code>forceEmail</code> : Sends an email to the guest specified by the index, regardless of how many emails have been sent to that guest.</p>
 </li>
 <li>
+<p><code>emailSpecialised</code> : Sends an email to the guests with the specified tags.</p>
+</li>
+<li>
 <p><code>add_event</code> :​ Adds the details of your event.</p>
 </li>
 <li>
@@ -1019,4 +1182,4 @@ susceptible to an increased number of spam emails from untrusted applications. H
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:46:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 15:05:54 UTC</div></div></div></body></html>
