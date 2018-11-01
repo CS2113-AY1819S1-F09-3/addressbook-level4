@@ -31,13 +31,11 @@
 <li><a href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></li>
 <li><a href="#sending-an-email-to-all-guests-code-emailall-code">3.17. Sending an email to all guests : <code>emailAll</code></a></li>
 <li><a href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code></a></li>
-<li><a href="#creating-a-new-event-code-add_event-code">3.19. Creating a new event : <code>add_event</code></a></li>
-<li><a href="#editing-an-event-code-edit_event-code">3.20. Editing an event : <code>edit_event</code></a></li>
-<li><a href="#deleting-event-code-delete_event-code">3.21. Deleting event : <code>delete_event</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.22. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.25. Saving the data</a></li>
+<li><a href="#editing-the-event-s-details-code-edit_event-code">3.19. Editing the event&#8217;s details : <code>edit_event</code></a></li>
+<li><a href="#deleting-event-details-code-delete_event-code">3.20. Deleting event details : <code>delete_event</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.21. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.23. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -50,14 +48,14 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Invités is an application targeted at event managers and planners, that allows you to better <strong>organise, cater, and manage</strong> the reception for large events such
-as weddings, school gatherings, orientation camps, etc. Some of the main features include the ability to send mass emails, keep track of payments, as well as the tab
-keeping of attendance of the guests. To add to this, by employing a standardised format, the application is able to take in Comma Separated Values (CSV) files and import data for a particular event.
-This removes your need having to input all the information manually, as well as subsequently, gives you an alternative if you decide to organise another event using the same guest list.</p>
+<p>Invités is an application targeted at event managers and planners. The application allows you to efficiently <strong>organise, cater, and manage</strong> large events such
+as weddings, school gatherings, orientation camps, etc. Some of the main features include the ability to send mass emails, keep track of payments and take note of attendance of the guests.
+To add to these features, by employing a standardised format, the application is able to take in Comma Separated Values (CSV) files and import data for a particular event.
+This eliminates the need to input all the information manually and subsequently, gives you an alternative if you decide to organise another event using the same guest list.</p>
 </div>
 <div class="paragraph">
-<p>This will give you an easier time to manage the reception as you will be equipped with tools that will minimise errors in catering,
-organisation, and orders. Moreover, this application aims to reduce the frustrations for you when planning events and address your needs in a platform that is more user friendly, personalised, and
+<p>This will give you an easier time while managing the reception at your event as you will be equipped with tools that will minimise errors in catering,
+organisation, and orders. Moreover, this application aims to reduce your frustration while planning events by addressing your needs in a platform that is more user friendly, personalised, and
 efficient.</p>
 </div>
 <div class="paragraph">
@@ -184,10 +182,10 @@ A guest can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_guest n/Bob Lee p/81720172 e/boblee@gmail.com a/Absent t/VIP t/Vegetarian t/Not Paid</code></p>
+<p><code>add_guest n/Bob Lee p/81720172 e/boblee@gmail.com a/Absent pa/NOT PAID t/VIP t/Vegetarian</code></p>
 </li>
 <li>
-<p><code>add_guest n/John Doe p/91028392 e/johndoe@gmail.com a/Present t/Groom t/Non-Vegetarian t/Paid</code></p>
+<p><code>add_guest n/John Doe p/91028392 e/johndoe@gmail.com a/Present pa/PAID t/Groom t/Non-Vegetarian</code></p>
 </li>
 </ul>
 </div>
@@ -203,8 +201,8 @@ Format: <code>list</code></p>
 <h3 id="editing-a-guest-code-edit_guest-code"><a class="link" href="#editing-a-guest-code-edit_guest-code">3.4. Editing a guest : <code>edit_guest</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing guest entry in the guest list.<br>
-Format: <code>edit_guest INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]
-         [t/GUEST_TYPE] [t/DIET] [t/PAID]&#8230;&#8203;</code></p>
+Format: <code>edit_guest INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/PRESENT]  [pa/PAID]
+         [t/GUEST_TYPE] [t/DIET]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -657,16 +655,40 @@ However, the <code>forceEmail</code> command will allow you to send another emai
 <ul>
 <li>
 <p><code>forceEmail</code><br>
-Forces an email to be sent to the guest specified by INDEX.</p>
+Forces an email to be sent to the guest specified by INDEX.
+===   Adding event details : <code>add_event</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Add the details for an event<br>
+Format: <code>add_event n/EVENT_NAME d/DATE v/VENUE st/START_TIME [t/OTHER_TAGS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds the specified event details.</p>
+</li>
+<li>
+<p>All compulsory fields(name, date, venue and start time) must be specified. The optional field(tags) may be omitted.</p>
+</li>
+<li>
+<p>Event name and venue have to be alphanumeric and may contain spaces. Otherwise, the system will inform you about the correct format to be followed. Special characters like '#', ',' and '-' may be used for the venue field.</p>
+</li>
+<li>
+<p>Event date has to follow the 'dd/mm/yyyy' format and has to exist in the calendar. Ensure that the event date falls after the current system date. Otherwise, the system will inform you about the correct format to be followed.</p>
+</li>
+<li>
+<p>Event&#8217;s start time should follow the 'h:mm AM/PM' format with h between 1 to 12. Otherwise, the system will inform you about the correct format to be followed.</p>
+</li>
+<li>
+<p>Event tags must be alphanumeric. Spaces are not allowed</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="creating-a-new-event-code-add_event-code"><a class="link" href="#creating-a-new-event-code-add_event-code">3.19. Creating a new event : <code>add_event</code></a></h3>
-<div class="paragraph">
-<p>Creates a new event<br>
-Format: <code>add_event n/EVENT_NAME [t/DATE_TIME]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -674,17 +696,43 @@ Format: <code>add_event n/EVENT_NAME [t/DATE_TIME]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_event n/CFG career talk t/18 Sep 2018 10AM</code><br>
-You will create an event called <code>CFG career talk</code> on the 18th of September at 10AM.</p>
+<p><code>add_event n/CFG career talk d/12/01/2019 v/YIH Paris Room st/9:00 AM t/SmartCasualAttire</code><br>
+You will create an event called <code>CFG career talk</code> that will take place on 12th January, 2019 at YIH Paris Room. The event will start at 9:00 AM and attendees are expected to dress in smart casual attire.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-event-code-edit_event-code"><a class="link" href="#editing-an-event-code-edit_event-code">3.20. Editing an event : <code>edit_event</code></a></h3>
+<h3 id="editing-the-event-s-details-code-edit_event-code"><a class="link" href="#editing-the-event-s-details-code-edit_event-code">3.19. Editing the event&#8217;s details : <code>edit_event</code></a></h3>
 <div class="paragraph">
-<p>Edit the currently selected event<br>
-Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
+<p>Edit the details of the event<br>
+Format: <code>edit_event [n/EVENT_NAME] [d/DATE] [v/VENUE] [st/START_TIME] [t/&#8230;&#8203;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the event details(previously specified by the you using the add_event command).</p>
+</li>
+<li>
+<p>Ensure that you have specified some event details before using this command. Otherwise, the system will inform you about the lack of event details.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the event will be removed i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all event tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -692,17 +740,31 @@ Format: <code>edit_event [n/EVENT_NAME] [t/&#8230;&#8203;]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit_event n/CFG career talk t/18 Sep 2018 11AM</code><br>
-You will change the data and time of the event <code>CFG career talk</code> to 18th of September at 11AM.</p>
+<p><code>edit_event n/CFG Career Workshop t/CasualAttire</code><br>
+You will change the name of the event to 'CFG Career Workshop and replace the existing tags with the 'CasualAttire' tag.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-event-code-delete_event-code"><a class="link" href="#deleting-event-code-delete_event-code">3.21. Deleting event : <code>delete_event</code></a></h3>
+<h3 id="deleting-event-details-code-delete_event-code"><a class="link" href="#deleting-event-details-code-delete_event-code">3.20. Deleting event details : <code>delete_event</code></a></h3>
 <div class="paragraph">
-<p>Deletes an event by specifying its name
-Format: <code>delete_event [NAME]</code></p>
+<p>Deletes the event details currently present in the application
+Format: <code>delete_event</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the event details(previously specified by you using the add_event command).</p>
+</li>
+<li>
+<p>Ensure that you have specified some details before using this command. Otherwise, the system will inform you about the lack of event details.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -710,14 +772,12 @@ Format: <code>delete_event [NAME]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete_event wedding</code><br>
-You will delete the event named wedding.</p>
+<p><code>delete_event</code><br>
+You will delete the event details.
+=== Undoing previous command : <code>undo</code></p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.22. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the guest list to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -762,7 +822,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.21. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -794,14 +854,14 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.25. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
 <div class="paragraph">
 <p>As the guest list data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need for you to save manually.</p>
@@ -955,4 +1015,4 @@ susceptible to an increased number of spam emails from untrusted applications. H
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 07:51:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:33:12 UTC</div></div></div></body></html>

@@ -3,18 +3,18 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><img src="../images/InvitésLogoBanner.png"><a class="navbar-brand" href="../index.html">Invités</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-F09-3/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Sandhya Gopakumar - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-invités"><a class="link" href="#project-invités">PROJECT: Invités</a></h2>
 <div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Invités is an application targeted at event managers and planners. The application that allows its users to efficiently <strong>organise, cater, and manage</strong> large events such
 as weddings, school gatherings, orientation camps, etc. Some of the main features include the ability to send mass emails, keep track of payments, and take note of attendance of the guests.
 To add to these features, by employing a standardised format, the application is able to take in Comma Separated Values (CSV) files and import the guest list for a particular event.
 This eliminates the need to key in the guest details manually and subsequently, gives users an alternative if they decide to organise another event using the same guest list.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+
 </div>
 </div>
 <div class="sect1">
@@ -77,6 +77,362 @@ This eliminates the need to key in the guest details manually and subsequently, 
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="adding-event-details-code-add_event-code"><a class="link" href="#adding-event-details-code-add_event-code">Adding event details : <code>add_event</code></a></h3>
+<div class="paragraph">
+<p>Add the details for an event<br>
+Format: <code>add_event n/EVENT_NAME d/DATE v/VENUE st/START_TIME [t/OTHER_TAGS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds the specified event details.</p>
+</li>
+<li>
+<p>All compulsory fields(name, date, venue and start time) must be specified. The optional field(tags) may be omitted.</p>
+</li>
+<li>
+<p>Event name and venue have to be alphanumeric and may contain spaces. Otherwise, the system will inform you about the correct format to be followed. Special characters like '#', ',' and '-' may be used for the venue field.</p>
+</li>
+<li>
+<p>Event date has to follow the 'dd/mm/yyyy' format and has to exist in the calendar. Ensure that the event date falls after the current system date. Otherwise, the system will inform you about the correct format to be followed.</p>
+</li>
+<li>
+<p>Event&#8217;s start time should follow the 'h:mm AM/PM' format with h between 1 to 12. Otherwise, the system will inform you about the correct format to be followed.</p>
+</li>
+<li>
+<p>Event tags must be alphanumeric. Spaces are not allowed</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_event n/CFG career talk d/12/01/2019 v/YIH Paris Room st/9:00 AM t/SmartCasualAttire</code><br>
+You will create an event called <code>CFG career talk</code> that will take place on 12th January, 2019 at YIH Paris Room. The event will start at 9:00 AM and attendees are expected to dress in smart casual attire.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-the-event-s-details-code-edit_event-code"><a class="link" href="#editing-the-event-s-details-code-edit_event-code">Editing the event&#8217;s details : <code>edit_event</code></a></h3>
+<div class="paragraph">
+<p>Edit the details of the event<br>
+Format: <code>edit_event [n/EVENT_NAME] [d/DATE] [v/VENUE] [st/START_TIME] [t/&#8230;&#8203;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the event details(previously specified by the you using the add_event command).</p>
+</li>
+<li>
+<p>Ensure that you have specified some event details before using this command. Otherwise, the system will inform you about the lack of event details.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the event will be removed i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all event tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit_event n/CFG Career Workshop t/CasualAttire</code><br>
+You will change the name of the event to 'CFG Career Workshop and replace the existing tags with the 'CasualAttire' tag.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-event-details-code-delete_event-code"><a class="link" href="#deleting-event-details-code-delete_event-code">Deleting event details : <code>delete_event</code></a></h3>
+<div class="paragraph">
+<p>Deletes the event details currently present in the application
+Format: <code>delete_event</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the event details(previously specified by you using the add_event command).</p>
+</li>
+<li>
+<p>Ensure that you have specified some details before using this command. Otherwise, the system will inform you about the lack of event details.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_event</code><br>
+You will delete the event details.
+=== Undoing previous command : <code>undo</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Restores the guest list to the state before the previous <em>undoable</em> command was executed.<br>
+Format: <code>undo</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Undoable commands: those commands that modify the guest list&#8217;s content (<code>add_guest</code>, <code>delete_guest</code>, <code>edit_guest</code>, <code>removeTag</code>, <code>addTag</code>, and <code>clear</code>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_guest 1</code><br>
+<code>list</code><br>
+<code>undo</code> (reverses the <code>delete_guest 1</code> command)<br></p>
+</li>
+<li>
+<p><code>select 1</code><br>
+<code>list</code><br>
+<code>undo</code><br>
+The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
+</li>
+<li>
+<p><code>delete_guest 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete_guest 1</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br>
+Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_guest 1</code><br>
+<code>undo</code> (reverses the <code>delete_guest 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete_guest 1</code> command)<br></p>
+</li>
+<li>
+<p><code>delete_guest 1</code><br>
+<code>redo</code><br>
+The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+</li>
+<li>
+<p><code>delete_guest 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete_guest 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete_guest 1</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p>As the guest list data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need for you to save manually.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous guest list.<br>
+Alternatively, you could export the data from your current computer using the export command. Using this data you can launch the application on a different computer and import the data.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: ​How do I import my existing data on a CSV into the application?<br>
+<strong>A</strong>: Firstly, create a new event within the application. After this, use the import function and specify the path to the file.
+You will see the guest list populate itself with the data from the specified CSV file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up-your-gmail-account"><a class="link" href="#setting-up-your-gmail-account">Setting up your Gmail Account</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order for you to use the commands <code>email</code>, <code>emailAll</code>, and <code>forceEmail</code>, you must allow Invités to access your email account and
+send emails. Currently, our application only supports Gmail accounts, but we do plan on supporting
+other email domains.</p>
+</div>
+<div class="paragraph">
+<p>If you do have a Gmail account, please follow these steps to enable email services:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Login to your Gmail account using your preferred online browser (e.g. Chrome, Firefox).</p>
+</li>
+<li>
+<p>Click on your profile picture on the top right, and click on <code>Google Account</code></p>
+</li>
+<li>
+<p>Once you are re-directed, under the <code>Sign-in and security</code> section, click on <code>Apps with account access</code></p>
+</li>
+<li>
+<p>Scroll down till you find the section <code>Allow less secure apps</code> on the right. Set this option to <code>ON</code>.</p>
+</li>
+<li>
+<p>In the Invités application, please specify your username and password in the file <code>Credentials.txt</code> at <code>/src/main/resources/EmailData/</code> in your project folder.</p>
+</li>
+<li>
+<p>Please specify an email subject and message in the file <code>Message.txt</code> also at <code>/src/main/resources/EmailData/</code> in your project folder.</p>
+</li>
+<li>
+<p>You are now ready to send emails to your guests through Invités!</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Currently there is no other way to enable mailing services than to let your Gmail account allow less secure apps, and hence your account may be
+susceptible to an increased number of spam emails from untrusted applications. However, our team is working quickly to find a more secure replacement.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>help</code> : ​Displays a help sheet containing useful commands.</p>
+</li>
+<li>
+<p><code>add_guest</code> : ​Creates an entry for a guest to attend the event.</p>
+</li>
+<li>
+<p><code>edit_guest</code> :​ Modifies the entry of a specified guest based on name.</p>
+</li>
+<li>
+<p><code>delete_guest</code> : ​Removes an entry of a specified guest based on name.</p>
+</li>
+<li>
+<p><code>removeTag</code> : Removes a set of tags from all the guests in the current list.</p>
+</li>
+<li>
+<p><code>addtag</code> : Adds a set of tags to all the guests in the current list.</p>
+</li>
+<li>
+<p><code>find</code> : Finds guests whose names, phone numbers or email addresses contain any of the given keywords.</p>
+</li>
+<li>
+<p><code>list</code> : Lists the current guest list.</p>
+</li>
+<li>
+<p><code>import</code> : ​Automatically generates guest list from a given CSV file.</p>
+</li>
+<li>
+<p><code>export</code> : Exports guest list to a CSV file.</p>
+</li>
+<li>
+<p><code>mark</code> : ​Tags a guest to note that they are currently at the event.</p>
+</li>
+<li>
+<p><code>unmark</code> : ​Removes the tag of a guest attending the event based on name.</p>
+</li>
+<li>
+<p><code>start_marking</code> : ​Begins continuous marking of the people entering the event.</p>
+</li>
+<li>
+<p><code>stop_marking</code> : ​Stops the continuous marking of people.</p>
+</li>
+<li>
+<p><code>filter</code> : ​Filters the guest list based on keywords given.</p>
+</li>
+<li>
+<p><code>email</code> : ​Sends individual emails to an entry of a specified guest based on index.</p>
+</li>
+<li>
+<p><code>emailAll</code> : Sends an email to all of the guests in the current list.</p>
+</li>
+<li>
+<p><code>forceEmail</code> : Sends an email to the guest specified by the index, regardless of how many emails have been sent to that guest.</p>
+</li>
+<li>
+<p><code>add_event</code> :​ Adds the details of your event.</p>
+</li>
+<li>
+<p><code>edit_event</code> : Edits the details of the event.</p>
+</li>
+<li>
+<p><code>delete_event</code> : ​Removes the specified event details.</p>
+</li>
+<li>
+<p><code>undo</code> : Restores the guest list to the state before the previous undoable command was executed.</p>
+</li>
+<li>
+<p><code>redo</code> : Reverses the most recent undo command.</p>
+</li>
+<li>
+<p><code>exit</code> : ​Exits the application.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -93,4 +449,4 @@ This eliminates the need to key in the guest details manually and subsequently, 
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 07:51:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:33:12 UTC</div></div></div></body></html>
