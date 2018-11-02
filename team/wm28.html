@@ -120,6 +120,33 @@ Format: <code>import FILE_PATH</code></p>
 </table>
 </div>
 <div class="paragraph">
+<p>The CSV guest entries which are badly formatted or those which corresponds to an already existing guest in the guest list, will trigger an import report window as shown in figure 1. The window will show the offending CSV guest entries with their associated error messages.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ImportReportWindow.png" alt="ImportReportWindow"></span> Figure 1 - ImportReportWindow</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A guest will be classified as an existing guest if it has the same name and matching phone number or email address with an existing guest in the guest list.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -134,6 +161,20 @@ You will populate the guest list with the data imported from the CSV file in the
 <div class="paragraph">
 <p>Exports guests' data to a CSV formatted file. The structure for the values in the CSV file is predefined.<br>
 Format: <code>export FILE_PATH</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If no <code>FILE_PATH</code> is provided, guests will be exported using the default filename, <code>exportedGuestBook.csv</code>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -332,4 +373,4 @@ The above mentioned methods will allow you to interface with the underlying file
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 02:18:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 03:12:04 UTC</div></div></div></body></html>
