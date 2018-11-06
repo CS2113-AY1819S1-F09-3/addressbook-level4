@@ -9,9 +9,16 @@
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>The purpose of this portfolio is to document my role and contributions to the project.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The purpose of this portfolio is to document my role and contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Invités - An event management system. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
 </div>
@@ -67,6 +74,16 @@ needs in a platform that is more user friendly, personalised, and efficient.</p>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The purpose of this section is to list the contributions I have made to Invités.</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="ulist">
 <ul>
 <li>
@@ -167,9 +184,37 @@ and made important changes to the Use Cases: <a href="https://github.com/CS2113-
 <p>Filter guest list based on filter guest attributes. Only filters based on
 payment status, attendance status and tags. Keywords should not have spaces or any
 special character.<br>
+Values accepted for Payment Status: PAID, NOTPAID, PENDING or N.A.<br>
+Values accepted for Attendance Status: PRESENT, ABSENT, N.A.<br>
 Format: <code>filter [pa/PAYMENT_STATUS] [a/ATTENDANCE_STATUS]
-         [t/DIET] [t/GUEST_TYPE] [t/&#8230;&#8203;]</code>
-Examples:</p>
+         [t/DIET] [t/GUEST_TYPE] [t/&#8230;&#8203;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case-insensitive. e.g <code>pa/paid</code> will match <code>pa/PAID</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>pa/PAID a/ABSENT</code> will match <code>a/ABSENT pa/PAID</code></p>
+</li>
+<li>
+<p>Only payment staus, attendance status and tags are searched, depending on prefixes given.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>p/PAID</code> will not match <code>p/NOTPAID</code></p>
+</li>
+<li>
+<p>Guests matching all keywords will be returned (i.e. <code>AND</code> search). e.g. <code>pa/PAID t/GUEST</code> will return a list
+of people who have paid <strong>and</strong> who are guests</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -179,7 +224,7 @@ You will be shown a list with guests who have yet to pay and are present.</p>
 </li>
 <li>
 <p><code>filter a/Present t/Vegetarian</code><br>
-You will be shown a list with guests who are present and have a vegetarian dietary req</p>
+You will be shown a list with guests who are present and have a vegetarian dietary requirement.</p>
 </li>
 </ul>
 </div>
@@ -188,8 +233,7 @@ You will be shown a list with guests who are present and have a vegetarian dieta
 <h3 id="locating-guests-by-name-phone-number-or-email-address-code-find-code"><a class="link" href="#locating-guests-by-name-phone-number-or-email-address-code-find-code">Locating guests by name, phone number or email address: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Find guests whose names, phone numbers and/or email addresses
-contain any of the given keywords. Keywords should not have spaces or any
-special characters.<br>
+contain any of the given keywords.<br>
 Format: <code>find n/KEYWORD p/MORE_KEYWORDS e/MORE_KEYWORDS</code><br>
 Example: find n/NAME p/PHONE e/EMAIL</p>
 </div>
@@ -198,16 +242,16 @@ Example: find n/NAME p/PHONE e/EMAIL</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case-insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>The search is case-insensitive. e.g <code>n/hans</code> will match <code>n/Hans</code></p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+<p>The order of the keywords does not matter. e.g. <code>n/Hans n/Bo</code> will match <code>n/Bo n/Hans</code></p>
 </li>
 <li>
 <p>Only names, phone numbers and email addresses are searched, depending on prefixes given.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Only full words will be matched e.g. <code>n/Han</code> will not match <code>n/Hans</code></p>
 </li>
 <li>
 <p>Guests matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Hans n/Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
@@ -324,4 +368,4 @@ The <code>find</code> command calls <code>Model#getFilteredPersonList()</code>.<
 <div class="sectionbody">
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 02:39:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 03:14:26 UTC</div></div></div></body></html>
