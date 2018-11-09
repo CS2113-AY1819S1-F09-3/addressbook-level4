@@ -3,38 +3,89 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><img src="../images/InvitésLogoBanner.png"><a class="navbar-brand" href="../index.html">Invités</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-F09-3/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Wei Ming - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-invités"><a class="link" href="#project-invités">PROJECT: Invités</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
-
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This portfolio documents my contributions to Invités.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Invités is a desktop application that helps people to organize and manage events. It simplifies and streamlines common event management tasks such as managing a guest list, attendance taking, QR code ticketing and mass email sending. With our application event planners are able save time and effort as it offers a much more beginner friendly and specialized workflow as compared to its competition such as Microsoft Excel or Google sheet. Furthermore, it is developed to be highly versatile and can be used to plan a wide range of events such as school camps and weddings.</p>
+</div>
+<div class="paragraph">
+<p>The application is developed in Java and has a graphical user interface created with JavaFX. It is designed to be primarily command-line based to enable power users to execute tasks efficiently.</p>
+</div>
+<div class="paragraph">
+<p>Invités was developed as part of a team project for a Software Development module in National University of Singapore. I am part of the team of 5 that jointly developed Invités and I am tasked with the responsibility to implement a data sharing mechanism for the guest data within Invités. Below is a brief overview of our respective roles.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://github.com/aaryamNUS">Srivastava Aaryam</a>: Email communication</p>
+</li>
+<li>
+<p><a href="http://github.com/SandhyaGopakumar">Sandhya Gopakumar</a>: Events management</p>
+</li>
+<li>
+<p><a href="http://github.com/SarahTaaherBonna">Sarah Taaher Bonna</a>: Guest list management</p>
+</li>
+<li>
+<p><a href="http://github.com/kronicler">Tan Tze Guang</a>: Attendance management</p>
+</li>
+<li>
+<p><a href="http://github.com/wm28">Tan Wei Ming</a>: Data sharing</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section summarizes my main contributions to the team. It showcases my ability to develop software features and work on software as a team.</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to import/export guests using CSV files</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability share data by importing/exporting guests to Comma Separated Values(CSV) files</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Allows users to export and import guests using CSV files. For unsuccessful imports, an import report window will be generated to show the offending section of data and its associated issues.</p>
+<p>What it does: Allows event planners to export/import guests to CSV files. For unsuccessful imports, an import report window will be generated to show the malformed data and its associated errors.</p>
 </li>
 <li>
 <p>Justification: The import feature is critical to the application because it allows event planners to save time by adding guests in batches. The export feature also allows event planners to share guest data easily.</p>
 </li>
 <li>
-<p>Highlights: This enhancement is designed to support future file formats easily. This required an in-depth analysis of design alternatives.</p>
+<p>Highlights: This enhancement is designed to support future file formats easily and it required an in-depth analysis of several design alternatives.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added utility class to generate QR codes</p>
+<p><strong>Minor enhancement</strong>: added utility class to generate QR codes for ticketing</p>
 <div class="ulist">
 <ul>
 <li>
@@ -47,10 +98,7 @@
 <p><strong>Minor enhancement</strong>: added a full preview of guests in the user interface</p>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: remodelled the guest list in the user interface</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=wm28">RepoSense link</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -61,7 +109,23 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated about us page</p>
+<p>Managed releases <code>v1.2.9</code>, <code>v1.3.1</code> (2 releases) on GitHub</p>
+</li>
+<li>
+<p>Setup about us page (Pull requests <a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/26">#26</a>)</p>
+</li>
+<li>
+<p>Designed initial user interface mock up in Adobe XD (Pull requests <a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/27">#27</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Remodelled the guest list and added a guest preview panel in the user interface (Pull requests <a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/88">#88</a>, <a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/100">#100</a>, <a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/152">#152</a>)</p>
 </li>
 </ul>
 </div>
@@ -71,7 +135,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed: <a href="https://github.com" class="bare">https://github.com</a>, <a href="https://github.com" class="bare">https://github.com</a>, <a href="https://github.com" class="bare">https://github.com</a>, <a href="https://github.com" class="bare">https://github.com</a></p>
+<p>Reported bugs for other teams in the class (examples:  <a href="https://github.com/CS2113-AY1819S1-W12-3/main/issues/153">1</a>, <a href="https://github.com/CS2113-AY1819S1-W12-3/main/issues/148">2</a>)</p>
 </li>
 </ul>
 </div>
@@ -80,9 +144,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -102,7 +163,7 @@
 <div class="sect2">
 <h3 id="import-guests-from-csv-file-code-import-code"><a class="link" href="#import-guests-from-csv-file-code-import-code">Import guests from CSV file : <code>import</code></a></h3>
 <div class="paragraph">
-<p>Imports guests with data from a specified CSV file. The structure for the guest fields in the CSV file is predefined and can be found at <a href="#csvguestlistformat">CSV Guest List Format</a>.<br></p>
+<p>Imports multiple guests with data from a specified CSV file. To create your own CSV file for importing guests, please see <a href="#csvguestlistformat">Section 6: "CSV Guest List Format"</a> for the accepted format.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>import FILE_PATH</code></p>
@@ -112,7 +173,17 @@
 <div class="ulist">
 <ul>
 <li>
+<p>This command only adds guests into the current guest list.</p>
+<div class="ulist">
+<ul>
+<li>
 <p>No existing guest in the guest list will be deleted due to the import.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Adds all guests specified in the CSV file specified by <code>FILE_PATH</code></p>
 </li>
 <li>
 <p><code>FILE_PATH</code> shall only be a relative or an absolute file path.</p>
@@ -138,7 +209,7 @@
 </div>
 </li>
 <li>
-<p>Importation of badly formatted guests will be skipped.</p>
+<p>Importation of badly formatted guests in the CSV file will be skipped.</p>
 </li>
 <li>
 <p>The CSV guest entries which are badly formatted or those which corresponds to an existing guest in the guest list, will trigger an import report window as shown in figure 1.</p>
@@ -170,7 +241,7 @@ You will populate the guest list with the data imported from the CSV file in the
 </ul>
 </div>
 <div class="paragraph">
-<p>Exports guests' data to a specified CSV file. The structure for the guest fields in the CSV file is predefined and can be found at <a href="#csvguestlistformat">CSV Guest List Format</a>.<br></p>
+<p>Exports guests' data in the guest list to a specified CSV file. Allows you to share your guest list easily using the exported CSV file. The format of guest fields in the CSV file is the same format as the <code>import</code> command and can be found at <a href="#csvguestlistformat">Section 6: "CSV Guest List Format"</a>.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>export FILE_PATH</code></p>
@@ -179,6 +250,16 @@ You will populate the guest list with the data imported from the CSV file in the
 <div class="content">
 <div class="ulist">
 <ul>
+<li>
+<p>Command will only export the guests that you see in the guest list panel of the user interface.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To export selected guests, use the <code>filter</code> command before exporting.</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><code>FILE_PATH</code> shall only be a relative or an absolute file path.</p>
 <div class="ulist">
@@ -211,10 +292,24 @@ You will export the currently filtered guest list entries into a CSV file in the
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>import</code> and <code>export</code> command will work with CSV files according to the predefined format below</p>
+<p>The <code>import</code> and <code>export</code> command will only work with CSV files according to a predefined format. To create valid CSV files, guests fields must in the following format below and each guest must be entered on a new line.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>NAME,PHONE_NUMBER,EMAIL,PAYMENT,[TAG]</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Individual guest fields shall not contain any commas.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example: sample CSV file</p>
@@ -230,20 +325,6 @@ Hibah Lees,80000882,80000882@gmail.com,PAID,ABSENT,gold,Veg,VIP<br>
 Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,gold,Veg,VIP<br></p>
 </div>
 </div>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Individual guest fields shall not contain any commas.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -265,100 +346,121 @@ Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,gold,Veg,VIP<br></p>
 <h3 id="import-export-command"><a class="link" href="#import-export-command">Import/Export Command</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="high-level-overview-of-the-class-hierarchy"><a class="link" href="#high-level-overview-of-the-class-hierarchy">High level overview of the class hierarchy</a></h5>
 <div class="paragraph">
-<p>The import and export command enables batch importation and exportation of people into and out of the guest list. Currently the commands only support comma-separated value file format (CSV), however, it is open for the addition of new formats.</p>
+<p>The import and export command enables batch importation and exportation of people into and out of the guest list. Additionally, the import command will create a popup window to show the errors during import only if there are any. The commands currently only support comma-separated value file format (CSV), however, it is designed to easily support other formats such as VCard in the future.</p>
 </div>
 <div class="paragraph">
-<p>The Import/Export features are mainly facilitated by objects of 2 classes. The <code>CsvFile</code> and <code>CsvConverter</code> objects. The following class diagram shows the relationship between the classes involved in the import/export.</p>
+<p>The implementation of the import and export feature mainly resides under the logic component of the application. The import command involves an additional user interface (UI) component that shows import errors.</p>
+</div>
+<div class="paragraph">
+<p>The Import/Export feature is facilitated by the <code>AdaptedPerson</code>,<code>PersonConverter</code> and <code>SupportedFile</code> interfaces. They provide the behaviour specifications so that the Import/Export command will be able to operate without knowing the underlying implementations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AdaptedPerson</code> represents a person in the respective file format. It requires the following method.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AdaptedPerson#getFormattedString()</code>: returns the string representation of the person according to the particular file format.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SupportedFile</code> represents a supported file that is able to read and write `AdaptedPerson`s' to the actual file on the computer.  Here are some of its key methods</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SupportedFile#readAdaptedPersons()</code>: Returns all person in the form of `AdaptedPerson`s from the file</p>
+</li>
+<li>
+<p><code>SupportedFile#writeAdaptedPersons()</code>: Writes all <code>AdaptedPerson</code> to the file</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PersonConverter</code> represents a person converter that is able to convert between <code>Person</code> s and <code>AdaptedPerson</code> s. Here are some of its key methods.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PersonConverter#encodePerson()</code>: Encodes a <code>Person</code> object and returns the corresponding <code>AdaptedPerson</code> object</p>
+</li>
+<li>
+<p><code>PersonConverter#decodePerson()</code>: Decodes an <code>AdaptedPerson</code>  object and returns corresponding <code>Person</code> object</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To support the import/export of CSV files, <code>CsvAdaptedPerson</code>,<code>CsvPersonConverter</code> and <code>CsvFile</code> implements the above mentioned interfaces.</p>
+</div>
+<div class="paragraph">
+<p>For the import command, the popup window to show errors encountered is facilitated by the <code>ImportError</code> and <code>ImportReportWindow</code> classes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ImportError</code> represents an error encountered during the import command. It stores the actual CSV formatted person and its associated error message.</p>
+</li>
+<li>
+<p><code>ImportReportError</code> is the controller class of the popup window that will display all <code>ImportError</code> s encountered during the execution of an import command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following class diagrams shows the relationship between the classes and interfaces mentioned above.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ImportExportClassDiagram.PNG" alt="ImportExportClassDiagram" width="800">
+<img src="../images/ImportExportClassDiagram.PNG" alt="ImportExportClassDiagram">
 </div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="command-mechanism"><a class="link" href="#command-mechanism">Command mechanism</a></h5>
+<div class="paragraph">
+<p>The import command will first read the csv file and loop through all the guest data and add them into the model. When application encounters a particular guest in CSV file which fails to be converted or is already an existing guest, an <code>ImportError</code> will be created. These <code>ImportError</code> object will be added in a list within the import command.</p>
 </div>
 <div class="paragraph">
-<p>The CsvConverter class enables us decode/encode between the Person class and the desired format (CSV). The CsvConverter class implements PersonConverter interface which requires the implementing class to be able to decode/encode Person objects to the desired format.</p>
+<p>After the command completes the importation of all guests in the guest list, if there are unsuccessful imports, it will trigger a <code>ShowImportReportEvent</code> which will display the errors</p>
 </div>
 <div class="paragraph">
-<p>The 'CsvFile' class enables us to read and write 'AdaptedPerson' to a file. <code>CsvFile</code> Implements the <code>SupportedFile</code> class which requires it to read and write lists of <code>AdaptedPerson</code> objects.</p>
+<p>The following sequence diagram shows how the Import operation works:</p>
 </div>
 <div class="paragraph">
-<p><code>CsvAdaptedPerson</code> extends <code>AdaptedPerson</code>, it represents a guest in the respective file formats, which our case is CSV.</p>
+<p><span class="image"><img src="../images/ImportCommandSequenceDiagram.PNG" alt="ImportCommandSequenceDiagram"></span></p>
+</div>
+<div class="paragraph">
+<p>The <code>ShowImportReportEvent</code> will be handled by the <code>MainWindow</code> according to the following sequence diagram below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/ImportReportWindowSequenceDiagram.PNG" alt="ImportReportWindowSequenceDiagram" width="800"></span></p>
 </div>
 <hr>
 <div class="paragraph">
-<p>The import command will first read the csv file and loop through all the guest data and add them into the model. Badly formatted csv lines will be skipped and the user are given feedback on the number of successful imports in the CommandResult Ui component. The following sequence diagram shows how the Import operation works:</p>
+<p>The export command will only export the currently filtered list by calling <code>Model#getFilteredPersonList</code>. This enables greater flexibility as it provides a way for users to select specific groups of people to export. The following sequence diagram shows how the export operation works:</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ImportCommandSequenceDiagram.PNG" alt="ImportCommandSequenceDiagram"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ImportSequenceRefFrame.PNG" alt="ImportSequenceRefFrame"></span></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The export command will only export the currently filtered list so as to allow users to select specific groups of people. The following sequence diagram shows how the Export operation works:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ExportCommandSequenceDiagram.PNG" alt="ExportCommandSequenceDiagram"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ExportSequenceRefFrame.PNG" alt="ExportSequenceRefFrame"></span></p></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how to support new file formats (Eg. VCard).</p>
-</div>
-<div class="paragraph">
-<p>Step 1. Create new class to extend <code>AdaptedPerson</code> abstract class.</p>
-</div>
-<div class="literalblock">
+<div class="imageblock">
 <div class="content">
-<pre>Eg. VcardAdaptedPerson
-This will represent the a guest in the VCard file format.</pre>
+<img src="../images/ExportCommandSequenceDiagram.PNG" alt="ExportCommandSequenceDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>Step 2. Create new class to implement <code>PersonConverter</code> interface. Implement the <code>encodePerson</code> and <code>decodePerson</code> method.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Eg. VcardConverter
-The methods in this class, contains the logic to convert between the `Person` and `AdaptedPerson` objects.</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. Create new class to implement <code>CsvFile</code> interface. Implement <code>readAdaptedPersons</code> and <code>writeAdaptedPersons</code>.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Eg. VcardFile
-The above mentioned methods will allow you to interface with the underlying files.</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Step 4. Add checks in the <code>ImportCommandParser</code> and <code>ExportCommandParser</code> to allow the application to call the classes that you have created.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-decoding-encoding-functionality-in-import-export-command"><a class="link" href="#aspect-how-to-implement-decoding-encoding-functionality-in-import-export-command">Aspect: How to implement decoding/encoding functionality in Import/Export command</a></h5>
+<h5 id="aspect-implementing-decoding-encoding-functionality-in-import-export-command"><a class="link" href="#aspect-implementing-decoding-encoding-functionality-in-import-export-command">Aspect: Implementing decoding/encoding functionality in Import/Export command</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (current choice): import &amp; export command be able to do accept a general PersonConverter</p>
+<p>Alternative 1 (current choice): import &amp; export command be able to do accept a general <code>PersonConverter</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -371,7 +473,7 @@ The above mentioned methods will allow you to interface with the underlying file
 </div>
 </li>
 <li>
-<p>Alternative 2: Each format has its own command which knows how to do the required conversion</p>
+<p>Alternative 2: Each supported format has its own command which knows how to do the required conversion</p>
 <div class="ulist">
 <ul>
 <li>
@@ -387,7 +489,7 @@ The above mentioned methods will allow you to interface with the underlying file
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-the-reading-writing-of-file-functionality-in-import-export-command"><a class="link" href="#aspect-how-to-implement-the-reading-writing-of-file-functionality-in-import-export-command">Aspect: How to implement the reading/writing of file functionality in Import/Export command</a></h5>
+<h5 id="aspect-implementing-the-reading-writing-of-file-functionality-in-import-export-command"><a class="link" href="#aspect-implementing-the-reading-writing-of-file-functionality-in-import-export-command">Aspect: Implementing the reading/writing of file functionality in Import/Export command</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -395,7 +497,7 @@ The above mentioned methods will allow you to interface with the underlying file
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Able to add support for other file formats with changing exisiting code.</p>
+<p>Pros: Able to add support for other file formats with changing existing code.</p>
 </li>
 <li>
 <p>Cons: Increased code complexity.</p>
@@ -411,7 +513,7 @@ The above mentioned methods will allow you to interface with the underlying file
 <p>Pros: Simple to implement.</p>
 </li>
 <li>
-<p>Cons: Violates open-close principle. Code will only work for CSV files. Tightly coupled.</p>
+<p>Cons: Violates open-close principle. Code will only work for CSV files. High coupling with the import/export command. Impossible to mock, decreases the testability of the import/export commands.</p>
 </li>
 </ul>
 </div>
@@ -422,4 +524,4 @@ The above mentioned methods will allow you to interface with the underlying file
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 15:35:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 19:20:10 UTC</div></div></div></body></html>
