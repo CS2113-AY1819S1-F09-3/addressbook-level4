@@ -440,7 +440,7 @@ name <code>david</code> <strong>but not</strong> <code>edan</code></p>
 <div class="sect2">
 <h3 id="import-guests-from-csv-file-code-import-code"><a class="link" href="#import-guests-from-csv-file-code-import-code">3.9. Import guests from CSV file : <code>import</code></a></h3>
 <div class="paragraph">
-<p>Imports multiple guests with data from a specified CSV file. To create your own CSV file for importing guests, please see <a href="#csvguestlistformat">Section 6: "CSV Guest List Format"</a> for the accepted format.<br></p>
+<p>Imports multiple guests with data from a specified CSV file. To create your own CSV file for importing guests, please see <a href="#csv-guest-list-format">Section 6: "CSV Guest List Format"</a> for the accepted format.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>import FILE_PATH</code></p>
@@ -520,7 +520,7 @@ You will populate the guest list with the data imported from the CSV file in the
 <div class="sect2">
 <h3 id="exporting-guests-to-csv-file-code-export-code"><a class="link" href="#exporting-guests-to-csv-file-code-export-code">3.10. Exporting guests to CSV file : <code>export</code></a></h3>
 <div class="paragraph">
-<p>Exports guests' data in the guest list to a specified CSV file. Allows you to share your guest list easily using the exported CSV file. The format of guest fields in the CSV file is the same format as the <code>import</code> command and can be found at <a href="#csvguestlistformat">Section 6: "CSV Guest List Format"</a>.<br></p>
+<p>Exports guests' data in the guest list to a specified CSV file. Allows you to share your guest list easily using the exported CSV file. The format of guest fields in the CSV file is the same format as the <code>import</code> command and can be found at <a href="#csv-guest-list-format">Section 6: "CSV Guest List Format"</a>.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>export FILE_PATH</code></p>
@@ -1288,7 +1288,7 @@ susceptible to an increased number of spam emails from untrusted applications. H
 <p>The <code>import</code> and <code>export</code> command will only work with CSV files according to a predefined format. To create valid CSV files, guests fields must in the following format below and each guest must be entered on a new line.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>NAME,PHONE_NUMBER,EMAIL,PAYMENT,[TAG]</code></p>
+<p>Format: <code>NAME,PHONE_NUMBER,EMAIL,PAYMENT,UID,[TAG]</code></p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1310,12 +1310,9 @@ susceptible to an increased number of spam emails from untrusted applications. H
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>David Li,91031282,lidavid@gmail.com,PENDING,ABSENT,gold,Veg,VIP<br>
-Irfan Ibrahim,92492021,irfan@gmail.com,PAID,PRESENT,gold,Veg,VIP<br>
-Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,gold,Veg,VIP<br>
-Hakeem Salgado,80000957,80000957@gmail.com,PAID,ABSENT,gold,Veg,VIP<br>
-Hibah Lees,80000882,80000882@gmail.com,PAID,ABSENT,gold,Veg,VIP<br>
-Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,gold,Veg,VIP<br></p>
+<p>David Li,91031282,lidavid@gmail.com,PENDING,ABSENT,00000,gold,Veg,VIP<br>
+Irfan Ibrahim,92492021,irfan@gmail.com,PAID,PRESENT,1234,gold,Veg,VIP<br>
+Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,12,gold,Veg,VIP<br></p>
 </div>
 </div>
 </div>
@@ -1404,4 +1401,4 @@ Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,gold,Veg,VIP<br></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 15:40:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:22:37 UTC</div></div></div></body></html>
