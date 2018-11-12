@@ -507,5 +507,116 @@ Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,00003,gold,Veg,VIP<br></
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="importing-and-exporting-guests"><a class="link" href="#importing-and-exporting-guests">Importing and exporting guests</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Importing guests from CSV file</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Delete all guests before each test case. Execute <code>list</code> followed by <code>clear</code>.</p>
+</li>
+<li>
+<p>Test case: Download <a href="{repoURL}/guestbook.csv">sample.csv</a> into directory where application Jar file is located and execute <code>import sample.csv</code><br>
+Expected: All guests are imported from <code>test.csv</code>. No errors are found.</p>
+</li>
+<li>
+<p>Test case: Download <a href="{repoURL}/errorguestbook.csv">errorsample.csv</a> into directory where application Jar file is located and execute <code>import errorsample.csv</code><br>
+Expected: No guests are imported from <code>test.csv</code>. Popup window shows all import errors.</p>
+</li>
+<li>
+<p>Other incorrect commands to try: <code>import</code>, <code>import test</code>, etc<br>
+Expected: No guests are imported. Error details shown in the status message.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:42:16 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Exporting all guests</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all guests using <code>list</code>. The list must not be empty. No <code>test.csv</code> file should be found in same directory of application Jar file.</p>
+</li>
+<li>
+<p>Test case: 'export test.csv'<br>
+Expected: All guests are exported into <code>test.csv</code>. <code>test.csv</code> can be found in the same directory of the application Jar file.</p>
+</li>
+<li>
+<p>Other incorrect commands to try: <code>export</code>, <code>export test</code>, etc
+Expected: No guests are exported. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Exporting filtered guest to CSV file</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be guests that are absent. Filter all absent guests using <code>filter a/ABSENT</code>.</p>
+</li>
+<li>
+<p>Test case: 'export test.csv'<br>
+Expected: Only guests that are absent are exported into <code>test.csv</code>. <code>test.csv</code>  can be found in the same directory of the application Jar file.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Exporting to file that already exists</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There must be guests in the guest list panel. Export guests using <code>export test.csv</code>.</p>
+</li>
+<li>
+<p>Test case: <code>export test.csv</code><br>
+Expected: No guests are exported. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Exporting empty guest list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: guest list panel in user interface must be empty.</p>
+</li>
+<li>
+<p>Test case: <code>export test.csv</code><br>
+Expected: No guests are exported. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="guest-preview"><a class="link" href="#guest-preview">Guest preview</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Displaying guest in guest preview</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have guests in guest list.</p>
+</li>
+<li>
+<p>Test case: Click on any guest in guest list panel.<br>
+Expected: Guest details should show up in guest preview. Any command that successfully modifies the underlying guest list will clear the person preview.
+Note: <code>filter</code> and <code>find</code> is not considered to be modifying the guest list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:50:46 UTC</div></div></div></body></html>
