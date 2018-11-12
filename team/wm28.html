@@ -95,7 +95,7 @@
 <p>Setup about us page (Pull requests <a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/26">#26</a>)</p>
 </li>
 <li>
-<p>Designed initial user interface mock up in Adobe XD (Pull requests <a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/27">#27</a>)</p>
+<p>Designed initial user interface mock up in Adobe XD (Pull request <a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/27">#27</a>)</p>
 </li>
 </ul>
 </div>
@@ -188,7 +188,7 @@
 <p>Importation of badly formatted guests in the CSV file will be skipped.</p>
 </li>
 <li>
-<p>The CSV guest entries which are badly formatted or those which corresponds to an existing guest in the guest list, will trigger an import report window as shown in figure 1.</p>
+<p>The CSV guest entries which are badly formatted or those which corresponds to an existing guest in the guest list, will trigger an import report window as shown in figure 2.</p>
 </li>
 </ul>
 </div>
@@ -200,7 +200,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/ImportReportWindow.PNG" alt="ImportReportWindow" width="790"></span>
 <br>
-  Figure 2 - ImportReportWindow: Shows the offending CSV guest entries with their associated error messages.</p></td>
+  Figure 2 - Import Report Window: Shows the offending CSV guest entries with their associated error messages.</p></td>
 </tr>
 </tbody>
 </table>
@@ -213,11 +213,13 @@
 <ul>
 <li>
 <p><code>import directory/subdirectory/guestlist.csv</code><br>
-You will populate the guest list with the data imported from the CSV file in the specified path.
-=== Exporting guests to CSV file : <code>export</code></p>
+You will populate the guest list with the data imported from the CSV file in the specified path.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="exporting-guests-to-csv-file-code-export-code"><a class="link" href="#exporting-guests-to-csv-file-code-export-code">Exporting guests to CSV file : <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports guests' data in the guest list to a specified CSV file. Allows you to share your guest list easily using the exported CSV file. The format of guest fields in the CSV file is the same format as the <code>import</code> command and can be found in <a href="#csv-guest-list-format">Section 6: "CSV Guest List Format"</a>.<br></p>
 </div>
@@ -247,9 +249,6 @@ You will populate the guest list with the data imported from the CSV file in the
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>If no <code>FILE_PATH</code> is provided, guests will be exported using the default filename, <code>exportedGuestBook.csv</code> to the current working directory (folder where the application Jar file is located).</p>
 </li>
 </ul>
 </div>
@@ -300,10 +299,7 @@ You will export the currently filtered guest list entries into a CSV file in the
 <div class="paragraph">
 <p>David Li,91031282,lidavid@gmail.com,PENDING,ABSENT,00001,gold,Veg,VIP<br>
 Irfan Ibrahim,92492021,irfan@gmail.com,PAID,PRESENT,00002,gold,Veg,VIP<br>
-Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,00003,gold,Veg,VIP<br>
-Hakeem Salgado,80000957,80000957@gmail.com,PAID,ABSENT,00004,gold,Veg,VIP<br>
-Hibah Lees,80000882,80000882@gmail.com,PAID,ABSENT,00005,gold,Veg,VIP<br>
-Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,00006,gold,Veg,VIP<br></p>
+Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,00003,gold,Veg,VIP<br></p>
 </div>
 </div>
 </div>
@@ -350,11 +346,11 @@ Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,00006,gold,Veg,VIP<br></p>
 </div>
 </li>
 <li>
-<p><code>SupportedFile</code> represents a supported file that is able to read and write `AdaptedPerson`s' to the actual file on the computer.  Here are some of its key methods</p>
+<p><code>SupportedFile</code> represents a supported file that is able to read and write <code>AdaptedPerson</code> s' to the actual file on the computer.  Here are some of its key methods</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>SupportedFile#readAdaptedPersons()</code>: Returns all person in the form of `AdaptedPerson`s from the file</p>
+<p><code>SupportedFile#readAdaptedPersons()</code>: Returns all person in the form of <code>AdaptedPerson</code> s from the file</p>
 </li>
 <li>
 <p><code>SupportedFile#writeAdaptedPersons()</code>: Writes all <code>AdaptedPerson</code> to the file</p>
@@ -400,7 +396,7 @@ Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,00006,gold,Veg,VIP<br></p>
 <div class="content">
 <img src="../images/ImportExportClassDiagram.PNG" alt="ImportExportClassDiagram" width="800">
 </div>
-<div class="title">Figure 1. Import Export Class Diagram</div>
+<div class="title">Figure 1. Import/Export Command Class Diagram</div>
 </div>
 </div>
 <div class="sect4">
@@ -414,26 +410,30 @@ Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,00006,gold,Veg,VIP<br></p>
 <div class="paragraph">
 <p>The following sequence diagram shows how the Import operation works:</p>
 </div>
-<div class="paragraph">
-<div class="title">Import Command Sequence Diagram</div>
-<p><span class="image"><img src="../images/ImportCommandSequenceDiagram.PNG" alt="ImportCommandSequenceDiagram" width="800"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportCommandSequenceDiagram.PNG" alt="ImportCommandSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 2. Import Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>ShowImportReportEvent</code> will be handled by the <code>MainWindow</code> according to the following sequence diagram below.</p>
 </div>
-<div class="paragraph">
-<div class="title">Import Report Window Sequence Diagram</div>
-<p><span class="image"><img src="../images/ImportReportWindowSequenceDiagram.png" alt="ImportReportWindowSequenceDiagram" width="500"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportReportWindowSequenceDiagram.png" alt="ImportReportWindowSequenceDiagram" width="500">
+</div>
+<div class="title">Figure 3. Import Report Window Sequence Diagram</div>
 </div>
 <hr>
 <div class="paragraph">
-<p>The export command will only export the currently filtered list by calling <code>Model#getFilteredPersonList</code>. This enables greater flexibility as it provides a way for users to select specific groups of people to export. The following sequence diagram shows how the export operation works:</p>
+<p>The export command will only export the currently filtered guest list by calling <code>Model#getFilteredPersonList</code>. This enables greater flexibility as it provides a way for users to select specific groups of people to export. The following sequence diagram shows how the export operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ExportCommandSequenceDiagram.PNG" alt="ExportCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 2. Export Command Sequence Diagram</div>
+<div class="title">Figure 4. Export Command Sequence Diagram</div>
 </div>
 </div>
 </div>
@@ -508,4 +508,4 @@ Jayda Hill,80000251,80000251@gmail.com,PAID,ABSENT,00006,gold,Veg,VIP<br></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:15:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:48:58 UTC</div></div></div></body></html>
