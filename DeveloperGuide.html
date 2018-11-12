@@ -103,6 +103,8 @@
 <li><a href="#guest-preview">F.11. Guest preview</a></li>
 <li><a href="#generation-of-uid-details-in-add_guest-command">F.12. Generation of UID details in add_guest command</a></li>
 <li><a href="#marking-attendance-details">F.13. Marking Attendance details</a></li>
+<li><a href="#add-tags-to-all-guests-in-the-list">F.14. Add tags to all guests in the list</a></li>
+<li><a href="#remove-tags-from-all-guests-in-the-list">F.15. Remove tags from all guests in the list</a></li>
 </ul>
 </li>
 </ul>
@@ -2738,7 +2740,7 @@ Expected: No event details are edited. Error details are shown in the status mes
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Send individual guests an email</p>
+<p>Send individual guests an email <strong>with a QR code attachment</strong></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2772,7 +2774,7 @@ Expected: No event details are edited. Error details are shown in the status mes
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Send all guests an email</p>
+<p>Send all guests an email <strong>(no QR code attachments for this command)</strong></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2781,16 +2783,6 @@ Expected: No event details are edited. Error details are shown in the status mes
 <ol class="lowerroman" type="i">
 <li>
 <p>Expected: Assuming there is at least one guest, UI Window opens to allow user input. If all inputs are valid, email is sent to all guests.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Test case:</strong> <code>emailAll</code></p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Expected: If current filtered list is empty, no email will be sent and an error message displayed.</p>
 </li>
 </ol>
 </div>
@@ -2816,7 +2808,7 @@ Expected: No event details are edited. Error details are shown in the status mes
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Send an email to a group of guests</p>
+<p>Send an email to a group of guests <strong>(no QR code attachments for this command)</strong></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -3036,5 +3028,103 @@ Expected: The person whose UID is <code>00001</code> will have the attendance fi
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="add-tags-to-all-guests-in-the-list"><a class="link" href="#add-tags-to-all-guests-in-the-list">F.14. Add tags to all guests in the list</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adds a set of tags to all the guests in the list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Test case:</strong> <code>addTag t/Veg t/Platinum</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: Adds the tags <code>Veg</code> and <code>Platinum</code> to all guests in the current filtered list</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:07:14 UTC</div></div></div></body></html>
+</li>
+<li>
+<p><strong>Test case:</strong> <code>addTag t/(<strong>@#(</strong></code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: No tags are added as the tags specified are not alphanumeric</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Incorrect commands to try:</strong> <code>addTag t/t/</code>, <code>addTag</code>, etc.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: No tags added due to incorrect parameters.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remove-tags-from-all-guests-in-the-list"><a class="link" href="#remove-tags-from-all-guests-in-the-list">F.15. Remove tags from all guests in the list</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Removes a set of tags from all the guests in the list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Test case:</strong> <code>removeTag t/Veg t/Platinum</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: Removes the tags <code>Veg</code> and <code>Platinum</code> from all guests who have these tags</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Test case:</strong> <code>removeTag t/Veg t/Platinum</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: If no guests in the current filtered list have tags <code>Veg</code> or <code>Platinum</code>, system throws an error</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Test case:</strong> <code>removeTag t/(<strong>@#(</strong></code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: No tags are removed as the tags specified are not alphanumeric</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Incorrect commands to try:</strong> <code>removeTag t/t/</code>, <code>removeTag</code>, etc.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: No tags removed due to incorrect parameters.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:13:50 UTC</div></div></div></body></html>
