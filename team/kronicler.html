@@ -606,5 +606,85 @@ If the checks fail, <code>COMMANDEXCEPTION</code> will be thrown to indicate the
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="generation-of-uid-details-in-add_guest-command"><a class="link" href="#generation-of-uid-details-in-add_guest-command">Generation of UID details in add_guest command</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Setting the UID for each guest in the guest list.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add_guest n/John p/98765432 e/f@gmail.com pa/PAID a/ABSENT u/00000 t/NORMAL t/NoShrimp t/NORMAL</code><br>
+Expected: As the field for the UID is set to <code>00000</code>, the program will generate a random 6 digit UID for the user.</p>
+</li>
+<li>
+<p>Test case: <code>add_guest n/Doe p/98725432 e/g@gmail.com pa/PAID a/ABSENT u/00001 t/NORMAL t/NoShrimp t/NORMAL</code><br>
+Expected: As the field for the UID is set to <code>00001</code>, the program will treat this is a User defined UID and add the person with the UID set to <code>00001</code>.</p>
+</li>
+<li>
+<p>Test case: <code>add_guest n/Jon p/98765422 e/d@gmail.com pa/PAID a/PRESENT u/0000 t/NORMAL t/NoShrimp t/NORMAL</code><br>
+Expected: As the field for the UID is set to <code>0000</code> which is an invalid input as the UID has to be at least 5 characters, the program will display an error message.</p>
+</li>
+<li>
+<p>Test case: <code>add_guest n/Do p/98765232 e/g@gmail.com pa/PAID a/PRESENT u/000000000000000000001 t/NORMAL t/NoShrimp t/NORMAL</code><br>
+ExpectedL As the field for the UID is set to <code>000000000000000000001</code> which has 21 characters which is an invalid input as the UID cannot be more than 20 characters, the program will display an error message.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:56:13 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="marking-attendance-details"><a class="link" href="#marking-attendance-details">Marking Attendance details</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Marking attendance using the Unique ID (UID) to set the attendance to <code>PRESENT</code> with the <code>mark</code> command.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The guest list must be populated with guests. At least one guest has the UID <code>00001</code>.</p>
+</li>
+<li>
+<p>Test case: <code>mark 00001</code><br>
+Expected: The person whose UID is <code>00001</code> will have the attendance field marked as <code>PRESENT</code>.</p>
+</li>
+<li>
+<p>Test case: <code>mark [UID not in the guest list]</code><br>
+Expected: An error will show that there is no such person in the guest list.</p>
+</li>
+<li>
+<p>Test case: <code>mark 0001</code><br>
+Expected: The UID is in the wrong format and will show an error message.</p>
+</li>
+<li>
+<p>Test case: <code>mark 0101010101010101010101010101</code><br>
+Expected: the UID is in the wrong format and will show an error message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Marking attendance using the Unique ID (UID) to set the attendance to <code>ABSENT</code> with the <code>unmark</code> command.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The guest list must be populated with guests. At least one guest has the UID <code>00001</code>.</p>
+</li>
+<li>
+<p>Test case: <code>unmark 00001</code><br>
+Expected: The person whose UID is <code>00001</code> will have the attendance field marked as <code>ABSENT</code>.</p>
+</li>
+<li>
+<p>Other test cases: similar to <code>mark</code> command as shown above</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:42:16 UTC</div></div></div></body></html>
