@@ -30,17 +30,17 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
-<li><a href="#filter-feature">4.2. Filter feature</a></li>
-<li><a href="#find-feature">4.3. Find feature</a></li>
-<li><a href="#add-delete-event-feature">4.4. Add/Delete Event feature</a></li>
-<li><a href="#edit-event-feature">4.5. Edit Event feature</a></li>
+<li><a href="#filter-feature">4.1. Filter feature</a></li>
+<li><a href="#find-feature">4.2. Find feature</a></li>
+<li><a href="#add-delete-event-feature">4.3. Add/Delete Event feature</a></li>
+<li><a href="#edit-event-feature">4.4. Edit Event feature</a></li>
+<li><a href="#email-functionality">4.5. Email Functionality</a></li>
 <li><a href="#add-remove-tag-generation-feature">4.6. Add/Remove Tag generation feature</a></li>
 <li><a href="#import-export-command">4.7. Import/Export Command</a></li>
 <li><a href="#mark-unmark-command">4.8. Mark/Unmark Command</a></li>
 <li><a href="#extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list">4.9. Extension made to add_guest: Generate Unique ID (UID) on creation of an entry into the list</a></li>
-<li><a href="#email-functionality-em-coming-in-v2-0-em">4.10. Email Functionality - <em>Coming in v2.0</em></a></li>
-<li><a href="#proposed-data-encryption">4.11. [Proposed] Data Encryption</a></li>
+<li><a href="#proposed-data-encryption">4.10. [Proposed] Data Encryption</a></li>
+<li><a href="#proposed-guest-email-verification">4.11. [Proposed] Guest Email Verification</a></li>
 <li><a href="#logging">4.12. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.13. Configuration</a></li>
 </ul>
@@ -612,219 +612,9 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1. Undo/Redo feature</a></h3>
+<h3 id="filter-feature"><a class="link" href="#filter-feature">4.1. Filter feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
-</div>
-<div class="title">Figure 10. Undo Redo Starting State List Diagram</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete_guest 5</code> command to delete the 5th guest in the address book. The <code>delete_guest</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete_guest 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-<div class="title">Figure 11. Undo Redo New Command 1 State List Diagram</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add_guest n/David &#8230;&#8203;</code> to add a new guest. The <code>add_guest</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-<div class="title">Figure 12. Undo Redo New Command 2 State List Diagram</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the guest was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-<div class="title">Figure 13. Undo Redo Execute Undo State List Diagram</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 14. Undo Redo Sequence Diagram</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-<div class="title">Figure 15. Undo Redo New Command 3 State List Diagram</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-<div class="title">Figure 16. Undo Redo New Command 4 State List Diagram</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
-<div class="title">Figure 17. Undo Redo Activity Diagram</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete_guest</code>, just save the guest being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="filter-feature"><a class="link" href="#filter-feature">4.2. Filter feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The filter mechanism is facilitated by <code>VersionedAddressBook</code>.
 Given below is an example usage scenario and how the filter mechanism behaves at each step.</p>
@@ -845,11 +635,11 @@ The <code>filter</code> command calls <code>Model#getFilteredPersonList()</code>
 <div class="content">
 <img src="images/FilterSequenceDiagram.png" alt="FilterSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 18. Filter Sequence Diagram</div>
+<div class="title">Figure 10. Filter Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-filter-executes"><a class="link" href="#aspect-how-filter-executes">Aspect: How filter executes</a></h5>
 <div class="ulist">
@@ -890,9 +680,9 @@ through the tag field).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">4.3. Find feature</a></h3>
+<h3 id="find-feature"><a class="link" href="#find-feature">4.2. Find feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The find mechanism is facilitated by <code>VersionedAddressBook</code>.
 Given below is an example usage scenario and how the find mechanism behaves at each step.</p>
@@ -914,11 +704,11 @@ The <code>find</code> command calls <code>Model#getFilteredPersonList()</code>.<
 <div class="content">
 <img src="images/FindSequenceDiagram.png" alt="FindSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 19. Find Sequence Diagram</div>
+<div class="title">Figure 11. Find Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-find-executes"><a class="link" href="#aspect-how-find-executes">Aspect: How find executes</a></h5>
 <div class="ulist">
@@ -959,9 +749,9 @@ go through the name and phone number fields, before going through the email fiel
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-delete-event-feature"><a class="link" href="#add-delete-event-feature">4.4. Add/Delete Event feature</a></h3>
+<h3 id="add-delete-event-feature"><a class="link" href="#add-delete-event-feature">4.3. Add/Delete Event feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The add_event and delete_event mechanisms are facilitated by <code>VersionedAddressBook</code>.
 Given below is an example usage scenario and how the add_event and delete_event mechanisms behave at each step.</p>
@@ -1037,11 +827,11 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 <div class="content">
 <img src="images/AddDeleteEventSequenceDiagram.png" alt="AddDeleteEventSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 20. Sequence diagram for add_event and delete_event commands that add or delete event details respectively.</div>
+<div class="title">Figure 12. Sequence diagram for add_event and delete_event commands that add or delete event details respectively.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-creation-of-the-event-component"><a class="link" href="#aspect-creation-of-the-event-component">Aspect: Creation of the Event component</a></h5>
 <div class="ulist">
@@ -1078,9 +868,9 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-event-feature"><a class="link" href="#edit-event-feature">4.5. Edit Event feature</a></h3>
+<h3 id="edit-event-feature"><a class="link" href="#edit-event-feature">4.4. Edit Event feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The edit_event mechanism is facilitated by <code>VersionedAddressBook</code>.
 Given below is an example usage scenario and how the edit_event mechanism behaves at each step.</p>
@@ -1128,53 +918,174 @@ The <code>edit_event</code> command uses <code>Model#hasEvent()</code> to check 
 <div class="content">
 <img src="images/EditEventSequenceDiagram.png" alt="EditEventSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 21. Sequence diagram for edit_event command that edits the event details</div>
+<div class="title">Figure 13. Sequence diagram for edit_event command that edits the event details</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="email-functionality"><a class="link" href="#email-functionality">4.5. Email Functionality</a></h3>
+<div class="sect3">
+<h4 id="high-level-algorithm-design"><a class="link" href="#high-level-algorithm-design">4.5.1. High Level Algorithm Design</a></h4>
+<div class="paragraph">
+<p>The email functionality, comprising of the commands <code>email</code>, <code>emailAll</code>, and <code>emailSpecific</code> allows the user to send individual and mass emails to the guests
+in their list. Moreover, all three commands will open a popup window to prompt the user to enter the relevant details, namely their email address and password,
+as well as the email subject and message. Currently <code>Gmail</code> is the only supported domain for the user&#8217;s email address, however the implementation of this function
+easily allows for more domains to be supported.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the main design of the email functionality resides within the <strong>Logic</strong> component, coupled with a <strong>UI</strong> component to allow the user to input their details.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="image"><img src="images/EmailAllClassDiagram.png" alt="EmailAllClassDiagram"></span> Figure 12 - EmailAll Class Diagram</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>As you can see above, <strong>Figure 12</strong> captures the main interactions between all classes when the user executes an <code>emailAll</code> command.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The command depends on the class <code>EmailPasswordAuthenticator</code> for verification of the user&#8217;s email credentials and the abstract class <code>Email</code> which creates the email object to be sent as well as establishes a connection with Gmail&#8217;s SMTP server via <code>Properties</code></p>
+</li>
+<li>
+<p>Moreover, the creation of the UI window is facilitated by the class <code>EmailWindow</code>, which also returns the email data once you input your details.</p>
+</li>
+<li>
+<p>Furthermore, the email object is created thanks to <code>MimeMultiPart</code> class, and comprises of two main parts</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The first part is the text input you provided in the UI window, which is used by <code>MimeMessage</code> and <code>MimeBodyPart</code>, both of which implement the interface <code>MimePart</code></p>
+</li>
+<li>
+<p>The second part is the QR Code which acts as the guest&#8217;s ticket and is generated by <code>QrUtil</code>. Note that currently only the <code>email</code> command supports ticket generation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Finally, the email, with all its contents, is sent via the abstract class <code>Transport</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-mechanism"><a class="link" href="#command-mechanism">4.5.2. Command Mechanism</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 70%;">
+<col style="width: 30%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="image"><img src="images/MailCommandActivityDiagram.png" alt="MailCommandActivityDiagram"></span> Figure 13 - MailCommand Activity Diagram</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Figure 13</strong> represents an activity diagram when the <em>email</em> command is executed.</p>
+<p class="tableblock">    As you can see, the command involves <strong>error checking</strong>, followed by <strong>creating an email object</strong>, and finally <strong>sending</strong> this email to an individual guest.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-creating-an-emailwindow-for-user-input"><a class="link" href="#aspect-creating-an-emailwindow-for-user-input">Aspect: Creating an EmailWindow for user input</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Current choice: Instantiating the UI component directly from the abstract class Email</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces dependencies and coupling because other UI components and increases cohesion</p>
+</li>
+<li>
+<p>Cons: Does not fit within the Façade Class of <code>EventsCentre</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative: Create a controller from <code>EventsCentre</code> for showing <code>EmailWindow</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will fit within the Façade Class of <code>EventsCentre</code> and hence with the software architecture</p>
+</li>
+<li>
+<p>Cons: Functionality will be affected, as current model makes it difficult to feed back user input</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementing-email-verification-of-guest-email-addresses"><a class="link" href="#aspect-implementing-email-verification-of-guest-email-addresses">Aspect: Implementing email verification of guest email addresses</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Current choice: Email addresses are only checked for validity, not whether they exist</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Efficient way to send mass emails without slowing down the program for verification</p>
+</li>
+<li>
+<p>Cons: User will be unaware if the guest email address does not exist, which may affect communication</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative: Implement email validation for any possible email domain</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User is able to check which guest email addresses do not exist</p>
+</li>
+<li>
+<p>Cons: Would make the codebase bulkier and require multiple email domain configurations</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="add-remove-tag-generation-feature"><a class="link" href="#add-remove-tag-generation-feature">4.6. Add/Remove Tag generation feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The addTag/removeTag mechanism is facilitated by <code>AddressBook</code> as it provides an editable form of a <code>ReadOnlyAddressBook</code> provided by the <code>Model</code> interface.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="paragraph">
-<p><code>Model#commitAddressBook()</code>, <code>Model#getFilteredPersonList()</code>, and <code>Model#resetData()</code> respectively.</p>
+<p>The addTag/removeTag mechanism is facilitated by <code>AddressBook</code> as it provides a <code>ReadOnlyAddressBook</code> using the <code>Model</code> interface.
+Additionally, it implements <code>Model#commitAddressBook()</code>, <code>Model#getFilteredPersonList()</code>, and <code>Model#resetData()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the addTag/removeTag mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>AddressBook</code> will be initialized with the initial address book state.</p>
+<p>Step 1. The user launches the application for the first time and executes the command <code>import guestlist.csv</code> to import a list of guests and add them to the current state of <code>AddressBook</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes the command <code>import guestlist.csv</code> to import a list of guests and add them to the current state of <code>AddressBook</code>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved.
-</td>
-</tr>
-</table>
+<p>Step 2. The user now decides to add a set of tags to all guests in the list and executes the command <code>addTag t/VIP t/Platinum</code> to add the tags <code>VIP</code> and <code>Platinum</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The user now decides to add a set of tags to all guests in the list and executes the command <code>addTag t/VIP t/Platinum</code> to add the tags <code>VIP</code> and <code>Platinum</code>.</p>
+<p>Step 3. A <code>ReadOnlyAddressBook</code> is created and an editable address book is created using <code>AddressBook</code>. To add to this, the current filtered list is accessed using <code>Model#getFilteredPersonList()</code></p>
 </div>
 <div class="paragraph">
-<p>Step 4. A <code>ReadOnlyAddressBook</code> is created and an editable address book is created using <code>AddressBook</code>. To add to this, the current filtered list is accessed using <code>Model#getFilteredPersonList()</code></p>
+<p>Step 4. The set of tags are added to all guests in the editable address book via <code>AddressBook#addTag()</code> and <code>AddressBook#addTagFromPerson()</code></p>
 </div>
 <div class="paragraph">
-<p>Step 5. The set of tags are added to all guests in the editable address book via <code>AddressBook#addTag()</code> and <code>AddressBook#addTagFromPerson()</code></p>
-</div>
-<div class="paragraph">
-<p>Step 6. Finally, <code>Model#resetData()</code> and <code>Model#commitAddressBook()</code> are called to reset the current state of the list with the updated tags.</p>
+<p>Step 5. Finally, <code>Model#resetData()</code> and <code>Model#commitAddressBook()</code> are called to reset the current state of the list with the updated tags.</p>
 </div>
 <div class="paragraph">
 <p>The <code>removeTag</code> command does the opposite, and removes a set of tags from all guests in the guest list. However, the workflow is similar to <code>addTag</code>; a new <code>AddressBook</code> is created and edited accordingly as per the command.</p>
@@ -1192,28 +1103,29 @@ If there are no guests in the current list, or if the removeTag command tries to
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram summarizes how the addTag() and removeTag() function work:
-The sequence diagram uses the case of addTag() to highlight how the application responds to this command. However, the same logic and sequence flow is applied to the removeTag() command.</p>
+<p><strong>Figures 14 and 15</strong> below are sequence diagrams that summarize the flow of actions when the system performs the addTag() or removeTag() command respectively:</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddTagRemoveTagSequenceDiagram.png" alt="AddTagRemoveTagSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 22. AddTag and RemoveTag Sequence Diagram</div>
-</div>
-<div class="paragraph">
-<p>Figure above shows how the addTag() and removeTag() function work.
-The sequence diagram uses the case of addTag() to highlight how the application responds to this command. However, the same logic and sequence flow is applied to the removeTag() command.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/AddTagSequenceDiagram.png" alt="AddTagSequenceDiagram"></span> Figure 14 - AddTag Sequence Diagram</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/RemoveTagSequenceDiagram.png" alt="RemoveTagSequenceDiagram"></span> Figure 15 - RemoveTag Sequence Diagram</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-create-an-editableaddressbook-for-addtag-and-removetag"><a class="link" href="#aspect-how-to-create-an-editableaddressbook-for-addtag-and-removetag">Aspect: How to create an EditableAddressBook for AddTag and RemoveTag?</a></h5>
+<h5 id="aspect-creating-an-editableaddressbook-for-addtag-and-removetag"><a class="link" href="#aspect-creating-an-editableaddressbook-for-addtag-and-removetag">Aspect: Creating an EditableAddressBook for AddTag and RemoveTag</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (current choice): edit the <code>AddressBook</code> model to allow an addTag and removeTag command to execute</p>
+<p>Current choice: edit the <code>AddressBook</code> model to allow an addTag and removeTag command to execute</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1226,14 +1138,14 @@ The sequence diagram uses the case of addTag() to highlight how the application 
 </div>
 </li>
 <li>
-<p>Alternative 2: Make the AddressBook editable by default</p>
+<p>Alternative: Make the AddressBook editable by default</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Current AddressBook can easily be changed by any functions</p>
 </li>
 <li>
-<p>Cons: Makes the content of the AddressBook less secure by giving all functions access to edit</p>
+<p>Cons: Makes the content of the AddressBook accessible by all functions, which is undesirable</p>
 </li>
 </ul>
 </div>
@@ -1246,7 +1158,7 @@ The sequence diagram uses the case of addTag() to highlight how the application 
 <div class="sect2">
 <h3 id="import-export-command"><a class="link" href="#import-export-command">4.7. Import/Export Command</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.7.1. Current Implementation</a></h4>
 <div class="sect4">
 <h5 id="high-level-overview-of-the-class-hierarchy"><a class="link" href="#high-level-overview-of-the-class-hierarchy">High level overview of the class hierarchy</a></h5>
 <div class="paragraph">
@@ -1321,11 +1233,11 @@ The sequence diagram uses the case of addTag() to highlight how the application 
 <div class="content">
 <img src="images/ImportExportClassDiagram.PNG" alt="ImportExportClassDiagram" width="800">
 </div>
-<div class="title">Figure 23. Import/Export Command Class Diagram</div>
+<div class="title">Figure 14. Import/Export Command Class Diagram</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="command-mechanism"><a class="link" href="#command-mechanism">Command mechanism</a></h5>
+<h5 id="command-mechanism-2"><a class="link" href="#command-mechanism-2">Command mechanism</a></h5>
 <div class="paragraph">
 <p>The import command will first read the csv file and loop through all the guest data and add them into the model. When application encounters a particular guest in CSV file which fails to be converted or is already an existing guest, an <code>ImportError</code> will be created. These <code>ImportError</code> object will be added in a list within the import command.</p>
 </div>
@@ -1339,7 +1251,7 @@ The sequence diagram uses the case of addTag() to highlight how the application 
 <div class="content">
 <img src="images/ImportCommandSequenceDiagram.PNG" alt="ImportCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 24. Import Command Sequence Diagram</div>
+<div class="title">Figure 15. Import Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>ShowImportReportEvent</code> will be handled by the <code>MainWindow</code> according to the following sequence diagram below.</p>
@@ -1348,7 +1260,7 @@ The sequence diagram uses the case of addTag() to highlight how the application 
 <div class="content">
 <img src="images/ImportReportWindowSequenceDiagram.png" alt="ImportReportWindowSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 25. Import Report Window Sequence Diagram</div>
+<div class="title">Figure 16. Import Report Window Sequence Diagram</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1358,7 +1270,7 @@ The sequence diagram uses the case of addTag() to highlight how the application 
 <div class="content">
 <img src="images/ExportCommandSequenceDiagram.PNG" alt="ExportCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 26. Export Command Sequence Diagram</div>
+<div class="title">Figure 17. Export Command Sequence Diagram</div>
 </div>
 </div>
 </div>
@@ -1488,7 +1400,7 @@ If there is more than one instance of the same UID, a <code>COMMANDEXCEPTION</co
 <div class="content">
 <img src="images/MarkCommandSequenceDiagram.png" alt="MarkCommandSequenceDiagram" width="900">
 </div>
-<div class="title">Figure 27. Mark Command Sequence Diagram</div>
+<div class="title">Figure 18. Mark Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>ummark</code> operation works:</p>
@@ -1497,7 +1409,7 @@ If there is more than one instance of the same UID, a <code>COMMANDEXCEPTION</co
 <div class="content">
 <img src="images/UnmarkCommandSequenceDiagram.png" alt="UnmarkCommandSequenceDiagram" width="900">
 </div>
-<div class="title">Figure 28. Unmark Command Sequence Diagram</div>
+<div class="title">Figure 19. Unmark Command Sequence Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.1. Design Considerations</a></h4>
@@ -1589,7 +1501,7 @@ If the checks fail, <code>COMMANDEXCEPTION</code> will be thrown to indicate the
 <div class="content">
 <img src="images/AddCommandSequenceDiagram.png" alt="AddCommandSequenceDiagram" width="900">
 </div>
-<div class="title">Figure 29. Add Command Sequence Diagram</div>
+<div class="title">Figure 20. Add Command Sequence Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.1. Design Considerations</a></h4>
@@ -1642,13 +1554,15 @@ If the checks fail, <code>COMMANDEXCEPTION</code> will be thrown to indicate the
 </div>
 </div>
 <div class="sect2">
-<h3 id="email-functionality-em-coming-in-v2-0-em"><a class="link" href="#email-functionality-em-coming-in-v2-0-em">4.10. Email Functionality - <em>Coming in v2.0</em></a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.11. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.10. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{We plan on implementing a data encryption feature such that when the user chooses to, the data stored in the addressbook will be encrypted and display ceases to show all information.}</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-guest-email-verification"><a class="link" href="#proposed-guest-email-verification">4.11. [Proposed] Guest Email Verification</a></h3>
+<div class="paragraph">
+<p><em>{We plan on implementing a guest email verification system, that lets the user know which of their guest email addresses exist, for any email domain.}</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -1756,7 +1670,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 30. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 21. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2900,4 +2814,4 @@ Expected: No event details are edited. Error details shown in the status message
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:04:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:26:46 UTC</div></div></div></body></html>

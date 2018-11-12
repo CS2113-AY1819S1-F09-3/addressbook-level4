@@ -14,13 +14,13 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-guest-code-add_guest-code">3.2. Adding a guest: <code>add_guest</code></a></li>
-<li><a href="#listing-all-guests-code-list-code">3.3. Listing all guests : <code>list</code></a></li>
-<li><a href="#editing-a-guest-code-edit_guest-code">3.4. Editing a guest : <code>edit_guest</code></a></li>
-<li><a href="#deleting-a-guest-code-delete_guest-code">3.5. Deleting a guest : <code>delete_guest</code></a></li>
-<li><a href="#removing-a-set-of-tags-from-all-guests-code-removetag-code">3.6. Removing a set of tags from all guests : <code>removeTag</code></a></li>
+<li><a href="#listing-all-guests-code-list-code">3.2. Listing all guests : <code>list</code></a></li>
+<li><a href="#locating-guests-by-name-phone-number-or-email-address-code-find-code">3.3. Locating guests by name, phone number or email address: <code>find</code></a></li>
+<li><a href="#adding-a-guest-code-add_guest-code">3.4. Adding a guest: <code>add_guest</code></a></li>
+<li><a href="#editing-a-guest-code-edit_guest-code">3.5. Editing a guest : <code>edit_guest</code></a></li>
+<li><a href="#deleting-a-guest-code-delete_guest-code">3.6. Deleting a guest : <code>delete_guest</code></a></li>
 <li><a href="#adding-a-set-of-tags-to-all-guests-code-addtag-code">3.7. Adding a set of tags to all guests : <code>addTag</code></a></li>
-<li><a href="#locating-guests-by-name-phone-number-or-email-address-code-find-code">3.8. Locating guests by name, phone number or email address: <code>find</code></a></li>
+<li><a href="#removing-a-set-of-tags-from-all-guests-code-removetag-code">3.8. Removing a set of tags from all guests : <code>removeTag</code></a></li>
 <li><a href="#import-guests-from-csv-file-code-import-code">3.9. Import guests from CSV file : <code>import</code></a></li>
 <li><a href="#exporting-guests-to-csv-file-code-export-code">3.10. Exporting guests to CSV file : <code>export</code></a></li>
 <li><a href="#marking-a-guest-as-present-code-mark-code">3.11. Marking a guest as present : <code>mark</code></a></li>
@@ -30,11 +30,11 @@
 <li><a href="#filter-list-based-on-specified-parameters-code-filter-code">3.15. Filter list based on specified parameters : <code>filter</code></a></li>
 <li><a href="#sending-emails-to-individual-guests-code-email-code">3.16. Sending emails to individual guests : <code>email</code></a></li>
 <li><a href="#sending-an-email-to-all-guests-code-emailall-code">3.17. Sending an email to all guests : <code>emailAll</code></a></li>
-<li><a href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code-em-coming-in-v2-0-em">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code> - <em>Coming in v2.0</em></a></li>
-<li><a href="#sending-emails-to-specific-groups-of-guests-code-emailspecialised-code-em-coming-in-v2-0-em">3.19. Sending emails to specific groups of guests : <code>emailSpecialised</code> - <em>Coming in v2.0</em></a></li>
-<li><a href="#adding-event-details-code-add_event-code">3.20. Adding event details : <code>add_event</code></a></li>
-<li><a href="#editing-the-event-s-details-code-edit_event-code">3.21. Editing the event&#8217;s details : <code>edit_event</code></a></li>
-<li><a href="#deleting-event-details-code-delete_event-code">3.22. Deleting event details : <code>delete_event</code></a></li>
+<li><a href="#sending-emails-to-specific-groups-of-guests-code-emailspecific-code">3.18. Sending emails to specific groups of guests : <code>emailSpecific</code></a></li>
+<li><a href="#adding-event-details-code-add_event-code">3.19. Adding event details : <code>add_event</code></a></li>
+<li><a href="#editing-the-event-s-details-code-edit_event-code">3.20. Editing the event&#8217;s details : <code>edit_event</code></a></li>
+<li><a href="#deleting-event-details-code-delete_event-code">3.21. Deleting event details : <code>delete_event</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.22. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.23. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.25. Saving the data</a></li>
@@ -52,14 +52,13 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>Invités is an application targeted at event managers and planners. The application allows you to efficiently <strong>organise, cater, and manage</strong> large events such
-as weddings, school gatherings, orientation camps, etc. Some of the main features include the ability to send mass emails, keep track of payments and take note of attendance of the guests.
+as weddings, school gatherings, orientation camps, etc. Some of the main features include the ability to send mass emails, keep track of payments and take note of the attendance of your guests.
 To add to these features, by employing a standardised format, the application is able to take in Comma Separated Values (CSV) files and import data for a particular event.
 This eliminates the need to input all the information manually and subsequently, gives you an alternative if you decide to organise another event using the same guest list.</p>
 </div>
 <div class="paragraph">
-<p>This will give you an easier time while managing the reception at your event as you will be equipped with tools that will minimise errors in catering,
-organising, and ordering. Moreover, this application aims to reduce your frustration while planning events by addressing your needs in a platform that is more user-friendly, personalised, and
-efficient.</p>
+<p>Moreover, you will have an easier time managing the reception of your event as you will be equipped with tools that will minimise errors in catering,
+organisation, and orders. Moreover, our application aims to reduce your frustration while planning events by packaging your needs in a platform that is more user friendly, personalised, and efficient.</p>
 </div>
 <div class="paragraph">
 <p>The main purpose of this User Guide is to give you a detailed overview of all the features in our application and how to use them.</p>
@@ -136,7 +135,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 are included in this application</p>
 </li>
 <li>
-<p>If you would like to perform emailing services through our application, please complete the steps as shown
+<p>If you would like to perform emailing services through our application, please complete the steps as listed
 in <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a></p>
 </li>
 </ol>
@@ -175,9 +174,102 @@ in <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&
 <p>Displays a summary of the list of commands that the application offers<br>
 Format: <code>help</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>help extra characters</code> or <code>help 182$*</code> will be incorrect, but <code>help &#160;</code> (i.e. with spaces) will be correct.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-guest-code-add_guest-code"><a class="link" href="#adding-a-guest-code-add_guest-code">3.2. Adding a guest: <code>add_guest</code></a></h3>
+<h3 id="listing-all-guests-code-list-code"><a class="link" href="#listing-all-guests-code-list-code">3.2. Listing all guests : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all guests in the guest list.<br>
+Format: <code>list</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>list extra characters</code> or <code>list 182$*</code> will be incorrect, but <code>list &#160;</code> (i.e. with spaces) will be correct.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-guests-by-name-phone-number-or-email-address-code-find-code"><a class="link" href="#locating-guests-by-name-phone-number-or-email-address-code-find-code">3.3. Locating guests by name, phone number or email address: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Find guests whose names, phone numbers and/or email addresses
+contain any of the given keywords.<br>
+Format: <code>find n/KEYWORD p/MORE_KEYWORDS e/MORE_KEYWORDS</code><br>
+Example: find n/NAME p/PHONE e/EMAIL</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case-insensitive. e.g <code>n/hans</code> will match <code>n/Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>n/Hans n/Bo</code> will match <code>n/Bo n/Hans</code></p>
+</li>
+<li>
+<p>Only names, phone numbers and email addresses are searched, depending on prefixes given.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>n/Han</code> will not match <code>n/Hans</code></p>
+</li>
+<li>
+<p>Guests matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Hans n/Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find n/John</code><br>
+You will be shown a list that contains the entries of <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find n/Betsy n/Tim n/John</code><br>
+You will be show a list containing entries of any guest having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+<li>
+<p><code>find n/alex p/92746838 e/johndoe@gmail.com</code><br>
+You will be show a list containing entries of any guest having the name <code>Alex</code>,
+phone number <code>92746838</code>, or email address <code>johndoe@gmail.com</code></p>
+</li>
+<li>
+<p><code>find n/david n/edan</code><br>
+You will be shown a list that contains the entries of any guests having the
+name <code>david</code> and <code>edan</code><br></p>
+</li>
+<li>
+<p><code>find n/david edan</code><br>
+You will be shown a list that contains the entries of any guests having the
+name <code>david</code> <strong>but not</strong> <code>edan</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-guest-code-add_guest-code"><a class="link" href="#adding-a-guest-code-add_guest-code">3.4. Adding a guest: <code>add_guest</code></a></h3>
 <div class="paragraph">
 <p>Adds a guest to the guest list.<br>
 No spaces or special characters allowed in Payment and Attendance.<br>
@@ -224,14 +316,7 @@ Other values of UID will be treated as a user-defined UID.
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-guests-code-list-code"><a class="link" href="#listing-all-guests-code-list-code">3.3. Listing all guests : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all guests in the guest list.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-guest-code-edit_guest-code"><a class="link" href="#editing-a-guest-code-edit_guest-code">3.4. Editing a guest : <code>edit_guest</code></a></h3>
+<h3 id="editing-a-guest-code-edit_guest-code"><a class="link" href="#editing-a-guest-code-edit_guest-code">3.5. Editing a guest : <code>edit_guest</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing guest entry in the guest list.<br>
 No spaces or special characters allowed in Payment and Attendance.<br>
@@ -289,7 +374,7 @@ Edits the name of the 2nd guest to be <code>Bob Chan</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-guest-code-delete_guest-code"><a class="link" href="#deleting-a-guest-code-delete_guest-code">3.5. Deleting a guest : <code>delete_guest</code></a></h3>
+<h3 id="deleting-a-guest-code-delete_guest-code"><a class="link" href="#deleting-a-guest-code-delete_guest-code">3.6. Deleting a guest : <code>delete_guest</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified guest from the guest list.<br>
 Format: <code>delete_guest INDEX</code></p>
@@ -305,7 +390,8 @@ Format: <code>delete_guest INDEX</code></p>
 <p>The index refers to the index number shown in the displayed guest list.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, <strong>and</strong> cannot be out of bounds. For example, if there are 4 guests in your application,
+the command <code>delete_guest 5</code> will give you an error as there does not exist a guest at <code>INDEX</code> 5.</p>
 </li>
 </ul>
 </div>
@@ -330,55 +416,9 @@ Deletes the 1st guest in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="removing-a-set-of-tags-from-all-guests-code-removetag-code"><a class="link" href="#removing-a-set-of-tags-from-all-guests-code-removetag-code">3.6. Removing a set of tags from all guests : <code>removeTag</code></a></h3>
-<div class="paragraph">
-<p>This command allows you to remove a set of tags from all guests in the guest list.<br>
-Format: <code>removeTag [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The removeTag command will remove any number of tags provided by you from all guests</p>
-</li>
-<li>
-<p>If the tags you provide are not shared by any of the guests in the current list, you will be informed of this</p>
-</li>
-<li>
-<p>You must provide the tags to be removed, an input of <code>removeTag t/</code> will not do anything</p>
-</li>
-<li>
-<p>You must provide tags that are alphanumeric, otherwise the system will inform you of the error</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>removeTag t/Veg t/VIP</code><br>
-You will remove the tags <code>Veg</code> and <code>VIP</code> from all guests in the current list</p>
-</li>
-<li>
-<p><code>removeTag t/</code><br>
-This will present you with an error in specifying the command, as you have not provided any tags to delete</p>
-</li>
-<li>
-<p><code>removeTag t/@!*</code><br>
-This will present you with an error in specifying the command, as all your tags must be alphanumeric</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
 <h3 id="adding-a-set-of-tags-to-all-guests-code-addtag-code"><a class="link" href="#adding-a-set-of-tags-to-all-guests-code-addtag-code">3.7. Adding a set of tags to all guests : <code>addTag</code></a></h3>
 <div class="paragraph">
-<p>This command allows you to add a set of tags to all guests in the guest list.<br>
+<p>This command allows you to add a set of tags to all guests in the current filtered guest list.<br>
 Format: <code>addTag [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -389,7 +429,10 @@ Format: <code>addTag [t/TAG]&#8230;&#8203;</code></p>
 <p>The addTag command will add any number of tags provided by you to all guests</p>
 </li>
 <li>
-<p>You must provide tags that are alphanumeric, otherwise the system will inform you of the error in your input format</p>
+<p>You must provide tags that are alphanumeric, otherwise the system will give you an error</p>
+</li>
+<li>
+<p>Moreover, if you provide empty tags, or tags that all your guests already have, the system will throw an error</p>
 </li>
 </ul>
 </div>
@@ -402,43 +445,40 @@ Format: <code>addTag [t/TAG]&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>addTag t/Veg t/VIP</code><br>
-You will add the tags <code>Veg</code> and <code>VIP</code> to all guests in the current list</p>
+You will add the tags <code>Veg</code> and <code>VIP</code> to all guests in the current filtered list</p>
 </li>
 <li>
 <p><code>addTag t/@</code><br>
-This will present you with an error in specifying the command, as all your tags must be alphanumeric</p>
+This will present you with an error as all your tags must be alphanumeric</p>
+</li>
+<li>
+<p><code>addTag t/</code><br>
+You will receive an error message as you have provided empty tags</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-guests-by-name-phone-number-or-email-address-code-find-code"><a class="link" href="#locating-guests-by-name-phone-number-or-email-address-code-find-code">3.8. Locating guests by name, phone number or email address: <code>find</code></a></h3>
+<h3 id="removing-a-set-of-tags-from-all-guests-code-removetag-code"><a class="link" href="#removing-a-set-of-tags-from-all-guests-code-removetag-code">3.8. Removing a set of tags from all guests : <code>removeTag</code></a></h3>
 <div class="paragraph">
-<p>Find guests whose names, phone numbers and/or email addresses
-contain any of the given keywords.<br>
-Format: <code>find [n/NAME] [p/PHONE] [e/EMAIL]</code><br></p>
+<p>This command allows you to remove a set of tags from all guests in the current filtered guest list.<br>
+Format: <code>removeTag [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case-insensitive. e.g <code>n/hans</code> will match <code>n/Hans</code></p>
+<p>The removeTag command will remove any number of tags provided by you from all guests</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>n/Hans n/Bo</code> will match <code>n/Bo n/Hans</code></p>
+<p>If the tags you provided are not shared by any of the guests in the current list, the system with throw an error</p>
 </li>
 <li>
-<p>Only names, phone numbers and email addresses are searched, depending on prefixes given.</p>
+<p>You must provide <strong>non-empty</strong> tags, an input of <em>removeTag</em> will not do anything</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>n/Han</code> will not match <code>n/Hans</code></p>
-</li>
-<li>
-<p>Guests matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Hans n/Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-<li>
-<p><code>find</code> without any keywords will give an error</p>
+<p>You must provide tags that are alphanumeric, otherwise the system will throw an error</p>
 </li>
 </ul>
 </div>
@@ -450,31 +490,16 @@ Format: <code>find [n/NAME] [p/PHONE] [e/EMAIL]</code><br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find n/John</code><br>
-You will be shown a list that contains the entries of <code>john</code> and <code>John Doe</code></p>
+<p><code>removeTag t/Veg t/VIP</code><br>
+You will remove the tags <code>Veg</code> and <code>VIP</code> from all guests in the current filtered list</p>
 </li>
 <li>
-<p><code>find n/Betsy n/Tim n/John</code><br>
-You will be show a list containing entries of any guest having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>removeTag</code><br>
+This will present you with an error, as you have not provided any tags to delete</p>
 </li>
 <li>
-<p><code>find n/alex p/92746838 e/johndoe@gmail.com</code><br>
-You will be show a list containing entries of any guest having the name <code>Alex</code>,
-phone number <code>92746838</code>, or email address <code>johndoe@gmail.com</code></p>
-</li>
-<li>
-<p><code>find n/david n/edan</code><br>
-You will be shown a list that contains the entries of any guests having the
-name <code>david</code> and <code>edan</code><br></p>
-</li>
-<li>
-<p><code>find n/david edan</code><br>
-You will be shown a list that contains the entries of any guests having the
-name <code>david</code> <strong>but not</strong> <code>edan</code><br></p>
-</li>
-<li>
-<p><code>find</code><br>
-You will be shown an error message by the system.</p>
+<p><code>removeTag t/@!*</code><br>
+This will present you with an error, as all your tags must be alphanumeric</p>
 </li>
 </ul>
 </div>
@@ -789,7 +814,7 @@ You will be shown a list with guests who are present and have a vegetarian dieta
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> in order for this feature to work!</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> first in order for this feature to work!</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -808,7 +833,8 @@ Format: <code>email INDEX</code></p>
 <p>The index refers to the index number shown in the displayed guest list.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, <strong>and</strong> cannot be out of bounds. For example, if there are 4 guests in your application,
+the command <code>email 5</code> will give you an error as there does not exist a guest at <code>INDEX</code> 5.</p>
 </li>
 </ul>
 </div>
@@ -838,13 +864,19 @@ Format: <code>email INDEX</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>First, you will be presented with an EmailWindow similar to Figure 1 below. This window is for you to input your email address, password, email subject and message.</p>
+<p>First, you will be presented with an EmailWindow similar to <strong>Figure 3</strong> below.</p>
 </li>
 <li>
-<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 2.</p>
+<p>This window is for you to input your email address, password, email subject and message.</p>
+</li>
+<li>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try to click the <code>Send</code> button, an error message will pop up as the one in <strong>Figure 4</strong>.</p>
 </li>
 <li>
 <p>Once all fields are filled, you can click the <code>Send</code> button to send your email to the <strong>2nd guest</strong> in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+</li>
+<li>
+<p>If you are successful, you will see a message that says <code>Successfully sent email!</code>.</p>
 </li>
 </ol>
 </div>
@@ -858,8 +890,8 @@ Format: <code>email INDEX</code></p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 3 - EmailWindow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowError.png" alt="EmailWindowError"></span> Figure 4 - Field Errors</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 3 - EmailWindow</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowMissingMessage.png" alt="EmailWindowMissingMessage"></span> Figure 4 - Missing email message</p></td>
 </tr>
 </tbody>
 </table>
@@ -872,12 +904,12 @@ Format: <code>email INDEX</code></p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> in order for this feature to work!</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> first in order for this feature to work!</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Sends an email to all of the guests in the current list<br>
+<p>Sends an email to all of the guests in the current filtered list<br>
 Format: <code>emailAll</code></p>
 </div>
 <div class="admonitionblock note">
@@ -887,8 +919,20 @@ Format: <code>emailAll</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>emailAll extra characters</code> or <code>emailAll 182$*</code> will be incorrect, but <code>emailAll &#160;</code> (i.e. with spaces) will be correct.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>email</code> command as once you have sent an email, you cannot reverse this action.</p>
+<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>emailAll</code> command as once you have sent an email, you cannot reverse this action.</p>
 </div>
 </td>
 </tr>
@@ -900,17 +944,29 @@ Format: <code>emailAll</code></p>
 <div class="ulist">
 <ul>
 <li>
+<p><code>list</code><br></p>
+</li>
+<li>
 <p><code>emailAll</code><br></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>First, you will be presented with an EmailWindow similar to Figure 1 below. This window is for you to input your email address, password, email subject and message.</p>
+<p>The command <code>list</code> will list all your guests to ensure you send an email to all of them.</p>
 </li>
 <li>
-<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 2.</p>
+<p>First, you will be presented with an EmailWindow similar to Figure 5 below.</p>
+</li>
+<li>
+<p>This window is for you to input your email address, password, email subject and message.</p>
+</li>
+<li>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 6.</p>
 </li>
 <li>
 <p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+</li>
+<li>
+<p>If you are successful, you will see a message that says <code>Successfully sent email!</code>.</p>
 </li>
 </ol>
 </div>
@@ -924,40 +980,40 @@ Format: <code>emailAll</code></p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 5 - EmailWindow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowError.png" alt="EmailWindowError"></span> Figure 6 - Field Errors</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 5 - EmailWindow</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowMissingSubject.png" alt="EmailWindowMissingSubject"></span> Figure 6 - Missing email subject</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code-em-coming-in-v2-0-em"><a class="link" href="#sending-emails-to-specified-guests-ignoring-potential-spam-code-forceemail-code-em-coming-in-v2-0-em">3.18. Sending emails to specified guests, ignoring potential spam : <code>forceEmail</code> - <em>Coming in v2.0</em></a></h3>
+<h3 id="sending-emails-to-specific-groups-of-guests-code-emailspecific-code"><a class="link" href="#sending-emails-to-specific-groups-of-guests-code-emailspecific-code">3.18. Sending emails to specific groups of guests : <code>emailSpecific</code></a></h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> in order for this feature to work!</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> first in order for this feature to work!</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Sends an email to the guest specified by the index, regardless of how many emails have been sent to that guest<br>
-Format: <code>forceEmail INDEX</code></p>
+<p>Sends an email to all the guests with at least one of the tags specified+
+Format: <code>emailSpecific [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Sends an email to the guest at the specified <code>INDEX</code>.</p>
+<p>If the tags you provided are not shared by any of the guests in the current list, the system with throw an error</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed guest list.</p>
+<p>You must provide <strong>non-empty</strong> tags, an input of <em>emailSpecific</em> will not do anything</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>You must provide tags that are alphanumeric, otherwise the system will throw an error</p>
 </li>
 </ul>
 </div>
@@ -971,31 +1027,46 @@ Format: <code>forceEmail INDEX</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>email</code> command as once you have sent an email, you cannot reverse this action.</p>
-</div>
-<div class="paragraph">
-<p>If you try to send multiple emails to the same guest, the system will inform you of this and not allow you to spam the guest.
-However, the <code>forceEmail</code> command will allow you to send another email, regardless of how many emails have been sent before.</p>
+<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>emailSpecific</code> command as once you have sent an email, you cannot reverse this action.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>forceEmail</code><br>
-Forces an email to be sent to the guest specified by INDEX.</p>
+<p><code>emailSpecific</code><br>
+This will present you with an error, as you have not provided any tags to delete</p>
+</li>
+<li>
+<p><code>removeTag t/@!*</code><br>
+This will present you with an error, as all your tags must be alphanumeric</p>
+</li>
+<li>
+<p><code>emailSpecific t/VIP</code><br></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>First, you will be presented with an EmailWindow similar to Figure 1 below. This window is for you to input your email address, password, email subject and message.</p>
+<p>This command will send an email to all the guests with a <code>VIP</code> tag</p>
 </li>
 <li>
-<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 2.</p>
+<p>First, you will be presented with an EmailWindow similar to Figure 7 below.</p>
+</li>
+<li>
+<p>This window is for you to input your email address, password, email subject and message.</p>
+</li>
+<li>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 8.</p>
 </li>
 <li>
 <p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+</li>
+<li>
+<p>If you are successful, you will see a message that says <code>Successfully sent email!</code>.</p>
 </li>
 </ol>
 </div>
@@ -1009,41 +1080,14 @@ Forces an email to be sent to the guest specified by INDEX.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 5 - EmailWindow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowError.png" alt="EmailWindowError"></span> Figure 6 - Field Errors</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 7 - EmailWindow</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowMissingAddress.png" alt="EmailWindowMissingAddress"></span> Figure 8 - Missing email address</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="sending-emails-to-specific-groups-of-guests-code-emailspecialised-code-em-coming-in-v2-0-em"><a class="link" href="#sending-emails-to-specific-groups-of-guests-code-emailspecialised-code-em-coming-in-v2-0-em">3.19. Sending emails to specific groups of guests : <code>emailSpecialised</code> - <em>Coming in v2.0</em></a></h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Please ensure you have gone through <a href="#enabling-email-services">Section 5, &#8220;Enabling Email Services&#8221;</a> in order for this feature to work!</em></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>email</code> command as once you have sent an email, you cannot reverse this action.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-event-details-code-add_event-code"><a class="link" href="#adding-event-details-code-add_event-code">3.20. Adding event details : <code>add_event</code></a></h3>
+<h3 id="adding-event-details-code-add_event-code"><a class="link" href="#adding-event-details-code-add_event-code">3.19. Adding event details : <code>add_event</code></a></h3>
 <div class="paragraph">
 <p>Add the details for an event<br>
 Format: <code>add_event n/EVENT_NAME d/DATE v/VENUE st/START_TIME [t/OTHER_TAGS]</code></p>
@@ -1087,7 +1131,7 @@ You will create an event called <code>CFG career talk</code> that will take plac
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-the-event-s-details-code-edit_event-code"><a class="link" href="#editing-the-event-s-details-code-edit_event-code">3.21. Editing the event&#8217;s details : <code>edit_event</code></a></h3>
+<h3 id="editing-the-event-s-details-code-edit_event-code"><a class="link" href="#editing-the-event-s-details-code-edit_event-code">3.20. Editing the event&#8217;s details : <code>edit_event</code></a></h3>
 <div class="paragraph">
 <p>Edit the details of the event<br>
 Format: <code>edit_event [n/EVENT_NAME] [d/DATE] [v/VENUE] [st/START_TIME] [t/&#8230;&#8203;]</code></p>
@@ -1131,7 +1175,7 @@ You will change the name of the event to 'CFG Career Workshop and replace the ex
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-event-details-code-delete_event-code"><a class="link" href="#deleting-event-details-code-delete_event-code">3.22. Deleting event details : <code>delete_event</code></a></h3>
+<h3 id="deleting-event-details-code-delete_event-code"><a class="link" href="#deleting-event-details-code-delete_event-code">3.21. Deleting event details : <code>delete_event</code></a></h3>
 <div class="paragraph">
 <p>Deletes the event details currently present in the application
 Format: <code>delete_event</code></p>
@@ -1157,14 +1201,28 @@ Format: <code>delete_event</code></p>
 <ul>
 <li>
 <p><code>delete_event</code><br>
-You will delete the event details.
-=== Undoing previous command : <code>undo</code></p>
+You will delete the event details.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.22. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the guest list to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>undo extra characters</code> or <code>undo 182$*</code> will be incorrect, but <code>undo &#160;</code> (i.e. with spaces) will be correct.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1211,6 +1269,18 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>redo extra characters</code> or <code>redo 182$*</code> will be incorrect, but <code>redo &#160;</code> (i.e. with spaces) will be correct.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1243,6 +1313,18 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>exit extra characters</code> or <code>exit 182$*</code> will be incorrect, but <code>exit &#160;</code> (i.e. with spaces) will be correct.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.25. Saving the data</a></h3>
@@ -1272,9 +1354,8 @@ You will see the guest list populate itself with the data from the specified CSV
 <h2 id="enabling-email-services"><a class="link" href="#enabling-email-services">5. Enabling Email Services</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order for you to use the commands <code>email</code>, <code>emailAll</code>, <code>forceEmail</code>, and <code>emailSpecialised</code> you must allow Invités to access your email account and
-send emails. Currently, our application only supports Gmail accounts, but we do plan on supporting
-other email domains.</p>
+<p>In order for you to use the commands <code>email</code>, <code>emailAll</code>, and <code>emailSpecific</code> you must allow Invités to access your email account and
+send emails. Currently, our application only supports Gmail accounts, but we do plan on supporting other email domains.</p>
 </div>
 <div class="paragraph">
 <p>If you do have a <strong>Gmail</strong> account, please follow these steps to enable email services:</p>
@@ -1311,6 +1392,35 @@ susceptible to an increased number of spam emails from untrusted applications. H
 </tr>
 </table>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If your operating system is <strong>macOS Mojave</strong>, please make an <strong>important</strong> note of the following:
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 9 - EmailWindow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. If you use any of the email-related commands (i.e. <em>email</em>, <em>emailAll</em> or <em>emailSpecific</em>), you will be presented with an EmailWindow similar to
+the one in <strong>Figure 9</strong>.</p>
+<p class="tableblock">2. If you use the <strong>command-tab</strong> keys <strong>when the EmailWindow is open</strong> to switch windows, the program to crash. This is due to
+Apple&#8217;s latest macOS release, in which some of the bindings are not compatible with key JavaFX functions.</p>
+<p class="tableblock">3. This issue does not occur on Windows, Linux, and older macOS systems, however it <em>may still exist</em> in other operating systems we have not tested on.</p>
+<p class="tableblock">4. We sincerely apologise for the inconvenience caused, and our team is quickly trying to fix this issue.</p></td>
+</tr>
+</tbody>
+</table>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -1408,12 +1518,6 @@ Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,00003,gold,Veg,VIP<br></
 <p><code>unmark</code> : ​Removes the tag of a guest attending the event based on name.</p>
 </li>
 <li>
-<p><code>start_marking</code> : ​Begins continuous marking of the people entering the event.</p>
-</li>
-<li>
-<p><code>stop_marking</code> : ​Stops the continuous marking of people.</p>
-</li>
-<li>
 <p><code>filter</code> : ​Filters the guest list based on keywords given.</p>
 </li>
 <li>
@@ -1423,10 +1527,7 @@ Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,00003,gold,Veg,VIP<br></
 <p><code>emailAll</code> : Sends an email to all of the guests in the current list.</p>
 </li>
 <li>
-<p><code>forceEmail</code> : Sends an email to the guest specified by the index, regardless of how many emails have been sent to that guest.</p>
-</li>
-<li>
-<p><code>emailSpecialised</code> : Sends an email to the guests with the specified tags.</p>
+<p><code>emailSpecific</code> : Sends an email to the guests with the specified tags.</p>
 </li>
 <li>
 <p><code>add_event</code> :​ Adds the details of your event.</p>
@@ -1449,4 +1550,4 @@ Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,00003,gold,Veg,VIP<br></
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:04:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:26:46 UTC</div></div></div></body></html>
