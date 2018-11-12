@@ -39,10 +39,11 @@
 <li><a href="#add-remove-tag-generation-feature">4.7. Add/Remove Tag generation feature</a></li>
 <li><a href="#import-export-command">4.8. Import/Export Command</a></li>
 <li><a href="#mark-unmark-command">4.9. Mark/Unmark Command</a></li>
-<li><a href="#email-functionality-em-coming-in-v2-0-em">4.10. Email Functionality - <em>Coming in v2.0</em></a></li>
-<li><a href="#proposed-data-encryption">4.11. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.12. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.13. Configuration</a></li>
+<li><a href="#extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list">4.10. Extension made to add_guest: Generate Unique ID (UID) on creation of an entry into the list</a></li>
+<li><a href="#email-functionality-em-coming-in-v2-0-em">4.11. Email Functionality - <em>Coming in v2.0</em></a></li>
+<li><a href="#proposed-data-encryption">4.12. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">4.13. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.14. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -647,7 +648,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete_guest 5</code> command to delete the 5th guest in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 2. The user executes <code>delete_guest 5</code> command to delete the 5th guest in the address book. The <code>delete_guest</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete_guest 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -655,7 +656,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add_guest n/David &#8230;&#8203;</code> to add a new guest. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>add_guest n/David &#8230;&#8203;</code> to add a new guest. The <code>add_guest</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -766,7 +767,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the guest being deleted).</p>
+<p>Pros: Will use less memory (e.g. for <code>delete_guest</code>, just save the guest being deleted).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command are correct.</p>
@@ -1435,16 +1436,16 @@ Given below is an example usage scenario and how the mark/unmark command execute
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Alternatively, the user can execute the command <code>add_guest n/John Doe p/98765432 e/johnd@gmail.com pa/PAID a/ABSENT t/NORMAL</code> to create an instance of one guest and add them to the current state of <code>AddressBook</code>.
+Alternatively, the user can execute the command <code>add_guest n/John Doe p/98765432 e/johnd@gmail.com pa/PAID a/ABSENT u/00001 t/NORMAL</code> to create an instance of one guest and add them to the current state of <code>AddressBook</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 3. The user will execute the command <code>mark 98765432</code> to mark the attendance of the <code>Person</code>.</p>
+<p>Step 3. The user will execute the command <code>mark 00001</code> to set the attendance of the <code>Person</code> to <code>PRESENT</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. An instance of <code>filteredPersonList</code> is retrieved from the <code>model</code> using <code>MODEL#getFliteredPersonList</code>. A linear search is then executed on the <code>filteredPersonList</code> to find a <code>Person</code> with the same phone number as <code>98765432</code>.</p>
+<p>Step 4. An instance of <code>getPersonList</code> is retrieved from the <code>model</code> using <code>MODEL#getAddressBook#getPersonList</code>. A linear search is then executed on the <code>getPersonList</code> to find a <code>Person</code> with the same Unique ID (UID) as <code>00001</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1453,7 +1454,8 @@ Alternatively, the user can execute the command <code>add_guest n/John Doe p/987
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If there is no matching phone number found, a <code>COMMANDEXCEPTION</code> will be thrown to indicate nobody in the list has the phone number.
+If there is no matching UID found, a <code>COMMANDEXCEPTION</code> will be thrown to indicate nobody in the list has the phone number.
+If there is more than one instance of the same UID, a <code>COMMANDEXCEPTION</code> will be thrown to indicate that there are more than one instance of the same UID. In this case, <code>edit_guest</code> will not work. The user has to delete the entry and <code>add_guest</code> for the deleted entry.
 </td>
 </tr>
 </table>
@@ -1462,36 +1464,184 @@ If there is no matching phone number found, a <code>COMMANDEXCEPTION</code> will
 <p>Step 5. After retrieving the information from the discovered <code>Person</code>, another <code>Person</code> is created with the same fields with the exception of the attendance field being changed from <code>ABSENT</code> to <code>PRESENT</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 6. Finally, the entry is updated using <code>MODEL#updatePerson</code> to transfer the new information into the <code>filteredPersonList</code> before <code>commitAddressBook</code> is executed to save the state of the <code>AddressBook</code>.</p>
+<p>Step 6. Finally, the entry is updated using <code>MODEL#updatePerson</code> to transfer the new information into the <code>Model</code> before <code>commitAddressBook</code> is executed to save the state of the <code>AddressBook</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the add_event operation works:</p>
+<p>The following sequence diagram shows how the <code>mark</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/MarkUnmarkEventSequenceDiagram.png" alt="MarkUnmarkEventSequenceDiagram" width="800">
+<img src="images/MarkCommandSequenceDiagram.png" alt="MarkCommandSequenceDiagram" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>ummark</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UnmarkCommandSequenceDiagram.png" alt="UnmarkCommandSequenceDiagram" width="900">
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-mark-unmark-executes"><a class="link" href="#aspect-how-mark-unmark-executes">Aspect: How mark/unmark executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): access the <code>PersonList</code> model to execute marking of attendance.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to mark the attendance of anybody within the list even when it is filtered. Prevents the bug of a person filtering the list to only show a single instance of the multiple similar UID to mark their attendance.</p>
+</li>
+<li>
+<p>Cons: Some changes might be hard to detect when displaying a filtered list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: access the <code>filteredPersonList</code> model to execute the marking of attendance.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to work with a smaller set of people in the list. Changes made are immediately observable.</p>
+</li>
+<li>
+<p>Cons: Introduces bugs such as avoiding the similar UID check within the current instance of the guest list. If the filtered list does not immediately have the UID that needs to be used, the user has to call <code>list</code> command first. Increasing the chance of human error in the system.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="email-functionality-em-coming-in-v2-0-em"><a class="link" href="#email-functionality-em-coming-in-v2-0-em">4.10. Email Functionality - <em>Coming in v2.0</em></a></h3>
+<h3 id="extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list"><a class="link" href="#extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list">4.10. Extension made to add_guest: Generate Unique ID (UID) on creation of an entry into the list</a></h3>
+<div class="paragraph">
+<p>This feature is facilitated by the usage of the <code>Model</code>.<br>
+Given below is an example of the execution of the added functionality of the <code>add_guest</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state and the currentStatePointer pointing to that single address book state.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes the <code>add_guest</code> command with the following non-null fields: <code>add_guest n/John Doe p/98765432 e/johnd@gmail.com pa/PAID a/ABSENT u/00001 t/NORMAL</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>addCommandParser</code> extracts the relevant information from the command and returns a <code>Person</code> model that was built with the given arguments.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>add_guest.execute</code> function receives the generated <code>Person</code> model and checks for duplicates of the same <code>Person</code> as well as duplicates of the same <code>UID</code> in the <code>VersionedAddressBook</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the checks fail, <code>COMMANDEXCEPTION</code> will be thrown to indicate the existence of more than one of the same <code>UID</code> or <code>Person</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The function will test the equality between the <code>UID</code> given in the generated <code>Person</code> and the <code>DEFAULT_TO_GENERATE_UID</code> which is <code>00000</code>. From here the program will do one of 2 different things.</p>
+</div>
+<div class="paragraph">
+<p>Step 6a. If the <code>UID</code> given is not the same as <code>DEFAULT_TO_GENERATE_UID</code>:<br>
+         The program will treat this as a user defined UID and add the <code>Person</code> into the <code>Model</code> without changing anything.</p>
+</div>
+<div class="paragraph">
+<p>Step 6b. If the <code>UID</code> given is the same as <code>DEFAULT_TO_GENERATE_UID</code>:<br>
+         The program will create a new <code>Person</code> model with the same arguments with the exception of <code>UID</code>. The <code>UID</code> is then generated randomly in the <code>generateUid()</code> function.<br>
+         Another check is done to ensure that the <code>UID</code> does not already exist in the <code>VersionedAddressBook</code>.<br>
+         This is done in a loop to ensure the <code>UID</code> is unique before adding the <code>Person</code> into the <code>Model</code> by executing <code>addPerson()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. After adding the <code>Person</code> into the <code>Model</code>, the program commits the changes by executing <code>commitAddressBook</code> to save the state of the <code>AddressBook</code>..</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>add_guest</code> command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddCommandSequenceDiagram.png" alt="AddCommandSequenceDiagram" width="900">
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-whether-to-only-generate-uid-or-to-allow-the-user-to-define-uid"><a class="link" href="#aspect-whether-to-only-generate-uid-or-to-allow-the-user-to-define-uid">Aspect: Whether to only generate UID or to allow the user to define UID</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): give the user the freedom to choose between defining their own <code>UID</code> or letting the program generate one itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to write tests for the command that will not fail. A company or event may already be using some sort of unique identification, this can be used by the event planner to uniquely identify attendees. If there is none, the user can just let the program generate one for them.</p>
+</li>
+<li>
+<p>Cons: Increased code complexity</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: only let the user define the <code>UID</code> for all attendees of the event.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Decreased code complexity</p>
+</li>
+<li>
+<p>Cons: User will face great difficulty in creating UID for a large group of people if there is no unique identifier available for the attendees already.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 3: only generate the <code>UID</code> for all the attendees in the list, user input for the UID is not allowed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Decreased code complexity</p>
+</li>
+<li>
+<p>Cons: Unable to write meaningful tests if the the actual output is going to be random. Users may already have a way to uniquely identify the attendees to the event but the event planner cannot make use of that method.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="email-functionality-em-coming-in-v2-0-em"><a class="link" href="#email-functionality-em-coming-in-v2-0-em">4.11. Email Functionality - <em>Coming in v2.0</em></a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.11. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.12. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{We plan on implementing a data encryption feature such that when the user chooses to, the data stored in the addressbook will be encrypted and display ceases to show all information.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.12. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.13. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.13, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.14, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1522,7 +1672,7 @@ If there is no matching phone number found, a <code>COMMANDEXCEPTION</code> will
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.13. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.14. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2290,16 +2440,16 @@ continues with the list on the application.</p>
 <p>System asks user to enter a command.</p>
 </li>
 <li>
-<p>User keys in command to start marking attendance.</p>
+<p>User keys in command to filter the list for attendees whom are absent from the event.</p>
 </li>
 <li>
-<p>User (manning the reception/registration desk) manually keys in the guest’s index number found on the ticket.</p>
+<p>User (manning the reception/registration desk) manually keys in the guest’s unique ID found on the ticket.</p>
 </li>
 <li>
-<p>System runs a search to match the index number with those in the file.</p>
+<p>System runs a search to match the unique ID with those in the file.</p>
 </li>
 <li>
-<p>If index number is found, attendance of that guest is marked.</p>
+<p>If unique ID is found, attendance of that guest is marked.</p>
 </li>
 <li>
 <p>System removes all ‘marked’ guests from display and displays only those who have yet to arrive/register.</p>
@@ -2310,12 +2460,6 @@ who have not arrived or registered yet).</p>
 </li>
 <li>
 <p>System sends an email to each of those guests.</p>
-</li>
-<li>
-<p>User enters command to stop marking.</p>
-</li>
-<li>
-<p>System stops marking process.</p>
 </li>
 </ol>
 </div>
@@ -2730,4 +2874,4 @@ Status bar remains the same.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 02:59:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:47:53 UTC</div></div></div></body></html>
