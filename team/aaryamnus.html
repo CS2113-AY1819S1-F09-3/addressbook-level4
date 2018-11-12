@@ -312,11 +312,11 @@ Format: <code>email INDEX</code></p>
 <p>Sends an email to the guest at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed guest list.</p>
+<p>The index refers to the index number of the guest as shown in the displayed guest list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, <strong>and</strong> cannot be out of bounds. For example, if there are 4 guests in your application,
-the command <code>email 5</code> will give you an error as there does not exist a guest at <code>INDEX</code> 5.</p>
+the command <code>email 5</code> will give you an error as a guest does not exist at <code>INDEX</code> 5.</p>
 </li>
 </ul>
 </div>
@@ -401,7 +401,7 @@ Format: <code>emailAll</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>emailAll extra characters</code> or <code>emailAll 182$*</code> will be incorrect, but <code>emailAll &#160;</code> (i.e. with spaces) will be correct.
+You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>emailAll extra_characters</code> or <code>emailAll 182$*</code> will be incorrect, but <code>emailAll &#160;</code> (i.e. with spaces) will be correct.
 </td>
 </tr>
 </table>
@@ -442,7 +442,7 @@ You should not enter any characters after the command word, only extra spaces ar
 <p>This window is for you to input your email address, password, email subject and message.</p>
 </li>
 <li>
-<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 6.</p>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try to click the <code>Send</code> button, an error message will pop up as the one in Figure 6.</p>
 </li>
 <li>
 <p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
@@ -489,13 +489,13 @@ Format: <code>emailSpecific [t/TAG]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>If the tags you provided are not shared by any of the guests in the current list, the system with throw an error</p>
+<p>If the tags you provided are not shared by any of the guests in the current list, the system will throw an error</p>
 </li>
 <li>
-<p>You must provide <strong>non-empty</strong> tags, an input of <em>emailSpecific</em> will not do anything</p>
+<p>You must provide <strong>non-empty</strong> tags; an input of <em>emailSpecific</em> will not do anything.</p>
 </li>
 <li>
-<p>You must provide tags that are alphanumeric, otherwise the system will throw an error</p>
+<p>You must provide tags that are alphanumeric, otherwise the system will throw an error.</p>
 </li>
 </ul>
 </div>
@@ -634,7 +634,7 @@ If your operating system is <strong>macOS Mojave</strong>, please make an <stron
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="image"><img src="../images/EmailWindow.png" alt="EmailWindow"></span> Figure 11 - EmailWindow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1. If you use any of the email-related commands (i.e. <em>email</em>, <em>emailAll</em> or <em>emailSpecific</em>), you will be presented with an EmailWindow similar to
 the one in <strong>Figure 9</strong>.</p>
-<p class="tableblock">2. If you use the <strong>command-tab</strong> keys <strong>when the EmailWindow is open</strong> to switch windows, the program to crash. This is due to
+<p class="tableblock">2. If you use the <strong>command-tab</strong> keys <strong>when the EmailWindow is open</strong> to switch windows, the application will crash. This is due to
 Apple&#8217;s latest macOS release, in which some of the bindings are not compatible with key JavaFX functions.</p>
 <p class="tableblock">3. This issue does not occur on Windows, Linux, and older macOS systems, however it <em>may still exist</em> in other operating systems we have not tested on.</p>
 <p class="tableblock">4. We sincerely apologise for the inconvenience caused, and our team is quickly trying to fix this issue.</p></td>
@@ -909,4 +909,4 @@ If there are no guests in the current list, or if the removeTag command tries to
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 08:49:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:24:08 UTC</div></div></div></body></html>
