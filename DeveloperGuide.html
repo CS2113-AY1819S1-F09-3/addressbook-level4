@@ -798,8 +798,8 @@ The <code>add_event</code> command uses <code>Model#hasEvent()</code> to check i
 </div>
 <div class="paragraph">
 <p>Step 3. After the event has taken place, the user decides to organise another event with the same guest list and deletes the event details using the 'delete_event' command.
-The <code>delete_event</code> command calls <code>Model#deleteEvent to delete the event&#8217;s details.
-The command also calls Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+The <code>delete_event</code> command calls <code>Model#deleteEvent</code> to delete the event&#8217;s details.
+The command also calls Model#commitAddressBook()<code>, causing another modified address book state to be saved into the `addressBookStateList</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -834,6 +834,9 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 <img src="images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="800">
 </div>
 <div class="title">Figure 12. Sequence diagram for add_event command that adds event details.</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the delete_event operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -917,7 +920,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the user has not added in the details of an event, then there are no specific event details to delete.
+If the user has not added in the details of an event, then there are no specific event details to edit.
 The <code>edit_event</code> command uses <code>Model#hasEvent()</code> to check if this is the case. If so, it will return an error to the user.
 </td>
 </tr>
@@ -3065,4 +3068,4 @@ Expected: The person whose UID is <code>00001</code> will have the attendance fi
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:10:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:34:59 UTC</div></div></div></body></html>
