@@ -76,13 +76,15 @@
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid">C.1. Use case: Filter guest list based on status of payment and mass message those who have not paid</a></li>
-<li><a href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">C.2. Use case: Filter based on specific requirements and mass message all guests</a></li>
-<li><a href="#use-case-review-details-while-organising-the-event">C.3. Use case: Review details while organising the event</a></li>
-<li><a href="#use-case-sending-tickets-to-guests-via-email">C.4. Use case: Sending tickets to guests via email</a></li>
-<li><a href="#use-case-providing-smooth-registration-on-the-day-of-the-event">C.5. Use case: Providing smooth registration on the day of the event</a></li>
-<li><a href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">C.6. Use case:  Importing large number of guests into the guest list of an event</a></li>
-<li><a href="#use-case-export-guest-list-of-an-event-to-csv-file-format">C.7. Use case:  Export guest list of an event (to CSV file format)</a></li>
+<li><a href="#use-case-import-guest-data-and-update-payment-status">C.1. Use case: Import guest data and update payment status</a></li>
+<li><a href="#use-case-input-event-details-and-edit-venue-details">C.2. Use case: Input event details and edit venue details</a></li>
+<li><a href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid">C.3. Use case: Filter guest list based on status of payment and mass message those who have not paid</a></li>
+<li><a href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">C.4. Use case: Filter based on specific requirements and mass message all guests</a></li>
+<li><a href="#use-case-review-guest-details-while-organising-the-event">C.5. Use case: Review guest details while organising the event</a></li>
+<li><a href="#use-case-sending-tickets-to-guests-via-email">C.6. Use case: Sending tickets to guests via email</a></li>
+<li><a href="#use-case-providing-smooth-registration-on-the-day-of-the-event">C.7. Use case: Providing smooth registration on the day of the event</a></li>
+<li><a href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">C.8. Use case:  Importing large number of guests into the guest list of an event</a></li>
+<li><a href="#use-case-export-guest-list-of-an-event-to-csv-file-format">C.9. Use case:  Export guest list of an event (to CSV file format)</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -766,7 +768,7 @@ Given below is an example usage scenario and how the add_event and delete_event 
 <div class="paragraph">
 <p>Step 2. The user executes <code>add_event n/Wedding d/18/10/2019 v/Mandarin Hotel st/10:00 AM t/ClassicTheme</code> command to add in details about the event they are currently organising.
 The <code>add_event</code> command calls <code>Model#addEvent()</code> to add in the event details.
-It calls&#8217;Model#commitAddressBook()' as well, causing the modified state of the address book after the <code>add_event n/Wedding d/18/10/2019 v/Mandarin Hotel st/10:00 AM t/ClassicTheme</code> command executes to be saved in the <code>addressBookStateList</code>.
+It calls 'Model#commitAddressBook()' which saves the modified state of the address book after the command executes in the <code>addressBookStateList</code>.
 The <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="admonitionblock note">
@@ -829,9 +831,15 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddDeleteEventSequenceDiagram.png" alt="AddDeleteEventSequenceDiagram" width="800">
+<img src="images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 12. Sequence diagram for add_event and delete_event commands that add or delete event details respectively.</div>
+<div class="title">Figure 12. Sequence diagram for add_event command that adds event details.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteEventSequenceDiagram.png" alt="DeleteEventSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 13. Sequence diagram for delete_event command that deletes event details.</div>
 </div>
 </div>
 <div class="sect3">
@@ -861,7 +869,7 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 <p>Pros: It allows the user to organise multiple events and manage multiple event-specific guest lists.</p>
 </li>
 <li>
-<p>Cons: It is difficult to create functions and test the component. The 'undo' and 'redo' commands are also affected.</p>
+<p>Cons: The 'undo' and 'redo' commands are affected.</p>
 </li>
 </ul>
 </div>
@@ -888,7 +896,7 @@ Given below is an example usage scenario and how the edit_event mechanism behave
 <div class="paragraph">
 <p>Step 3. Due to a sudden change of plans, the user wishes to change the event&#8217;s date and venue.
 The user executes 'edit_event d/10/12/2019 v/Novotel' command. The 'edit_event' command calls <code>Model#updateEvent' to update the event&#8217;s details.
-The command also calls Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+The command also calls Model#commitAddressBook()</code> which saves the modified address book state into the <code>addressBookStateList</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -922,7 +930,7 @@ The <code>edit_event</code> command uses <code>Model#hasEvent()</code> to check 
 <div class="content">
 <img src="images/EditEventSequenceDiagram.png" alt="EditEventSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 13. Sequence diagram for edit_event command that edits the event details</div>
+<div class="title">Figure 14. Sequence diagram for edit_event command that edits the event details</div>
 </div>
 </div>
 </div>
@@ -1237,7 +1245,7 @@ If there are no guests in the current list, or if the removeTag command tries to
 <div class="content">
 <img src="images/ImportExportClassDiagram.PNG" alt="ImportExportClassDiagram" width="800">
 </div>
-<div class="title">Figure 14. Import/Export Command Class Diagram</div>
+<div class="title">Figure 15. Import/Export Command Class Diagram</div>
 </div>
 </div>
 <div class="sect4">
@@ -1255,7 +1263,7 @@ If there are no guests in the current list, or if the removeTag command tries to
 <div class="content">
 <img src="images/ImportCommandSequenceDiagram.PNG" alt="ImportCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 15. Import Command Sequence Diagram</div>
+<div class="title">Figure 16. Import Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>ShowImportReportEvent</code> will be handled by the <code>MainWindow</code> according to the following sequence diagram below.</p>
@@ -1264,7 +1272,7 @@ If there are no guests in the current list, or if the removeTag command tries to
 <div class="content">
 <img src="images/ImportReportWindowSequenceDiagram.png" alt="ImportReportWindowSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 16. Import Report Window Sequence Diagram</div>
+<div class="title">Figure 17. Import Report Window Sequence Diagram</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1274,7 +1282,7 @@ If there are no guests in the current list, or if the removeTag command tries to
 <div class="content">
 <img src="images/ExportCommandSequenceDiagram.PNG" alt="ExportCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 17. Export Command Sequence Diagram</div>
+<div class="title">Figure 18. Export Command Sequence Diagram</div>
 </div>
 </div>
 </div>
@@ -1404,7 +1412,7 @@ If there is more than one instance of the same UID, a <code>COMMANDEXCEPTION</co
 <div class="content">
 <img src="images/MarkCommandSequenceDiagram.png" alt="MarkCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 18. Mark Command Sequence Diagram</div>
+<div class="title">Figure 19. Mark Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>ummark</code> operation works:</p>
@@ -1413,7 +1421,7 @@ If there is more than one instance of the same UID, a <code>COMMANDEXCEPTION</co
 <div class="content">
 <img src="images/UnmarkCommandSequenceDiagram.png" alt="UnmarkCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 19. Unmark Command Sequence Diagram</div>
+<div class="title">Figure 20. Unmark Command Sequence Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.1. Design Considerations</a></h4>
@@ -1505,7 +1513,7 @@ If the checks fail, <code>COMMANDEXCEPTION</code> will be thrown to indicate the
 <div class="content">
 <img src="images/AddCommandSequenceDiagram.png" alt="AddCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 20. Add Command Sequence Diagram</div>
+<div class="title">Figure 21. Add Command Sequence Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.1. Design Considerations</a></h4>
@@ -1674,7 +1682,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 21. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 22. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2067,6 +2075,18 @@ b. Require developers to download those libraries manually (this creates extra w
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to view event details and countdown to event date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">take note of important details closer to the event date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to delete event details easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organise another event with the same guest list but different event details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event planner</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">be able to send mass emails to guests</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">remind them about the event</p></td>
 </tr>
@@ -2152,7 +2172,8 @@ b. Require developers to download those libraries manually (this creates extra w
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is <code>Invités</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-import-guest-data-and-update-payment-status" class="discrete">Use case: Import guest data and update payment status</h3>
+<div class="sect2">
+<h3 id="use-case-import-guest-data-and-update-payment-status"><a class="link" href="#use-case-import-guest-data-and-update-payment-status">C.1. Use case: Import guest data and update payment status</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2178,8 +2199,43 @@ b. Require developers to download those libraries manually (this creates extra w
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
+</div>
 <div class="sect2">
-<h3 id="use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid"><a class="link" href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid">C.1. Use case: Filter guest list based on status of payment and mass message those who have not paid</a></h3>
+<h3 id="use-case-input-event-details-and-edit-venue-details"><a class="link" href="#use-case-input-event-details-and-edit-venue-details">C.2. Use case: Input event details and edit venue details</a></h3>
+<div class="paragraph">
+<p>Actor: Application User - Event Planner</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User opens application.</p>
+</li>
+<li>
+<p>System asks user to enter a command.</p>
+</li>
+<li>
+<p>User enters a command to enter event details.</p>
+</li>
+<li>
+<p>System shows the specified event name, date, venue, start time and tags.</p>
+</li>
+<li>
+<p>User enters a command to edit venue field.</p>
+</li>
+<li>
+<p>System shows the event name, date , start time, tags and updated venue.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid"><a class="link" href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid">C.3. Use case: Filter guest list based on status of payment and mass message those who have not paid</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2214,7 +2270,7 @@ attendance status and tags specified, if there are people in that category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-based-on-specific-requirements-and-mass-message-all-guests"><a class="link" href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">C.2. Use case: Filter based on specific requirements and mass message all guests</a></h3>
+<h3 id="use-case-filter-based-on-specific-requirements-and-mass-message-all-guests"><a class="link" href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">C.4. Use case: Filter based on specific requirements and mass message all guests</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2256,7 +2312,7 @@ attendance status and tags.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-review-details-while-organising-the-event"><a class="link" href="#use-case-review-details-while-organising-the-event">C.3. Use case: Review details while organising the event</a></h3>
+<h3 id="use-case-review-guest-details-while-organising-the-event"><a class="link" href="#use-case-review-guest-details-while-organising-the-event">C.5. Use case: Review guest details while organising the event</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2288,7 +2344,7 @@ System asks user to enter a command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-sending-tickets-to-guests-via-email"><a class="link" href="#use-case-sending-tickets-to-guests-via-email">C.4. Use case: Sending tickets to guests via email</a></h3>
+<h3 id="use-case-sending-tickets-to-guests-via-email"><a class="link" href="#use-case-sending-tickets-to-guests-via-email">C.6. Use case: Sending tickets to guests via email</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2359,7 +2415,7 @@ obtained from either the csv file or data manually keyed in.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-providing-smooth-registration-on-the-day-of-the-event"><a class="link" href="#use-case-providing-smooth-registration-on-the-day-of-the-event">C.5. Use case: Providing smooth registration on the day of the event</a></h3>
+<h3 id="use-case-providing-smooth-registration-on-the-day-of-the-event"><a class="link" href="#use-case-providing-smooth-registration-on-the-day-of-the-event">C.7. Use case: Providing smooth registration on the day of the event</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2420,7 +2476,7 @@ who have not arrived or registered yet).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event"><a class="link" href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">C.6. Use case:  Importing large number of guests into the guest list of an event</a></h3>
+<h3 id="use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event"><a class="link" href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">C.8. Use case:  Importing large number of guests into the guest list of an event</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner
 Guarantees: Import will not result in the overwriting or deletion of an existing guest.</p>
@@ -2506,7 +2562,7 @@ Guarantees: Import will not result in the overwriting or deletion of an existing
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-export-guest-list-of-an-event-to-csv-file-format"><a class="link" href="#use-case-export-guest-list-of-an-event-to-csv-file-format">C.7. Use case:  Export guest list of an event (to CSV file format)</a></h3>
+<h3 id="use-case-export-guest-list-of-an-event-to-csv-file-format"><a class="link" href="#use-case-export-guest-list-of-an-event-to-csv-file-format">C.9. Use case:  Export guest list of an event (to CSV file format)</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2745,12 +2801,12 @@ Expected: Event details will be displayed in the event details panel. The number
 </li>
 <li>
 <p>Test case: 'add_event n/CFG Career Talk d/31/02/2019 v/LT 5 st/10:00 AM'+
-Expected: No event details are added. Error details shown in the status message. Event details display remains intact.</p>
+Expected: No event details are added. Error details are shown in the status message. Event details display remains intact.</p>
 </li>
 <li>
 <p>Other incorrect commands to try: <code>add_event</code>, <code>add_event x</code>,
 `add_event n/CFG Career Talk d/10/11/2019 v/LT 9 st/10' , etc.<br>
-Expected: No event details are added. Error details shown in the status message. Event details display remains intact.</p>
+Expected: No event details are added. Error details are shown in the status message. Event details display remains intact.</p>
 </li>
 </ol>
 </div>
@@ -2771,15 +2827,15 @@ Expected: No event details are added. Error details shown in the status message.
 </li>
 <li>
 <p>Test case: <code>delete_event</code><br>
-Expected: Details of the event are deleted and are not displayed in the event details panel. Timestamp in the status bar is updated.</p>
+Expected: Details of the event are deleted and details are not displayed in the event details panel. Status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete_event 0</code><br>
-Expected: Event details are not deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: Event details are not deleted. Error details are shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete_event commands to try: <code>delete_event n</code>(where n is some parameter), etc.<br>
-Expected: Event details are not deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: Event details are not deleted. Error details are shown in the status message. Status bar remains the same.</p>
 </li>
 </ol>
 </div>
@@ -2803,13 +2859,13 @@ Expected: Event details are not deleted. Error details shown in the status messa
 Expected: Event details will be updated in the event details panel. The number of days left to the event will be updated in the status bar footer.</p>
 </li>
 <li>
-<p>Test case: 'edit_event e/Novotel Tour Eiffel'<br>
-Expected: No event details are edited. Error details shown in the status message. Event details display remains intact.</p>
+<p>Test case: 'edit_event e/Novotel Tour Eiffel'+
+Expected: No event details are edited. Error details are shown in the status message. Event details display remains intact.</p>
 </li>
 <li>
 <p>Other incorrect commands to try: <code>edit_event</code>, <code>edit_event x</code>,
 `edit_event d/31/02/2019' , etc.<br>
-Expected: No event details are edited. Error details shown in the status message. Event details display remains intact.</p>
+Expected: No event details are edited. Error details are shown in the status message. Event details display remains intact.</p>
 </li>
 </ol>
 </div>
@@ -3009,4 +3065,4 @@ Expected: The person whose UID is <code>00001</code> will have the attendance fi
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:50:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:10:22 UTC</div></div></div></body></html>

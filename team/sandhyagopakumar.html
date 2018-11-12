@@ -10,28 +10,39 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The purpose of this portfolio is to document my role and contributions to team F09-3&#8217;s project, Invités,
-for the module: Software Engineering and Object-Oriented Programming(CS2113T).</p>
+<p>The purpose of this portfolio is to document my role and contributions to my team&#8217;s project, Invités,
+for the module: Software Engineering and Object-Oriented Programming(CS2113T) at the National University of Singapore.</p>
 </div>
 <div class="sect3">
 <h4 id="em-project-scope-em"><a class="link" href="#em-project-scope-em"><em>Project Scope</em></a></h4>
 <div class="paragraph">
-<p>Invités is a desktop application targeted at event managers and planners. The application allows its users to efficiently <strong>organise, cater, and manage</strong> large events such
-as weddings, school gatherings, orientation camps, etc. The application works on a command line interface, where users key in the commands specified in our User Guide into a command box to perform a task.
-Some of the main distinguishing features of the application include the ability to send mass emails to guests, keep track of payments, and take note of guest attendance.
-The application also allows the user to input the proposed or confirmed details of their event and provides a countdown to the event date.
-To add to these features, by employing a standardised format, the application is able to take in Comma Separated Values (CSV) files and import the guest list for a particular event.
-This eliminates the need to key in the guest details manually and gives users an alternative if they decide to organise another event using the same guest list.</p>
+<p>Invités is a desktop application that caters to event managers and planners.
+The application strives to aid our target users through features such as mass-email communication, guest list filtration, attendance marking by unique ID, import or export of CSVs containing guest lists and event details management.
+The application works on a Command Line Interface(CLI), where users key in the commands specified in our User Guide into a command box to perform a task.
+We have also provided a Graphical User Interface(GUI).
+The application was programmed using Java and has approximately 10k lines of code.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="em-my-responsibility-em"><a class="link" href="#em-my-responsibility-em"><em>My responsibility</em></a></h4>
+<h4 id="em-my-responsibility-event-details-management-em"><a class="link" href="#em-my-responsibility-event-details-management-em"><em>My responsibility - Event details Management</em></a></h4>
 <div class="paragraph">
-<p>My task involved the creation of an event details component that lets our users input the confirmed event details. I completed this task by implementing the following steps:
-	1. Creating an event model with all the required classes and editing the existing models to incorporate this
-	2. Handling the storage component for event details
-	3. Creating a UI component for event details
-	4. Creating the 'add_event', 'delete_event' and 'edit_event' commands to add, delete or edit event details in our application</p>
+<p>My task involved the creation of an event details component that lets our users input the confirmed event details. I completed this task by implementing the following steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating an event model with all the required classes and editing the existing model</p>
+</li>
+<li>
+<p>Handling the storage component for event details</p>
+</li>
+<li>
+<p>Creating a user interface component for event details</p>
+</li>
+<li>
+<p>Creating the 'add_event', 'delete_event' and 'edit_event' commands to add, delete and edit event details in our application</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -42,16 +53,16 @@ This eliminates the need to key in the guest details manually and gives users an
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sarah Taaher Bonna - Data Filtration</p>
+<p>Sarah Taaher Bonna - Guest List Management</p>
 </li>
 <li>
-<p>Aaryam Srivastava - Mass Email Functionality</p>
+<p>Aaryam Srivastava - Mass Email Communication</p>
 </li>
 <li>
-<p>Tan Tze Guang - Attendance Taking</p>
+<p>Tan Tze Guang - Attendance Management</p>
 </li>
 <li>
-<p>Tan Wei Ming - Data Importation</p>
+<p>Tan Wei Ming - Data Sharing</p>
 </li>
 </ol>
 </div>
@@ -84,7 +95,7 @@ This eliminates the need to key in the guest details manually and gives users an
 <p><em>Justification</em>: This feature improves the product significantly because a user will want to view specific details that they need to prioritise/reiterate in the days leading up to the event. A count of the days left to the user&#8217;s event is also displayed for the user&#8217;s benefit.</p>
 </li>
 <li>
-<p><em>Highlights</em>: This enhancement affects the existing logic, model, ui and storage components as it involves the creation of a new model, the add_event ,delete_event and edit_event commands, an additional storage class as well as a UI component.</p>
+<p><em>Highlights</em>: This enhancement affects the existing logic, model, user interface and storage components as it involves the creation of a new model, the add_event ,delete_event and edit_event commands, an additional storage class as well as a user interface component.</p>
 </li>
 <li>
 <p><em>Credits</em>: Reused some ideas from the SE-EDU AddressBook Level 4</p>
@@ -100,17 +111,17 @@ This eliminates the need to key in the guest details manually and gives users an
 <div class="ulist">
 <ul>
 <li>
-<p>Morphed the add, delete, edit commands to add_guest, delete_guest and edit_guest.</p>
+<p>Morphed the add, delete, edit commands to implement the add_guest, delete_guest and edit_guest commands.</p>
 </li>
 <li>
-<p>Contributed and edited multiple tests</p>
+<p>Contributed and edited multiple automated tests</p>
 </li>
 <li>
 <p><em>Documentation</em>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edited README.adoc to include an updated screenshot of our UI</p>
+<p>Edited README.adoc to include a screenshot of our user interface: [<a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/317">317</a>]</p>
 </li>
 <li>
 <p>Tweaked use cases and existing diagrams in the Developer guide. Edited descriptions of our commands in the User Guide to reflect our enhancements: [<a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/83">83</a>], [<a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/174">174</a>], [<a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/175">175</a>], [<a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/186">186</a>], [<a href="https://github.com/CS2113-AY1819S1-F09-3/main/pull/279">279</a>]</p>
@@ -144,7 +155,7 @@ This eliminates the need to key in the guest details manually and gives users an
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are the sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are the sections that I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -155,7 +166,7 @@ This eliminates the need to key in the guest details manually and gives users an
 <div class="sect2">
 <h3 id="adding-details-about-your-event-code-add_event-code"><a class="link" href="#adding-details-about-your-event-code-add_event-code">Adding details about your event: <code>add_event</code></a></h3>
 <div class="paragraph">
-<p>Adds details such as the name, date, venue and start time of your event. Any additional details may be entered as tags.+
+<p>Adds details such as the name, date, venue and start time of your event. Any additional details may be entered as tags.<br>
 Format: <code>add_event n/EVENT_NAME d/DATE v/VENUE st/START_TIME [t/OTHER_TAGS]</code></p>
 </div>
 <div class="sidebarblock">
@@ -196,7 +207,7 @@ The event details panel will show you an event called <code>CFG career talk</cod
 <div class="sect2">
 <h3 id="editing-your-event-s-details-code-edit_event-code"><a class="link" href="#editing-your-event-s-details-code-edit_event-code">Editing your event&#8217;s details : <code>edit_event</code></a></h3>
 <div class="paragraph">
-<p>Edits the details of your event<br>
+<p>Edits the details of your event.<br>
 Format: <code>edit_event [n/EVENT_NAME] [d/DATE] [v/VENUE] [st/START_TIME] [t/&#8230;&#8203;]</code></p>
 </div>
 <div class="sidebarblock">
@@ -237,7 +248,7 @@ You will change the name of your event to 'CFG Career Workshop and replace the e
 <div class="sect2">
 <h3 id="deleting-your-event-s-details-code-delete_event-code"><a class="link" href="#deleting-your-event-s-details-code-delete_event-code">Deleting your event&#8217;s details : <code>delete_event</code></a></h3>
 <div class="paragraph">
-<p>Deletes the event details currently present in the application
+<p>Deletes the event details currently present in the application.<br>
 Format: <code>delete_event</code></p>
 </div>
 <div class="sidebarblock">
@@ -300,7 +311,7 @@ Given below is an example usage scenario and how the add_event and delete_event 
 <div class="paragraph">
 <p>Step 2. The user executes <code>add_event n/Wedding d/18/10/2019 v/Mandarin Hotel st/10:00 AM t/ClassicTheme</code> command to add in details about the event they are currently organising.
 The <code>add_event</code> command calls <code>Model#addEvent()</code> to add in the event details.
-It calls&#8217;Model#commitAddressBook()' as well, causing the modified state of the address book after the <code>add_event n/Wedding d/18/10/2019 v/Mandarin Hotel st/10:00 AM t/ClassicTheme</code> command executes to be saved in the <code>addressBookStateList</code>.
+It calls 'Model#commitAddressBook()' which saves the modified state of the address book after the command executes in the <code>addressBookStateList</code>.
 The <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="admonitionblock note">
@@ -363,9 +374,15 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddDeleteEventSequenceDiagram.png" alt="AddDeleteEventSequenceDiagram" width="800">
+<img src="../images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 1. Sequence diagram for add_event and delete_event commands that add or delete event details respectively.</div>
+<div class="title">Figure 1. Sequence diagram for add_event command that adds event details.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteEventSequenceDiagram.png" alt="DeleteEventSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 2. Sequence diagram for delete_event command that deletes event details.</div>
 </div>
 </div>
 <div class="sect3">
@@ -395,7 +412,7 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 <p>Pros: It allows the user to organise multiple events and manage multiple event-specific guest lists.</p>
 </li>
 <li>
-<p>Cons: It is difficult to create functions and test the component. The 'undo' and 'redo' commands are also affected.</p>
+<p>Cons: The 'undo' and 'redo' commands are affected.</p>
 </li>
 </ul>
 </div>
@@ -422,7 +439,7 @@ Given below is an example usage scenario and how the edit_event mechanism behave
 <div class="paragraph">
 <p>Step 3. Due to a sudden change of plans, the user wishes to change the event&#8217;s date and venue.
 The user executes 'edit_event d/10/12/2019 v/Novotel' command. The 'edit_event' command calls <code>Model#updateEvent' to update the event&#8217;s details.
-The command also calls Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+The command also calls Model#commitAddressBook()</code> which saves the modified address book state into the <code>addressBookStateList</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -456,7 +473,7 @@ The <code>edit_event</code> command uses <code>Model#hasEvent()</code> to check 
 <div class="content">
 <img src="../images/EditEventSequenceDiagram.png" alt="EditEventSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 2. Sequence diagram for edit_event command that edits the event details</div>
+<div class="title">Figure 3. Sequence diagram for edit_event command that edits the event details</div>
 </div>
 </div>
 </div>
@@ -478,12 +495,12 @@ Expected: Event details will be displayed in the event details panel. The number
 </li>
 <li>
 <p>Test case: 'add_event n/CFG Career Talk d/31/02/2019 v/LT 5 st/10:00 AM'+
-Expected: No event details are added. Error details shown in the status message. Event details display remains intact.</p>
+Expected: No event details are added. Error details are shown in the status message. Event details display remains intact.</p>
 </li>
 <li>
 <p>Other incorrect commands to try: <code>add_event</code>, <code>add_event x</code>,
 `add_event n/CFG Career Talk d/10/11/2019 v/LT 9 st/10' , etc.<br>
-Expected: No event details are added. Error details shown in the status message. Event details display remains intact.</p>
+Expected: No event details are added. Error details are shown in the status message. Event details display remains intact.</p>
 </li>
 </ol>
 </div>
@@ -504,15 +521,15 @@ Expected: No event details are added. Error details shown in the status message.
 </li>
 <li>
 <p>Test case: <code>delete_event</code><br>
-Expected: Details of the event are deleted and are not displayed in the event details panel. Timestamp in the status bar is updated.</p>
+Expected: Details of the event are deleted and details are not displayed in the event details panel. Status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete_event 0</code><br>
-Expected: Event details are not deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: Event details are not deleted. Error details are shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete_event commands to try: <code>delete_event n</code>(where n is some parameter), etc.<br>
-Expected: Event details are not deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: Event details are not deleted. Error details are shown in the status message. Status bar remains the same.</p>
 </li>
 </ol>
 </div>
@@ -536,13 +553,13 @@ Expected: Event details are not deleted. Error details shown in the status messa
 Expected: Event details will be updated in the event details panel. The number of days left to the event will be updated in the status bar footer.</p>
 </li>
 <li>
-<p>Test case: 'edit_event e/Novotel Tour Eiffel'<br>
-Expected: No event details are edited. Error details shown in the status message. Event details display remains intact.</p>
+<p>Test case: 'edit_event e/Novotel Tour Eiffel'+
+Expected: No event details are edited. Error details are shown in the status message. Event details display remains intact.</p>
 </li>
 <li>
 <p>Other incorrect commands to try: <code>edit_event</code>, <code>edit_event x</code>,
 `edit_event d/31/02/2019' , etc.<br>
-Expected: No event details are edited. Error details shown in the status message. Event details display remains intact.</p>
+Expected: No event details are edited. Error details are shown in the status message. Event details display remains intact.</p>
 </li>
 </ol>
 </div>
@@ -551,4 +568,4 @@ Expected: No event details are edited. Error details shown in the status message
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:50:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:10:22 UTC</div></div></div></body></html>
