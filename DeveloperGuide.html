@@ -35,14 +35,13 @@
 <li><a href="#add-delete-event-feature">4.3. Add/Delete Event feature</a></li>
 <li><a href="#edit-event-feature">4.4. Edit Event feature</a></li>
 <li><a href="#email-functionality">4.5. Email Functionality</a></li>
-<li><a href="#add-remove-tag-generation-feature">4.6. Add/Remove Tag generation feature</a></li>
-<li><a href="#import-export-command">4.7. Import/Export Command</a></li>
-<li><a href="#mark-unmark-command">4.8. Mark/Unmark Command</a></li>
-<li><a href="#extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list">4.9. Extension made to add_guest: Generate Unique ID (UID) on creation of an entry into the list</a></li>
-<li><a href="#proposed-data-encryption">4.10. [Proposed] Data Encryption</a></li>
-<li><a href="#proposed-guest-email-verification">4.11. [Proposed] Guest Email Verification</a></li>
-<li><a href="#logging">4.12. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.13. Configuration</a></li>
+<li><a href="#import-export-command">4.6. Import/Export Command</a></li>
+<li><a href="#mark-unmark-command">4.7. Mark/Unmark Command</a></li>
+<li><a href="#extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list">4.8. Extension made to add_guest: Generate Unique ID (UID) on creation of an entry into the list</a></li>
+<li><a href="#proposed-data-encryption">4.9. [Proposed] Data Encryption</a></li>
+<li><a href="#proposed-guest-email-verification">4.10. [Proposed] Guest Email Verification</a></li>
+<li><a href="#logging">4.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -78,10 +77,10 @@
 <ul class="sectlevel2">
 <li><a href="#use-case-import-guest-data-and-update-payment-status">C.1. Use case: Import guest data and update payment status</a></li>
 <li><a href="#use-case-input-event-details-and-edit-venue-details">C.2. Use case: Input event details and edit venue details</a></li>
-<li><a href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid">C.3. Use case: Filter guest list based on status of payment and mass message those who have not paid</a></li>
-<li><a href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">C.4. Use case: Filter based on specific requirements and mass message all guests</a></li>
+<li><a href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-email-those-who-have-not-paid">C.3. Use case: Filter guest list based on status of payment and mass email those who have not paid</a></li>
+<li><a href="#use-case-filter-based-on-specific-requirements-and-mass-email-all-guests">C.4. Use case: Filter based on specific requirements and mass email all guests</a></li>
 <li><a href="#use-case-review-guest-details-while-organising-the-event">C.5. Use case: Review guest details while organising the event</a></li>
-<li><a href="#use-case-sending-tickets-to-guests-via-email">C.6. Use case: Sending tickets to guests via email</a></li>
+<li><a href="#use-case-sending-tickets-to-individual-guests">C.6. Use case: Sending tickets to individual guests</a></li>
 <li><a href="#use-case-providing-smooth-registration-on-the-day-of-the-event">C.7. Use case: Providing smooth registration on the day of the event</a></li>
 <li><a href="#use-case-importing-large-number-of-guests-into-the-guest-list-of-an-event">C.8. Use case:  Importing large number of guests into the guest list of an event</a></li>
 <li><a href="#use-case-export-guest-list-of-an-event-to-csv-file-format">C.9. Use case:  Export guest list of an event (to CSV file format)</a></li>
@@ -97,10 +96,13 @@
 <li><a href="#adding-event-details">F.4. Adding event details</a></li>
 <li><a href="#deleting-event-details">F.5. Deleting event details</a></li>
 <li><a href="#editing-event-details">F.6. Editing event details</a></li>
-<li><a href="#importing-and-exporting-guests">F.7. Importing and exporting guests</a></li>
-<li><a href="#guest-preview">F.8. Guest preview</a></li>
-<li><a href="#generation-of-uid-details-in-add_guest-command">F.9. Generation of UID details in add_guest command</a></li>
-<li><a href="#marking-attendance-details">F.10. Marking Attendance details</a></li>
+<li><a href="#sending-individual-emails">F.7. Sending individual emails</a></li>
+<li><a href="#sending-all-guests-an-email">F.8. Sending all guests an email</a></li>
+<li><a href="#sending-a-group-of-guests-an-email">F.9. Sending a group of guests an email</a></li>
+<li><a href="#importing-and-exporting-guests">F.10. Importing and exporting guests</a></li>
+<li><a href="#guest-preview">F.11. Guest preview</a></li>
+<li><a href="#generation-of-uid-details-in-add_guest-command">F.12. Generation of UID details in add_guest command</a></li>
+<li><a href="#marking-attendance-details">F.13. Marking Attendance details</a></li>
 </ul>
 </li>
 </ul>
@@ -942,69 +944,61 @@ The <code>edit_event</code> command uses <code>Model#hasEvent()</code> to check 
 <div class="sect3">
 <h4 id="high-level-algorithm-design"><a class="link" href="#high-level-algorithm-design">4.5.1. High Level Algorithm Design</a></h4>
 <div class="paragraph">
-<p>The email functionality, comprising of the commands <code>email</code>, <code>emailAll</code>, and <code>emailSpecific</code> allows the user to send individual and mass emails to the guests
-in their list. Moreover, all three commands will open a popup window to prompt the user to enter the relevant details, namely their email address and password,
+<p>The email functionality, comprising of the commands <code>email</code>, <code>emailAll</code>, and <code>emailSpecific</code>, allows the user to send individual and mass emails to their guests.
+Moreover, all three commands will open a popup window to prompt the user to enter their relevant details, namely their email address and password,
 as well as the email subject and message. Currently <code>Gmail</code> is the only supported domain for the user&#8217;s email address, however the implementation of this function
 easily allows for more domains to be supported.</p>
 </div>
 <div class="paragraph">
-<p>Additionally, the main design of the email functionality resides within the <strong>Logic</strong> component, coupled with a <strong>UI</strong> component to allow the user to input their details.</p>
+<p>Additionally, the <strong>main location of the email functionality&#8217;s implementation</strong> resides within the <strong>Logic</strong> component, with an additional <strong>UI</strong> component to allow the user to input their details.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="image"><img src="images/EmailAllClassDiagram.png" alt="EmailAllClassDiagram"></span> Figure 12 - EmailAll Class Diagram</p></td>
-</tr>
-</tbody>
-</table>
+<div class="imageblock">
+<div class="content">
+<img src="images/EmailAllClassDiagram.png" alt="EmailAllClassDiagram" width="700">
+</div>
+<div class="title">Figure 15. EmailAll Class Diagram</div>
+</div>
 <div class="paragraph">
-<p>As you can see above, <strong>Figure 12</strong> captures the main interactions between all classes when the user executes an <code>emailAll</code> command.</p>
+<p>The figure above captures the main interactions between all classes when the user executes an <code>emailAll</code> command.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The command depends on the class <code>EmailPasswordAuthenticator</code> for verification of the user&#8217;s email credentials and the abstract class <code>Email</code> which creates the email object to be sent as well as establishes a connection with Gmail&#8217;s SMTP server via <code>Properties</code></p>
+<p>The command depends on the class <code>EmailPasswordAuthenticator</code> for verification of the user&#8217;s email credentials and the abstract class <code>Email</code>. The <code>Email</code> class creates the email object to be sent, as well as establishes a connection with Gmail&#8217;s SMTP server via <code>Properties</code>.</p>
 </li>
 <li>
 <p>Moreover, the creation of the UI window is facilitated by the class <code>EmailWindow</code>, which also returns the email data once you input your details.</p>
 </li>
 <li>
-<p>Furthermore, the email object is created thanks to <code>MimeMultiPart</code> class, and comprises of two main parts</p>
+<p>Furthermore, the email object is created thanks to the <code>MimeMultiPart</code> class, and comprises of two main parts:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The first part is the text input you provided in the UI window, which is used by <code>MimeMessage</code> and <code>MimeBodyPart</code>, both of which implement the interface <code>MimePart</code></p>
+<p>The first part is the text input the user provided in the UI window, which is used by <code>MimeMessage</code> and <code>MimeBodyPart</code>, both of which implement the interface <code>MimePart</code>.</p>
 </li>
 <li>
-<p>The second part is the QR Code which acts as the guest&#8217;s ticket and is generated by <code>QrUtil</code>. Note that currently only the <code>email</code> command supports ticket generation.</p>
+<p>The second part is the QR code which acts as the guest&#8217;s ticket and is generated by <code>QrUtil</code>. Note that currently only the <code>email</code> command generates the QR code.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Finally, the email, with all its contents, is sent via the abstract class <code>Transport</code></p>
+<p>Finally, the email, with all its contents, is sent via the abstract class <code>Transport</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="command-mechanism"><a class="link" href="#command-mechanism">4.5.2. Command Mechanism</a></h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 70%;">
-<col style="width: 30%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="image"><img src="images/MailCommandActivityDiagram.png" alt="MailCommandActivityDiagram"></span> Figure 13 - MailCommand Activity Diagram</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Figure 13</strong> represents an activity diagram when the <em>email</em> command is executed.</p>
-<p class="tableblock">    As you can see, the command involves <strong>error checking</strong>, followed by <strong>creating an email object</strong>, and finally <strong>sending</strong> this email to an individual guest.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="imageblock">
+<div class="content">
+<img src="images/MailCommandActivityDiagram.png" alt="MailCommandActivityDiagram" width="700">
+</div>
+<div class="title">Figure 16. MailCommand Activity Diagram</div>
+</div>
+<div class="paragraph">
+<p>The figure above represents an activity diagram when the user executes the <em>email</em> command. As you can see, the command involves <strong>error checking</strong>, followed by <strong>creating an email object</strong>, and finally <strong>sending</strong> this email to an individual guest. Furthermore, this procedure follows the interactions described earlier.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.3. Design Considerations</a></h4>
@@ -1013,27 +1007,27 @@ easily allows for more domains to be supported.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Current choice: Instantiating the UI component directly from the abstract class Email</p>
+<p>Current choice: Creating the UI component directly from the abstract class Email.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduces dependencies and coupling because other UI components and increases cohesion</p>
+<p>Pros: Reduces dependencies with other UI components and increases cohesion with Email class.</p>
 </li>
 <li>
-<p>Cons: Does not fit within the Façade Class of <code>EventsCentre</code></p>
+<p>Cons: Does not use a controller to create the UI component, it is called directly from logic component Email.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Alternative: Create a controller from <code>EventsCentre</code> for showing <code>EmailWindow</code></p>
+<p>Alternative: Create a controller for showing <code>EmailWindow</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will fit within the Façade Class of <code>EventsCentre</code> and hence with the software architecture</p>
+<p>Pros: Will fit with the software architecture of the codebase.</p>
 </li>
 <li>
-<p>Cons: Functionality will be affected, as current model makes it difficult to feed back user input</p>
+<p>Cons: Current model will have to be changed to allow feed back of user input.</p>
 </li>
 </ul>
 </div>
@@ -1046,27 +1040,27 @@ easily allows for more domains to be supported.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Current choice: Email addresses are only checked for validity, not whether they exist</p>
+<p>Current choice: Email addresses are only checked for validity, not whether they exist.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Efficient way to send mass emails without slowing down the program for verification</p>
+<p>Pros: Efficient way to send mass emails without slowing down the program for verification.</p>
 </li>
 <li>
-<p>Cons: User will be unaware if the guest email address does not exist, which may affect communication</p>
+<p>Cons: User will be unaware if the guest email address does not exist, which may affect communication.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Alternative: Implement email validation for any possible email domain</p>
+<p>Alternative: Implement email validation for all possible email domains.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: User is able to check which guest email addresses do not exist</p>
+<p>Pros: User is able to check which guest email addresses do not exist.</p>
 </li>
 <li>
-<p>Cons: Would make the codebase bulkier and require multiple email domain configurations</p>
+<p>Cons: Would make the codebase bulkier and require multiple email domain configurations.</p>
 </li>
 </ul>
 </div>
@@ -1077,103 +1071,9 @@ easily allows for more domains to be supported.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-remove-tag-generation-feature"><a class="link" href="#add-remove-tag-generation-feature">4.6. Add/Remove Tag generation feature</a></h3>
+<h3 id="import-export-command"><a class="link" href="#import-export-command">4.6. Import/Export Command</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.6.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The addTag/removeTag mechanism is facilitated by <code>AddressBook</code> as it provides a <code>ReadOnlyAddressBook</code> using the <code>Model</code> interface.
-Additionally, it implements <code>Model#commitAddressBook()</code>, <code>Model#getFilteredPersonList()</code>, and <code>Model#resetData()</code>.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the addTag/removeTag mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time and executes the command <code>import guestlist.csv</code> to import a list of guests and add them to the current state of <code>AddressBook</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user now decides to add a set of tags to all guests in the list and executes the command <code>addTag t/VIP t/Platinum</code> to add the tags <code>VIP</code> and <code>Platinum</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. A <code>ReadOnlyAddressBook</code> is created and an editable address book is created using <code>AddressBook</code>. To add to this, the current filtered list is accessed using <code>Model#getFilteredPersonList()</code></p>
-</div>
-<div class="paragraph">
-<p>Step 4. The set of tags are added to all guests in the editable address book via <code>AddressBook#addTag()</code> and <code>AddressBook#addTagFromPerson()</code></p>
-</div>
-<div class="paragraph">
-<p>Step 5. Finally, <code>Model#resetData()</code> and <code>Model#commitAddressBook()</code> are called to reset the current state of the list with the updated tags.</p>
-</div>
-<div class="paragraph">
-<p>The <code>removeTag</code> command does the opposite, and removes a set of tags from all guests in the guest list. However, the workflow is similar to <code>addTag</code>; a new <code>AddressBook</code> is created and edited accordingly as per the command.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If there are no guests in the current list, or if the removeTag command tries to remove non-existent tags, the function will not execute and the current state of the list will be preserved.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Figures 14 and 15</strong> below are sequence diagrams that summarize the flow of actions when the system performs the addTag() or removeTag() command respectively:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/AddTagSequenceDiagram.png" alt="AddTagSequenceDiagram"></span> Figure 14 - AddTag Sequence Diagram</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image"><img src="images/RemoveTagSequenceDiagram.png" alt="RemoveTagSequenceDiagram"></span> Figure 15 - RemoveTag Sequence Diagram</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-creating-an-editableaddressbook-for-addtag-and-removetag"><a class="link" href="#aspect-creating-an-editableaddressbook-for-addtag-and-removetag">Aspect: Creating an EditableAddressBook for AddTag and RemoveTag</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Current choice: edit the <code>AddressBook</code> model to allow an addTag and removeTag command to execute</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to use by the functions and also to test</p>
-</li>
-<li>
-<p>Cons: Variability is difficult, as new editions to the model must be made</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Alternative: Make the AddressBook editable by default</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Current AddressBook can easily be changed by any functions</p>
-</li>
-<li>
-<p>Cons: Makes the content of the AddressBook accessible by all functions, which is undesirable</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="import-export-command"><a class="link" href="#import-export-command">4.7. Import/Export Command</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.7.1. Current Implementation</a></h4>
 <div class="sect4">
 <h5 id="high-level-overview-of-the-class-hierarchy"><a class="link" href="#high-level-overview-of-the-class-hierarchy">High level overview of the class hierarchy</a></h5>
 <div class="paragraph">
@@ -1248,7 +1148,7 @@ If there are no guests in the current list, or if the removeTag command tries to
 <div class="content">
 <img src="images/ImportExportClassDiagram.PNG" alt="ImportExportClassDiagram" width="800">
 </div>
-<div class="title">Figure 15. Import/Export Command Class Diagram</div>
+<div class="title">Figure 17. Import/Export Command Class Diagram</div>
 </div>
 </div>
 <div class="sect4">
@@ -1266,7 +1166,7 @@ If there are no guests in the current list, or if the removeTag command tries to
 <div class="content">
 <img src="images/ImportCommandSequenceDiagram.PNG" alt="ImportCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 16. Import Command Sequence Diagram</div>
+<div class="title">Figure 18. Import Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>ShowImportReportEvent</code> will be handled by the <code>MainWindow</code> according to the following sequence diagram below.</p>
@@ -1275,7 +1175,7 @@ If there are no guests in the current list, or if the removeTag command tries to
 <div class="content">
 <img src="images/ImportReportWindowSequenceDiagram.png" alt="ImportReportWindowSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 17. Import Report Window Sequence Diagram</div>
+<div class="title">Figure 19. Import Report Window Sequence Diagram</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1285,12 +1185,12 @@ If there are no guests in the current list, or if the removeTag command tries to
 <div class="content">
 <img src="images/ExportCommandSequenceDiagram.PNG" alt="ExportCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 18. Export Command Sequence Diagram</div>
+<div class="title">Figure 20. Export Command Sequence Diagram</div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementing-decoding-encoding-functionality-in-import-export-command"><a class="link" href="#aspect-implementing-decoding-encoding-functionality-in-import-export-command">Aspect: Implementing decoding/encoding functionality in Import/Export command</a></h5>
 <div class="ulist">
@@ -1360,7 +1260,7 @@ If there are no guests in the current list, or if the removeTag command tries to
 </div>
 </div>
 <div class="sect2">
-<h3 id="mark-unmark-command"><a class="link" href="#mark-unmark-command">4.8. Mark/Unmark Command</a></h3>
+<h3 id="mark-unmark-command"><a class="link" href="#mark-unmark-command">4.7. Mark/Unmark Command</a></h3>
 <div class="paragraph">
 <p>The mark/unmark mechanism is facilitated by <code>Model</code>.
 Given below is an example usage scenario and how the mark/unmark command executes at each step:</p>
@@ -1415,7 +1315,7 @@ If there is more than one instance of the same UID, a <code>COMMANDEXCEPTION</co
 <div class="content">
 <img src="images/MarkCommandSequenceDiagram.png" alt="MarkCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 19. Mark Command Sequence Diagram</div>
+<div class="title">Figure 21. Mark Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>ummark</code> operation works:</p>
@@ -1424,10 +1324,10 @@ If there is more than one instance of the same UID, a <code>COMMANDEXCEPTION</co
 <div class="content">
 <img src="images/UnmarkCommandSequenceDiagram.png" alt="UnmarkCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 20. Unmark Command Sequence Diagram</div>
+<div class="title">Figure 22. Unmark Command Sequence Diagram</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.1. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-mark-unmark-executes"><a class="link" href="#aspect-how-mark-unmark-executes">Aspect: How mark/unmark executes</a></h5>
 <div class="ulist">
@@ -1464,7 +1364,7 @@ If there is more than one instance of the same UID, a <code>COMMANDEXCEPTION</co
 </div>
 </div>
 <div class="sect2">
-<h3 id="extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list"><a class="link" href="#extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list">4.9. Extension made to add_guest: Generate Unique ID (UID) on creation of an entry into the list</a></h3>
+<h3 id="extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list"><a class="link" href="#extension-made-to-add_guest-generate-unique-id-uid-on-creation-of-an-entry-into-the-list">4.8. Extension made to add_guest: Generate Unique ID (UID) on creation of an entry into the list</a></h3>
 <div class="paragraph">
 <p>This feature is facilitated by the usage of the <code>Model</code>.<br>
 Given below is an example of the execution of the added functionality of the <code>add_guest</code> command.</p>
@@ -1516,10 +1416,10 @@ If the checks fail, <code>COMMANDEXCEPTION</code> will be thrown to indicate the
 <div class="content">
 <img src="images/AddCommandSequenceDiagram.png" alt="AddCommandSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 21. Add Command Sequence Diagram</div>
+<div class="title">Figure 23. Add Command Sequence Diagram</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.1. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-whether-to-only-generate-uid-or-to-allow-the-user-to-define-uid"><a class="link" href="#aspect-whether-to-only-generate-uid-or-to-allow-the-user-to-define-uid">Aspect: Whether to only generate UID or to allow the user to define UID</a></h5>
 <div class="ulist">
@@ -1569,26 +1469,26 @@ If the checks fail, <code>COMMANDEXCEPTION</code> will be thrown to indicate the
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.10. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.9. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{We plan on implementing a data encryption feature such that when the user chooses to, the data stored in the addressbook will be encrypted and display ceases to show all information.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-guest-email-verification"><a class="link" href="#proposed-guest-email-verification">4.11. [Proposed] Guest Email Verification</a></h3>
+<h3 id="proposed-guest-email-verification"><a class="link" href="#proposed-guest-email-verification">4.10. [Proposed] Guest Email Verification</a></h3>
 <div class="paragraph">
 <p><em>{We plan on implementing a guest email verification system, that lets the user know which of their guest email addresses exist, for any email domain.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.12. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.13, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1619,7 +1519,7 @@ If the checks fail, <code>COMMANDEXCEPTION</code> will be thrown to indicate the
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.13. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1685,7 +1585,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 22. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2238,7 +2138,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid"><a class="link" href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-message-those-who-have-not-paid">C.3. Use case: Filter guest list based on status of payment and mass message those who have not paid</a></h3>
+<h3 id="use-case-filter-guest-list-based-on-status-of-payment-and-mass-email-those-who-have-not-paid"><a class="link" href="#use-case-filter-guest-list-based-on-status-of-payment-and-mass-email-those-who-have-not-paid">C.3. Use case: Filter guest list based on status of payment and mass email those who have not paid</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2273,7 +2173,7 @@ attendance status and tags specified, if there are people in that category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-based-on-specific-requirements-and-mass-message-all-guests"><a class="link" href="#use-case-filter-based-on-specific-requirements-and-mass-message-all-guests">C.4. Use case: Filter based on specific requirements and mass message all guests</a></h3>
+<h3 id="use-case-filter-based-on-specific-requirements-and-mass-email-all-guests"><a class="link" href="#use-case-filter-based-on-specific-requirements-and-mass-email-all-guests">C.4. Use case: Filter based on specific requirements and mass email all guests</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2347,7 +2247,7 @@ System asks user to enter a command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-sending-tickets-to-guests-via-email"><a class="link" href="#use-case-sending-tickets-to-guests-via-email">C.6. Use case: Sending tickets to guests via email</a></h3>
+<h3 id="use-case-sending-tickets-to-individual-guests"><a class="link" href="#use-case-sending-tickets-to-individual-guests">C.6. Use case: Sending tickets to individual guests</a></h3>
 <div class="paragraph">
 <p>Actor: Application User - Event Planner</p>
 </div>
@@ -2360,58 +2260,15 @@ System asks user to enter a command.</p>
 <p>User opens application and either imports csv file or adds each guest in the application.</p>
 </li>
 <li>
-<p>System asks user to enter a command.</p>
+<p>User keys in email command to send an email to an individual guest</p>
 </li>
 <li>
-<p>User keys in command to create tickets for each guest on the list.</p>
+<p>System will generate a QR code, which has the guest&#8217;s unique ID encoded within it</p>
 </li>
 <li>
-<p>System copies and pastes the details of events, such as name, date, time and venue of event, dress code, etc
-onto the ticket.</p>
-</li>
-<li>
-<p>System will print the guest’s index number, that is unique to each guest, onto each ticket,
-obtained from either the csv file or data manually keyed in.</p>
-</li>
-<li>
-<p>System will inform user that the tickets have been created.</p>
-</li>
-<li>
-<p>User will then key in the command to email all guests their tickets.</p>
-</li>
-<li>
-<p>System will email all guests on the list their tickets, according to their unique index number.</p>
+<p>System will email the guest their ticket, as well as details of the event.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>3a. User can specify which guest to create tickets for, for example if the guest was late in signing up for the event.</p>
-</li>
-<li>
-<p>3b. System will create the ticket for that particular guest.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Use case resumes from step 4.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>8a. User can choose to key in command to email a particular guest his/her ticket.</p>
-</li>
-<li>
-<p>8b. System will email the ticket to a particular guest instead of all guests on the list.</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -2701,7 +2558,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimal.</p>
+Expected: Shows the GUI with a set of sample guest information. The window size may not be optimal.</p>
 </li>
 </ol>
 </div>
@@ -2877,7 +2734,119 @@ Expected: No event details are edited. Error details are shown in the status mes
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-and-exporting-guests"><a class="link" href="#importing-and-exporting-guests">F.7. Importing and exporting guests</a></h3>
+<h3 id="sending-individual-emails"><a class="link" href="#sending-individual-emails">F.7. Sending individual emails</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Send individual guests an email</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Test case:</strong> <code>email 1</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: Assuming there is at least one guest, UI Window opens to allow user input. If all inputs are valid, email is sent to the guest at <code>INDEX</code> 1.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Incorrect commands to try:</strong> <code>email The President</code>, <code>emailLL</code>, <code>email 12.3</code>, etc.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: No email sent due to incorrect parameters.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sending-all-guests-an-email"><a class="link" href="#sending-all-guests-an-email">F.8. Sending all guests an email</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Send all guests an email</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Test case:</strong> <code>emailAll</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: Assuming there is at least one guest, UI Window opens to allow user input. If all inputs are valid, email is sent to all guests.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Test case:</strong> <code>emailAll</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: If current filtered list is empty, no email will be sent and an error message displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Incorrect commands to try:</strong> <code>emailAll Celebrities</code>, <code>emailAllLL</code>, etc.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: No email sent due to incorrect parameters.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sending-a-group-of-guests-an-email"><a class="link" href="#sending-a-group-of-guests-an-email">F.9. Sending a group of guests an email</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Send an email to a group of guests</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Test case:</strong> <code>emailSpecific t/Veg</code></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: Assuming there is at least one guest with tag <code>Veg</code> in the filtered list, UI Window opens to allow user input. If all inputs are valid, email is sent all guests with tag <code>Veg</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Incorrect commands to try:</strong> <code>emailSpecific Puppies</code>, <code>emailSpecific t/@&amp;@</code> etc.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Expected: No email sent due to incorrect parameters.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="importing-and-exporting-guests"><a class="link" href="#importing-and-exporting-guests">F.10. Importing and exporting guests</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2966,7 +2935,7 @@ Expected: No guests are exported. Error details shown in the status message.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="guest-preview"><a class="link" href="#guest-preview">F.8. Guest preview</a></h3>
+<h3 id="guest-preview"><a class="link" href="#guest-preview">F.11. Guest preview</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2988,7 +2957,7 @@ Note: <code>filter</code> and <code>find</code> is not considered to be modifyin
 </div>
 </div>
 <div class="sect2">
-<h3 id="generation-of-uid-details-in-add_guest-command"><a class="link" href="#generation-of-uid-details-in-add_guest-command">F.9. Generation of UID details in add_guest command</a></h3>
+<h3 id="generation-of-uid-details-in-add_guest-command"><a class="link" href="#generation-of-uid-details-in-add_guest-command">F.12. Generation of UID details in add_guest command</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3018,7 +2987,7 @@ ExpectedL As the field for the UID is set to <code>000000000000000000001</code> 
 </div>
 </div>
 <div class="sect2">
-<h3 id="marking-attendance-details"><a class="link" href="#marking-attendance-details">F.10. Marking Attendance details</a></h3>
+<h3 id="marking-attendance-details"><a class="link" href="#marking-attendance-details">F.13. Marking Attendance details</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3068,4 +3037,4 @@ Expected: The person whose UID is <code>00001</code> will have the attendance fi
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:18:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:36:14 UTC</div></div></div></body></html>

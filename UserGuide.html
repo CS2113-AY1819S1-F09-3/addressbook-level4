@@ -425,13 +425,13 @@ Format: <code>addTag [t/TAG]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The addTag command will add any number of tags provided by you to all guests</p>
+<p>The addTag command will add any number of tags provided by you to all guests.</p>
 </li>
 <li>
-<p>You must provide tags that are alphanumeric, otherwise the system will give you an error</p>
+<p>You must provide tags that are alphanumeric, otherwise the system will give you an error.</p>
 </li>
 <li>
-<p>Moreover, if you provide empty tags, or tags that all your guests already have, the system will throw an error</p>
+<p>Moreover, if you provide empty tags, or tags that all your guests already have, the system will throw an error.</p>
 </li>
 </ul>
 </div>
@@ -444,15 +444,15 @@ Format: <code>addTag [t/TAG]&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>addTag t/Veg t/VIP</code><br>
-You will add the tags <code>Veg</code> and <code>VIP</code> to all guests in the current filtered list</p>
+You will add the tags <code>Veg</code> and <code>VIP</code> to all guests in the current filtered list.</p>
 </li>
 <li>
 <p><code>addTag t/@</code><br>
-This will present you with an error as all your tags must be alphanumeric</p>
+This will present you with an error as all your tags must be alphanumeric.</p>
 </li>
 <li>
-<p><code>addTag t/</code><br>
-You will receive an error message as you have provided empty tags</p>
+<p><code>addTag</code><br>
+You will receive an error message as you have provided empty tags.</p>
 </li>
 </ul>
 </div>
@@ -468,16 +468,16 @@ Format: <code>removeTag [t/TAG]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The removeTag command will remove any number of tags provided by you from all guests</p>
+<p>The removeTag command will remove any number of tags provided by you from all guests.</p>
 </li>
 <li>
-<p>If the tags you provided are not shared by any of the guests in the current list, the system with throw an error</p>
+<p>If the tags you provided are not shared by any of the guests in the current list, the system with throw an error.</p>
 </li>
 <li>
-<p>You must provide <strong>non-empty</strong> tags, an input of <em>removeTag</em> will not do anything</p>
+<p>You must provide <strong>non-empty</strong> tags, e.g. an input of <em>removeTag</em> will not do anything.</p>
 </li>
 <li>
-<p>You must provide tags that are alphanumeric, otherwise the system will throw an error</p>
+<p>You must provide tags that are alphanumeric, otherwise the system will throw an error.</p>
 </li>
 </ul>
 </div>
@@ -490,15 +490,15 @@ Format: <code>removeTag [t/TAG]&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>removeTag t/Veg t/VIP</code><br>
-You will remove the tags <code>Veg</code> and <code>VIP</code> from all guests in the current filtered list</p>
+You will remove the tags <code>Veg</code> and <code>VIP</code> from all guests in the current filtered list.</p>
 </li>
 <li>
 <p><code>removeTag</code><br>
-This will present you with an error, as you have not provided any tags to delete</p>
+This will present you with an error, as you have not provided any tags to delete.</p>
 </li>
 <li>
 <p><code>removeTag t/@!*</code><br>
-This will present you with an error, as all your tags must be alphanumeric</p>
+This will present you with an error, as all your tags must be alphanumeric.</p>
 </li>
 </ul>
 </div>
@@ -857,7 +857,7 @@ You will be shown a list with guests who are present and have a vegetarian dieta
 </tbody>
 </table>
 <div class="paragraph">
-<p>Sends an email to the guest at a specific Index<br>
+<p>With this command you can send an email to the guest at a specific Index<br>
 Format: <code>email INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -878,20 +878,6 @@ the command <code>email 5</code> will give you an error as a guest does not exis
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>email</code> command as once you have sent an email, you cannot reverse this action.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p><strong>Examples</strong>:</p>
 </div>
@@ -902,16 +888,16 @@ the command <code>email 5</code> will give you an error as a guest does not exis
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>First, you will be presented with an EmailWindow similar to <strong>Figure 3</strong> below.</p>
+<p>First, you will be presented with an EmailWindow similar to <strong>Figure 4</strong> below.</p>
 </li>
 <li>
 <p>This window is for you to input your email address, password, email subject and message.</p>
 </li>
 <li>
-<p>You will then need to fill in all the required fields. If you miss any of the fields and try to click the <code>Send</code> button, an error message will pop up as the one in <strong>Figure 4</strong>.</p>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try to click the <code>Send</code> button, an error message will pop up like the one in <strong>Figure 5</strong>.</p>
 </li>
 <li>
-<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to the <strong>2nd guest</strong> in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to the <strong>2nd guest</strong> in the list. You can also click the <code>Quit</code> button if you do not want to send your email.</p>
 </li>
 <li>
 <p>If you are successful, you will see a message that says <code>Successfully sent email!</code>.</p>
@@ -928,8 +914,8 @@ the command <code>email 5</code> will give you an error as a guest does not exis
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 5 - EmailWindow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowMissingMessage.png" alt="EmailWindowMissingMessage"></span> Figure 6 - Missing email message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 4 - EmailWindow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowMissingMessage.png" alt="EmailWindowMissingMessage"></span> Figure 5 - Missing email message</p></td>
 </tr>
 </tbody>
 </table>
@@ -947,7 +933,7 @@ the command <code>email 5</code> will give you an error as a guest does not exis
 </tbody>
 </table>
 <div class="paragraph">
-<p>Sends an email to all of the guests in the current filtered list<br>
+<p>With this command you can an email to <strong>all of the guests</strong> in the current filtered list<br>
 Format: <code>emailAll</code></p>
 </div>
 <div class="admonitionblock note">
@@ -958,20 +944,6 @@ Format: <code>emailAll</code></p>
 </td>
 <td class="content">
 You should not enter any characters after the command word, only extra spaces are allowed! For example, the input <code>emailAll extra_characters</code> or <code>emailAll 182$*</code> will be incorrect, but <code>emailAll &#160;</code> (i.e. with spaces) will be correct.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>emailAll</code> command as once you have sent an email, you cannot reverse this action.</p>
-</div>
 </td>
 </tr>
 </table>
@@ -989,19 +961,19 @@ You should not enter any characters after the command word, only extra spaces ar
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The command <code>list</code> will list all your guests to ensure you send an email to all of them.</p>
+<p>The command <code>list</code> will list all your guests to ensure you send an email to all guests.</p>
 </li>
 <li>
-<p>First, you will be presented with an EmailWindow similar to Figure 5 below.</p>
+<p>First, you will be presented with an EmailWindow similar to <strong>Figure 4</strong> above.</p>
 </li>
 <li>
 <p>This window is for you to input your email address, password, email subject and message.</p>
 </li>
 <li>
-<p>You will then need to fill in all the required fields. If you miss any of the fields and try to click the <code>Send</code> button, an error message will pop up as the one in Figure 6.</p>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in <strong>Figure 5</strong> above.</p>
 </li>
 <li>
-<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you do not want to send your email.</p>
 </li>
 <li>
 <p>If you are successful, you will see a message that says <code>Successfully sent email!</code>.</p>
@@ -1011,18 +983,6 @@ You should not enter any characters after the command word, only extra spaces ar
 </li>
 </ul>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 7 - EmailWindow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowMissingSubject.png" alt="EmailWindowMissingSubject"></span> Figure 8 - Missing email subject</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect2">
 <h3 id="sending-emails-to-specific-groups-of-guests-code-emailspecific-code"><a class="link" href="#sending-emails-to-specific-groups-of-guests-code-emailspecific-code">3.17. Sending emails to specific groups of guests : <code>emailSpecific</code></a></h3>
@@ -1037,7 +997,7 @@ You should not enter any characters after the command word, only extra spaces ar
 </tbody>
 </table>
 <div class="paragraph">
-<p>Sends an email to all the guests with at least one of the tags specified+
+<p>With this command you can send an email to all the guests with <strong>at least one of the tags specified</strong>+
 Format: <code>emailSpecific [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -1057,20 +1017,6 @@ Format: <code>emailSpecific [t/TAG]&#8230;&#8203;</code></p>
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>undo/redo</code> feature will <strong>not work</strong> with the <code>emailSpecific</code> command as once you have sent an email, you cannot reverse this action.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1081,27 +1027,27 @@ Format: <code>emailSpecific [t/TAG]&#8230;&#8203;</code></p>
 This will present you with an error, as you have not provided any tags to delete</p>
 </li>
 <li>
-<p><code>removeTag t/@!*</code><br>
+<p><code>emailSpecific t/@!*</code><br>
 This will present you with an error, as all your tags must be alphanumeric</p>
 </li>
 <li>
-<p><code>emailSpecific t/VIP</code><br></p>
+<p><code>emailSpecific t/VIP t/Garbage</code><br></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>This command will send an email to all the guests with a <code>VIP</code> tag</p>
+<p>This command will send an email to all the guests with a <code>VIP</code> tag, assuming no guest has the tag <code>Garbage</code>! (You can provide such <code>Garbage</code> tags!)</p>
 </li>
 <li>
-<p>First, you will be presented with an EmailWindow similar to Figure 7 below.</p>
+<p>First, you will be presented with an EmailWindow similar to <strong>Figure 4</strong> above.</p>
 </li>
 <li>
 <p>This window is for you to input your email address, password, email subject and message.</p>
 </li>
 <li>
-<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in Figure 8.</p>
+<p>You will then need to fill in all the required fields. If you miss any of the fields and try click the <code>Send</code> button, an error message will pop up as the one in <strong>Figure 5</strong> above.</p>
 </li>
 <li>
-<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you don&#8217;t want to send your email.</p>
+<p>Once all fields are filled, you can click the <code>Send</code> button to send your email to all guests in the list. You can also click the <code>Quit</code> button if you do not want to send your email.</p>
 </li>
 <li>
 <p>If you are successful, you will see a message that says <code>Successfully sent email!</code>.</p>
@@ -1111,18 +1057,6 @@ This will present you with an error, as all your tags must be alphanumeric</p>
 </li>
 </ul>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 9 - EmailWindow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/EmailWindowMissingAddress.png" alt="EmailWindowMissingAddress"></span> Figure 10 - Missing email address</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect2">
 <h3 id="adding-details-about-your-event-code-add_event-code"><a class="link" href="#adding-details-about-your-event-code-add_event-code">3.18. Adding details about your event: <code>add_event</code></a></h3>
@@ -1265,7 +1199,8 @@ You should not enter any characters after the command word, only extra spaces ar
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the guest list&#8217;s content (<code>add_guest</code>, <code>delete_guest</code>, <code>edit_guest</code>, <code>removeTag</code>, <code>addTag</code>, <code>clear</code> and <code>import</code>) and the event details display&#8217;s content('add_event', 'edit_event' and 'delete_event').</p>
+<p>Undoable commands: those commands that modify the guest list&#8217;s content (<code>add_guest</code>, <code>delete_guest</code>, <code>edit_guest</code>, <code>removeTag</code>, <code>addTag</code>, <code>clear</code> and
+<code>import</code>) and the event details display&#8217;s content('add_event', 'edit_event' and 'delete_event'). The other commands we provide are therefore <strong>not</strong> undoable.</p>
 </div>
 </td>
 </tr>
@@ -1437,23 +1372,24 @@ If your operating system is <strong>macOS Mojave</strong>, please make an <stron
 </tr>
 </table>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="image"><img src="images/EmailWindow.png" alt="EmailWindow"></span> Figure 11 - EmailWindow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1. If you use any of the email-related commands (i.e. <em>email</em>, <em>emailAll</em> or <em>emailSpecific</em>), you will be presented with an EmailWindow similar to
-the one in <strong>Figure 9</strong>.</p>
-<p class="tableblock">2. If you use the <strong>command-tab</strong> keys <strong>when the EmailWindow is open</strong> to switch windows, the application will crash. This is due to
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you use any of the email-related commands (i.e. <em>email</em>, <em>emailAll</em> or <em>emailSpecific</em>), you will be presented with an EmailWindow similar to
+the one in <strong>Figure 4</strong>.</p>
+</li>
+<li>
+<p>If you use the <strong>command-tab</strong> keys <strong>when the EmailWindow is open</strong> to switch windows, the application will crash. This is due to
 Apple&#8217;s latest macOS release, in which some of the bindings are not compatible with key JavaFX functions.</p>
-<p class="tableblock">3. This issue does not occur on Windows, Linux, and older macOS systems, however it <em>may still exist</em> in other operating systems we have not tested on.</p>
-<p class="tableblock">4. We sincerely apologise for the inconvenience caused, and our team is quickly trying to fix this issue.</p></td>
-</tr>
-</tbody>
-</table>
+</li>
+<li>
+<p>This issue does not occur on Windows, Linux, and older macOS systems, however it <em>may still exist</em> in other operating systems we have not tested on.</p>
+</li>
+<li>
+<p>We sincerely apologise for the inconvenience caused, and our team is quickly trying to fix this issue.</p>
+</li>
+</ol>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -1583,4 +1519,4 @@ Roy Balakrishnan,92624417,royb@gmail.com,PENDING,ABSENT,00003,gold,Veg,VIP<br></
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:18:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:36:14 UTC</div></div></div></body></html>
