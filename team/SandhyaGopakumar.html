@@ -290,9 +290,9 @@ Given below is an example usage scenario and how the add_event and delete_event 
 <p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>add_event n/Wedding d/18/10/2019 t/10AM</code> command to add in details about the event they are currently organising.
+<p>Step 2. The user executes <code>add_event n/Wedding d/18/10/2019 v/Mandarin Hotel st/10:00 AM t/ClassicTheme</code> command to add in details about the event they are currently organising.
 The <code>add_event</code> command calls <code>Model#addEvent()</code> to add in the event details.
-It calls&#8217;Model#commitAddressBook()' as well, causing the modified state of the address book after the <code>add_event n/Wedding t/8thOct t/10AM</code> command executes to be saved in the <code>addressBookStateList</code>.
+It calls&#8217;Model#commitAddressBook()' as well, causing the modified state of the address book after the <code>add_event n/Wedding d/18/10/2019 v/Mandarin Hotel st/10:00 AM t/ClassicTheme</code> command executes to be saved in the <code>addressBookStateList</code>.
 The <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="admonitionblock note">
@@ -321,7 +321,7 @@ The <code>add_event</code> command uses <code>Model#hasEvent()</code> to check i
 </table>
 </div>
 <div class="paragraph">
-<p>Step 3. After the event has taken place, the user decides to organise another event with the same guest list and decides to delete the event details using the 'delete_event' command.
+<p>Step 3. After the event has taken place, the user decides to organise another event with the same guest list and deletes the event details using the 'delete_event' command.
 The <code>delete_event</code> command calls <code>Model#deleteEvent to delete the event&#8217;s details.
 The command also calls Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
 </div>
@@ -357,14 +357,13 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 <div class="content">
 <img src="../images/AddDeleteEventSequenceDiagram.png" alt="AddDeleteEventSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 1. Sequence diagram for add_event and delete_event commands</div>
+<div class="title">Figure 1. Sequence diagram for add_event and delete_event commands that add or delete event details respectively.</div>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h3>
 <div class="sect3">
-<h4 id="aspect-creation-of-the-event-component"><a class="link" href="#aspect-creation-of-the-event-component">Aspect: Creation of the Event component</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-creation-of-the-event-component"><a class="link" href="#aspect-creation-of-the-event-component">Aspect: Creation of the Event component</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -394,6 +393,7 @@ The <code>delete_event</code> command uses <code>Model#hasEvent()</code> to chec
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -448,9 +448,9 @@ The <code>edit_event</code> command uses <code>Model#hasEvent()</code> to check 
 <div class="content">
 <img src="../images/EditEventSequenceDiagram.png" alt="EditEventSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 2. Sequence diagram for edit_event</div>
+<div class="title">Figure 2. Sequence diagram for edit_event command that edits the event details</div>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:47:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:54:11 UTC</div></div></div></body></html>
